@@ -22,3 +22,7 @@ func _on_breath_timer_timeout() -> void:
 	if currentOxygen > LIMIT_MIN:
 		currentOxygen -= CONSUMPTION_RATE
 		print("Breathing...")
+
+func _collect_oxygen(source: OxygenSource) -> void:
+	_consume_oxygen(source.oxygen)
+	source.pop()
