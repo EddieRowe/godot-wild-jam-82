@@ -1,12 +1,13 @@
 extends RigidBody2D
 
 var move_speed = 100
+@export var health : Health
 
 func _ready() -> void:
 	gravity_scale = 0.1
 	
 func _input(event: InputEvent) -> void:
-	var impulse = Vector2(0, -1) 
+	var impulse = Vector2(0, -1) 	
 	var left_impulse = Vector2(-1, 0)
 	var right_impulse = Vector2(1, 0)
 	
@@ -21,5 +22,5 @@ func _input(event: InputEvent) -> void:
 
 
 func _on_body_entered(body: Node) -> void:
-	queue_free()
+	health._take_damage(50)
 	

@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b75ada0rusxps" path="res://icon.svg" id="2_jirdo"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vn7o3"]
+radius = 61.0737
 
 [node name="Level1" type="Node2D"]
 
@@ -11,7 +12,7 @@
 position = Vector2(406, 276)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(16, 4)
+position = Vector2(143, -49)
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
 position = Vector2(1014, 270)
