@@ -19,7 +19,7 @@
 radius = 61.0737
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bt44k"]
-size = Vector2(24896.2, 118.5)
+size = Vector2(26805.1, 118.5)
 
 [node name="Level1" type="Node2D"]
 
@@ -28,7 +28,7 @@ size = Vector2(24896.2, 118.5)
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = -26.0
 offset_top = -20.0
-offset_right = 23723.0
+offset_right = 24826.0
 offset_bottom = 786.0
 rotation = -0.00248979
 color = Color(0.0666667, 0.294118, 0.517647, 1)
@@ -56,13 +56,13 @@ freeze = true
 script = ExtResource("2_bt44k")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/BOUNDARYRigidBody2D"]
-position = Vector2(10666.9, 10)
+position = Vector2(11060.4, 10)
 shape = SubResource("RectangleShape2D_bt44k")
 
 [node name="ColorRect" type="ColorRect" parent="Boundaries/BOUNDARYRigidBody2D"]
 offset_left = -567.0
 offset_top = -663.0
-offset_right = 23207.0
+offset_right = 24352.0
 offset_bottom = 68.0
 color = Color(0, 0, 0, 1)
 
@@ -96,13 +96,13 @@ freeze = true
 script = ExtResource("2_bt44k")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/BOUNDARYRigidBody2D2"]
-position = Vector2(11436, 230)
+position = Vector2(11997, 230)
 shape = SubResource("RectangleShape2D_bt44k")
 
 [node name="ColorRect2" type="ColorRect" parent="Boundaries/BOUNDARYRigidBody2D2"]
 offset_left = -554.0
 offset_top = 164.0
-offset_right = 23236.0
+offset_right = 24339.0
 offset_bottom = 985.0
 color = Color(0, 0, 0, 1)
 

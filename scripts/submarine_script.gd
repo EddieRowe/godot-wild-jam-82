@@ -14,7 +14,8 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if !can_move:
-		return
+		get_tree().reload_current_scene()
+		#return
 	
 	var horizontal_movement = Input.get_axis("ui_left", "ui_right")
 	var vertical_movement = Input.get_axis("ui_up", "ui_down")
