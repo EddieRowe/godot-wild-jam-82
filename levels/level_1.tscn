@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://cnep5qop4e823"]
+
+[ext_resource type="PackedScene" uid="uid://cphyt7srqwafr" path="res://prefabs/Player.tscn" id="1_vn7o3"]
+[ext_resource type="Texture2D" uid="uid://b75ada0rusxps" path="res://icon.svg" id="2_jirdo"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vn7o3"]
+
+[node name="Level1" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_vn7o3")]
+position = Vector2(406, 276)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(16, 4)
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2(1014, 270)
+gravity_scale = 0.0
+freeze = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("CircleShape2D_vn7o3")
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+texture = ExtResource("2_jirdo")
