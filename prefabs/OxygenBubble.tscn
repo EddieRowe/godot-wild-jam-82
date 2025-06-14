@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://glvtqalegb67"]
+
+[ext_resource type="Script" uid="uid://2xdvvd854rqn" path="res://scripts/oxygen_source.gd" id="1_lmndt"]
+[ext_resource type="Texture2D" uid="uid://b75ada0rusxps" path="res://icon.svg" id="2_rnh4p"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dkv14"]
+radius = 64.195
+
+[node name="OxygenBubble" type="RigidBody2D"]
+mass = 0.1
+gravity_scale = -0.1
+script = ExtResource("1_lmndt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_rnh4p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_dkv14")
