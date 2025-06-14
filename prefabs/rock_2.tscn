@@ -1,19 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://b0nb7h0j6rv8h"]
+[gd_scene load_steps=4 format=3 uid="uid://vv3icacjpd3r"]
 
-[ext_resource type="Script" uid="uid://dgvltd8eyaevh" path="res://scripts/obstacle.gd" id="1_xjy3g"]
-[ext_resource type="Texture2D" uid="uid://63lb0xappwn4" path="res://art/rock2_placeholder.png" id="2_v8g58"]
+[ext_resource type="Script" uid="uid://dgvltd8eyaevh" path="res://scripts/obstacle.gd" id="1_vclnr"]
+[ext_resource type="Texture2D" uid="uid://63lb0xappwn4" path="res://art/rock2_placeholder.png" id="2_vclnr"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6t3s7"]
-radius = 19.0
-height = 38.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jwdrt"]
+radius = 166.926
+height = 559.55
 
-[node name="Rock2" type="RigidBody2D" groups=["Obstacle"]]
-script = ExtResource("1_xjy3g")
+[node name="Rock1" type="RigidBody2D" groups=["Obstacle"]]
+freeze = true
+script = ExtResource("1_vclnr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(410, 285)
-shape = SubResource("CapsuleShape2D_6t3s7")
+position = Vector2(589, 383)
+rotation = 1.80824
+shape = SubResource("CapsuleShape2D_jwdrt")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(408, 296)
-texture = ExtResource("2_v8g58")
+position = Vector2(572.148, 365.997)
+rotation = 3.12306
+scale = Vector2(7.79737, 4.89666)
+texture = ExtResource("2_vclnr")
