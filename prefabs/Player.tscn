@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cphyt7srqwafr"]
+[gd_scene load_steps=6 format=3 uid="uid://cphyt7srqwafr"]
 
 [ext_resource type="Script" uid="uid://4a7nsts8luh7" path="res://scripts/submarine_script.gd" id="1_glu7e"]
 [ext_resource type="Texture2D" uid="uid://dcl8d3ja31fie" path="res://art/player_placeholder_.png" id="2_ay6yh"]
 [ext_resource type="Script" uid="uid://ssj3qc07pg03" path="res://scripts/health.gd" id="3_ay6yh"]
+[ext_resource type="Script" uid="uid://cdj3fn4u6ytsb" path="res://scripts/oxygen.gd" id="4_p3xyx"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0e48y"]
 
@@ -30,5 +31,13 @@ player_movement = NodePath("../RigidBody2D")
 [node name="Repair Timer" type="Timer" parent="Health"]
 autostart = true
 
+[node name="Oxygen" type="Node2D" parent="."]
+script = ExtResource("4_p3xyx")
+metadata/_custom_type_script = "uid://cdj3fn4u6ytsb"
+
+[node name="Breath Timer" type="Timer" parent="Oxygen"]
+autostart = true
+
 [connection signal="body_entered" from="RigidBody2D" to="RigidBody2D" method="_on_body_entered"]
 [connection signal="timeout" from="Health/Repair Timer" to="Health" method="_on_repair_timer_timeout"]
+[connection signal="timeout" from="Oxygen/Breath Timer" to="Oxygen" method="_on_breath_timer_timeout"]
