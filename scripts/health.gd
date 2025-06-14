@@ -24,3 +24,6 @@ func _on_repair_timer_timeout() -> void:
 	if current_health < max_health and player_movement.can_move:
 		current_health += 1
 		print("repairing")
+
+func is_alive() -> bool:
+	return current_health > 0
