@@ -1,7 +1,7 @@
 extends RigidBody2D
 class_name PlayerMovement
 
-var move_speed = 80
+var move_speed = 300
 @export var health : Health
 @export var oxygen : Oxygen
 
@@ -9,23 +9,16 @@ var can_move : bool = true
 
 func _ready() -> void:
 	gravity_scale = 0.1
-	
-func _input(event: InputEvent) -> void:
+
+func _physics_process(delta: float) -> void:
 	if !can_move:
 		return
 	
-	var impulse = Vector2(0, -1) 	
-	var left_impulse = Vector2(-1, 0)
-	var right_impulse = Vector2(1, 0)
+	var horizontal_movement = Input.get_axis("ui_left", "ui_right")
+	var vertical_movement = Input.get_axis("ui_up", "ui_down")
+	var movement = Vector2(horizontal_movement, vertical_movement)
 	
-	if event.is_action("ui_up"):
-		apply_impulse(impulse*move_speed)
-		
-	if event.is_action("ui_left"):
-		apply_impulse(left_impulse*move_speed)
-	
-	if event.is_action("ui_right"):
-		apply_impulse(right_impulse*move_speed)
+	apply_force(movement * move_speed)
 
 func _on_body_entered(body: Node) -> void:
 	if body.is_in_group("Obstacle"):
