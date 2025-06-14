@@ -6,7 +6,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_dkv14"]
 radius = 64.195
 
-[node name="OxygenBubble" type="RigidBody2D"]
+[node name="OxygenBubble" type="RigidBody2D" groups=["Oxygen Source"]]
 mass = 0.1
 gravity_scale = -0.1
 script = ExtResource("1_lmndt")
