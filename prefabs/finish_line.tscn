@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://digqha4603pow"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dci07"]
+size = Vector2(232.5, 750.5)
+
+[node name="FinishLine" type="RigidBody2D" groups=["LevelComplete"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(169.75, 373.75)
+shape = SubResource("RectangleShape2D_dci07")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Sprite2D"]
+offset_left = 56.0
+offset_top = -3.0
+offset_right = 290.0
+offset_bottom = 745.0
+color = Color(0.231373, 0.717647, 1, 0.301961)
