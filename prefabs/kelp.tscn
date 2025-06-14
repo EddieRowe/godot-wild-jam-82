@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://psx14rlat6ij"]
+
+[ext_resource type="Texture2D" uid="uid://77rbf2priaaw" path="res://art/kelp_placeholder_really_bad_seriously_make_sure_we_replace_this.png" id="1_b77gg"]
+
+[node name="Kelp" type="Sprite2D"]
+texture = ExtResource("1_b77gg")
