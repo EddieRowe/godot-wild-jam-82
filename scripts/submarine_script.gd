@@ -4,6 +4,7 @@ class_name PlayerMovement
 var move_speed = 300
 @export var health : Health
 @export var oxygen : Oxygen
+@export var energy : Energy
 @export var sprite : Sprite2D
 
 var can_move : bool = true
@@ -22,6 +23,8 @@ func _physics_process(delta: float) -> void:
 	apply_force(movement * move_speed)
 	
 	_handle_flip_sprite(movement)
+	
+	energy._handle_lighting(Input.is_action_pressed("ui_accept"))
 
 func _handle_flip_sprite(movement : Vector2):
 	if movement.x < 0:
