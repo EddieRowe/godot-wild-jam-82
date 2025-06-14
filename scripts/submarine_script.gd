@@ -3,6 +3,7 @@ class_name PlayerMovement
 
 var move_speed = 80
 @export var health : Health
+@export var oxygen : Oxygen
 
 var can_move : bool = true
 
@@ -26,14 +27,8 @@ func _input(event: InputEvent) -> void:
 	if event.is_action("ui_right"):
 		apply_impulse(right_impulse*move_speed)
 
-func _process(delta: float) -> void:
-	pass
-
-func _physics_process(delta: float) -> void:
-	pass
-
 func _on_body_entered(body: Node) -> void:
 	if body.is_in_group("Obstacle"):
 		health._take_damage(body.damage)
-	
-	
+	if body is OxygenSource:
+		oxygen._collect_oxygen(body)
