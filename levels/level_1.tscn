@@ -1,12 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://cnep5qop4e823"]
+[gd_scene load_steps=6 format=3 uid="uid://cnep5qop4e823"]
 
 [ext_resource type="PackedScene" uid="uid://cphyt7srqwafr" path="res://prefabs/Player.tscn" id="1_vn7o3"]
+[ext_resource type="Script" uid="uid://dgvltd8eyaevh" path="res://scripts/obstacle.gd" id="2_bt44k"]
 [ext_resource type="Texture2D" uid="uid://b75ada0rusxps" path="res://icon.svg" id="2_jirdo"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vn7o3"]
 radius = 61.0737
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bt44k"]
+size = Vector2(1194, 119)
+
 [node name="Level1" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -303.0
+offset_top = -278.0
+offset_right = 1282.0
+offset_bottom = 660.0
+color = Color(0.0666667, 0.294118, 0.517647, 1)
 
 [node name="Player" parent="." instance=ExtResource("1_vn7o3")]
 position = Vector2(406, 276)
@@ -14,13 +25,44 @@ position = Vector2(406, 276)
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(143, -49)
 
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
+[node name="RockRigidBody2D" type="RigidBody2D" parent="." groups=["Obstacle"]]
 position = Vector2(1014, 270)
 gravity_scale = 0.0
 freeze = true
+script = ExtResource("2_bt44k")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RockRigidBody2D"]
 shape = SubResource("CircleShape2D_vn7o3")
 
-[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+[node name="Sprite2D" type="Sprite2D" parent="RockRigidBody2D"]
+texture = ExtResource("2_jirdo")
+
+[node name="Boundaries" type="Node2D" parent="."]
+
+[node name="BOUNDARYRigidBody2D" type="RigidBody2D" parent="Boundaries" groups=["Obstacle"]]
+position = Vector2(489, -96)
+freeze = true
+script = ExtResource("2_bt44k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/BOUNDARYRigidBody2D"]
+position = Vector2(65, -0.5)
+shape = SubResource("RectangleShape2D_bt44k")
+
+[node name="Sprite2D" type="Sprite2D" parent="Boundaries/BOUNDARYRigidBody2D"]
+self_modulate = Color(0, 0, 0, 1)
+scale = Vector2(10.36, 1)
+texture = ExtResource("2_jirdo")
+
+[node name="BOUNDARYRigidBody2D2" type="RigidBody2D" parent="Boundaries" groups=["Obstacle"]]
+position = Vector2(489, 561)
+freeze = true
+script = ExtResource("2_bt44k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/BOUNDARYRigidBody2D2"]
+position = Vector2(65, -0.5)
+shape = SubResource("RectangleShape2D_bt44k")
+
+[node name="Sprite2D" type="Sprite2D" parent="Boundaries/BOUNDARYRigidBody2D2"]
+self_modulate = Color(0, 0, 0, 1)
+scale = Vector2(10.36, 1)
 texture = ExtResource("2_jirdo")

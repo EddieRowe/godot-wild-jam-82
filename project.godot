@@ -14,3 +14,7 @@ config/name="Submarines"
 run/main_scene="uid://cnep5qop4e823"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+
+[global_group]
+
+Obstacle=""
