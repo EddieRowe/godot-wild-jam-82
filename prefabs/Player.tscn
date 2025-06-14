@@ -21,6 +21,8 @@ shape = SubResource("CapsuleShape2D_0e48y")
 [node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
 texture = ExtResource("2_ay6yh")
 
+[node name="Camera2D" type="Camera2D" parent="RigidBody2D"]
+
 [node name="Health" type="Node2D" parent="." node_paths=PackedStringArray("player_movement")]
 script = ExtResource("3_ay6yh")
 player_movement = NodePath("../RigidBody2D")
