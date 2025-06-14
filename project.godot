@@ -11,6 +11,6 @@ config_version=5
 [application]
 
 config/name="Submarines"
-run/main_scene="uid://ded6cdgrr5vd8"
+run/main_scene="uid://cnep5qop4e823"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
