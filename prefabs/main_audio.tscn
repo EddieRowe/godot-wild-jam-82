@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://crghl5mtabw4e"]
+
+[ext_resource type="AudioStream" uid="uid://dg4sn8wi3itob" path="res://sound/bubbling.ogg" id="1_upxl3"]
+
+[node name="Main Audio" type="Node2D"]
+
+[node name="AmbienceAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_upxl3")
+autoplay = true
+
+[node name="MusicAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
