@@ -4,6 +4,9 @@ extends Node2D
 const LIMIT_MAX : int = 100
 const LIMIT_MIN : int = 0
 const CONSUMPTION_RATE : int = 1
+const DROWN_RATE : int = 5
+
+@export var health : Health
 
 var initOxygen : int = 90
 var currentOxygen : int = 0
@@ -19,9 +22,13 @@ func _consume_oxygen(amount: int) -> void:
 		currentOxygen = LIMIT_MAX
 
 func _on_breath_timer_timeout() -> void:
-	if currentOxygen > LIMIT_MIN:
-		currentOxygen -= CONSUMPTION_RATE
-		print("Breathing...")
+	if health.is_alive():
+		if currentOxygen > LIMIT_MIN:
+			print("Breathing...")
+			currentOxygen -= CONSUMPTION_RATE
+		else:
+			print("Drowning...")
+			health._take_damage(DROWN_RATE)
 
 func _collect_oxygen(source: OxygenSource) -> void:
 	_consume_oxygen(source.oxygen)
