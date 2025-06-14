@@ -4,6 +4,7 @@ class_name PlayerMovement
 var move_speed = 300
 @export var health : Health
 @export var oxygen : Oxygen
+@export var sprite : Sprite2D
 
 var can_move : bool = true
 
@@ -19,6 +20,14 @@ func _physics_process(delta: float) -> void:
 	var movement = Vector2(horizontal_movement, vertical_movement)
 	
 	apply_force(movement * move_speed)
+	
+	_handle_flip_sprite(movement)
+
+func _handle_flip_sprite(movement : Vector2):
+	if movement.x < 0:
+		sprite.flip_h = true
+	elif movement.x > 0:
+		sprite.flip_h = false
 
 func _on_body_entered(body: Node) -> void:
 	if body.is_in_group("Obstacle"):
