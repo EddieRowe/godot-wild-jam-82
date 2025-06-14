@@ -35,8 +35,9 @@ player_movement = NodePath("../RigidBody2D")
 [node name="Repair Timer" type="Timer" parent="Health"]
 autostart = true
 
-[node name="Oxygen" type="Node2D" parent="."]
+[node name="Oxygen" type="Node2D" parent="." node_paths=PackedStringArray("health")]
 script = ExtResource("4_p3xyx")
+health = NodePath("../Health")
 metadata/_custom_type_script = "uid://cdj3fn4u6ytsb"
 
 [node name="Breath Timer" type="Timer" parent="Oxygen"]
