@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://ortbhodpm47m"]
+
+[ext_resource type="Script" uid="uid://dgvltd8eyaevh" path="res://scripts/obstacle.gd" id="1_p3loe"]
+[ext_resource type="Texture2D" uid="uid://cbqrwutb65vdc" path="res://art/stalactite_placeholder.png" id="2_b1mcj"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p3loe"]
+radius = 3.03651
+height = 414.232
+
+[node name="StalectiteMed" type="RigidBody2D" groups=["Obstacle"]]
+script = ExtResource("1_p3loe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8, 140)
+rotation = -0.0371485
+shape = SubResource("CapsuleShape2D_p3loe")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(8, 160)
+scale = Vector2(1, 2.45455)
+texture = ExtResource("2_b1mcj")
