@@ -4,13 +4,15 @@
 [ext_resource type="Texture2D" uid="uid://cbqrwutb65vdc" path="res://art/stalactite_placeholder.png" id="2_wyiy1"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jxk1s"]
-height = 132.0
+radius = 3.0
+height = 196.0
 
 [node name="Stalactite" type="RigidBody2D" groups=["Obstacle"]]
 script = ExtResource("1_8vrgk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(78, 67)
+rotation = -0.067675
 shape = SubResource("CapsuleShape2D_jxk1s")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
