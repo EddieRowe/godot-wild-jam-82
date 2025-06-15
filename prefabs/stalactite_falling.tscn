@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://df3nads3pasdn"]
+
+[ext_resource type="Script" uid="uid://cw7dvrdgwsrpi" path="res://scripts/stalactite_falling.gd" id="1_nvdhc"]
+[ext_resource type="PackedScene" uid="uid://df4eaxgeperka" path="res://prefabs/stalactite.tscn" id="2_nvdhc"]
+
+[node name="StalactiteFalling" type="Node2D" node_paths=PackedStringArray("fallingPart", "timer") groups=["Obstacle"]]
+script = ExtResource("1_nvdhc")
+fallingPart = NodePath("Stalactite")
+timer = NodePath("FallingTimer")
+
+[node name="Stalactite" parent="." instance=ExtResource("2_nvdhc")]
+position = Vector2(-63, 40)
+freeze = true
+
+[node name="FallingTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="FallingTimer" to="." method="_on_timer_fall"]
