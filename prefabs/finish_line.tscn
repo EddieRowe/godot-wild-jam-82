@@ -8,6 +8,7 @@ size = Vector2(232.5, 750.5)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(169.75, 373.75)
 shape = SubResource("RectangleShape2D_dci07")
+debug_color = Color(0.247972, 0.517998, 0.963311, 0.42)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
