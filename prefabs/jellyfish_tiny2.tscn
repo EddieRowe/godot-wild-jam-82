@@ -1,0 +1,65 @@
+[gd_scene load_steps=8 format=3 uid="uid://btoe4pxxtf8si"]
+
+[ext_resource type="Script" uid="uid://drr31pdqh5bki" path="res://scripts/jellyfish_tiny.gd" id="1_lnnrt"]
+[ext_resource type="Texture2D" uid="uid://jkbquxepl510" path="res://art/JellyfishPink2.png" id="2_8r6fa"]
+[ext_resource type="Texture2D" uid="uid://beeh2eh2qs3io" path="res://art/JellyfishPink.png" id="3_lnnrt"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_61s87"]
+radius = 25.0
+height = 120.0
+
+[sub_resource type="Animation" id="Animation_lnnrt"]
+resource_name = "jellyfish_pulse"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("3_lnnrt"), ExtResource("2_8r6fa")]
+}
+
+[sub_resource type="Animation" id="Animation_m5hj0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_lnnrt")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nh3ln"]
+_data = {
+&"RESET": SubResource("Animation_m5hj0"),
+&"jellyfish_pulse": SubResource("Animation_lnnrt")
+}
+
+[node name="JellyfishTiny2" type="RigidBody2D" node_paths=PackedStringArray("animation_player") groups=["Obstacle"]]
+script = ExtResource("1_lnnrt")
+animation_player = NodePath("Sprite2D/AnimationPlayer")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -1)
+rotation = -0.331217
+shape = SubResource("CapsuleShape2D_61s87")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(7.00003, -15)
+scale = Vector2(0.38, 0.3325)
+texture = ExtResource("3_lnnrt")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+libraries = {
+&"": SubResource("AnimationLibrary_nh3ln")
+}

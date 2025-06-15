@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cp4d550wonmbg"
-path="res://.godot/imported/KelpMulticolor.png-7861ca9f04859427d52b623025903d55.ctex"
+uid="uid://cmxnkpvcgxwhp"
+path="res://.godot/imported/KelpMulticolor0.png-92c3e0a1a6c255cedd7bf3358865fab4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/KelpMulticolor.png"
-dest_files=["res://.godot/imported/KelpMulticolor.png-7861ca9f04859427d52b623025903d55.ctex"]
+source_file="res://art/KelpMulticolor0.png"
+dest_files=["res://.godot/imported/KelpMulticolor0.png-92c3e0a1a6c255cedd7bf3358865fab4.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cp4d550wonmbg"
-path="res://.godot/imported/KelpMulticolor.png-7861ca9f04859427d52b623025903d55.ctex"
+uid="uid://ds8h1olqcrme7"
+path="res://.godot/imported/JellyfishPink3_Open.png-9832208ae1b230549f01f9ec6f3f209c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/KelpMulticolor.png"
-dest_files=["res://.godot/imported/KelpMulticolor.png-7861ca9f04859427d52b623025903d55.ctex"]
+source_file="res://art/JellyfishPink3_Open.png"
+dest_files=["res://.godot/imported/JellyfishPink3_Open.png-9832208ae1b230549f01f9ec6f3f209c.ctex"]
 
 [params]
 
