@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cnep5qop4e823"]
+[gd_scene load_steps=27 format=3 uid="uid://cnep5qop4e823"]
 
 [ext_resource type="PackedScene" uid="uid://crghl5mtabw4e" path="res://prefabs/main_audio.tscn" id="1_l53as"]
 [ext_resource type="PackedScene" uid="uid://cphyt7srqwafr" path="res://prefabs/Player.tscn" id="1_vn7o3"]
@@ -7,14 +7,23 @@
 [ext_resource type="PackedScene" uid="uid://psx14rlat6ij" path="res://prefabs/kelp.tscn" id="4_kx6l7"]
 [ext_resource type="PackedScene" uid="uid://cbasaylk3eohx" path="res://prefabs/rock_1.tscn" id="5_n46q3"]
 [ext_resource type="PackedScene" uid="uid://vv3icacjpd3r" path="res://prefabs/rock_2.tscn" id="6_btoec"]
+[ext_resource type="Texture2D" uid="uid://cvvjch0mp3ri1" path="res://art/KelpGreen4.png" id="6_i6od7"]
+[ext_resource type="Texture2D" uid="uid://cdjlc4spvk08p" path="res://art/KelpGreen2.png" id="6_udfhf"]
+[ext_resource type="Texture2D" uid="uid://bynxseyvojhl2" path="res://art/KelpGreen.png" id="7_i6od7"]
 [ext_resource type="PackedScene" uid="uid://df4eaxgeperka" path="res://prefabs/stalactite.tscn" id="8_l53as"]
+[ext_resource type="Texture2D" uid="uid://ckl1ygu6q43ua" path="res://art/KelpLong2.png" id="8_ryfpa"]
 [ext_resource type="PackedScene" uid="uid://dhh22p6ic0tqq" path="res://prefabs/rock_3.tscn" id="9_3sk1a"]
 [ext_resource type="PackedScene" uid="uid://ortbhodpm47m" path="res://prefabs/stalectite_med.tscn" id="10_08mmt"]
+[ext_resource type="Texture2D" uid="uid://cu8c1rpuvjj21" path="res://art/KelpLong.png" id="10_ntdhj"]
 [ext_resource type="PackedScene" uid="uid://wyj4yseicfyb" path="res://prefabs/stalectite_large.tscn" id="11_5ot28"]
 [ext_resource type="PackedScene" uid="uid://bck55k4gxutt3" path="res://prefabs/rock_large.tscn" id="12_aerfg"]
 [ext_resource type="PackedScene" uid="uid://cnkw37u6tf7mw" path="res://prefabs/rock_colossal.tscn" id="13_nmsli"]
 [ext_resource type="PackedScene" uid="uid://bvpj80d4ko5rs" path="res://prefabs/rock_ceiling.tscn" id="14_betor"]
+[ext_resource type="Texture2D" uid="uid://ucdpxadxaed8" path="res://art/KelpGreen3.png" id="15_ryfpa"]
 [ext_resource type="PackedScene" uid="uid://digqha4603pow" path="res://prefabs/finish_line.tscn" id="15_vjtdm"]
+[ext_resource type="PackedScene" uid="uid://c6md5ixhopnoe" path="res://prefabs/jellyfish_pink.tscn" id="16_bgw3c"]
+[ext_resource type="PackedScene" uid="uid://db8eqk6rbpg2d" path="res://prefabs/jellyfish_small.tscn" id="17_lrvbd"]
+[ext_resource type="PackedScene" uid="uid://bva7uggeq5tcl" path="res://prefabs/jellyfish_tiny.tscn" id="18_oqlok"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vn7o3"]
 radius = 61.0737
@@ -27,10 +36,10 @@ size = Vector2(26805.1, 118.5)
 [node name="Main Audio" parent="." instance=ExtResource("1_l53as")]
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -1198.0
-offset_top = -439.0
-offset_right = 25059.0
-offset_bottom = 1384.0
+offset_left = -1189.0
+offset_top = -433.0
+offset_right = 25068.0
+offset_bottom = 1390.0
 rotation = -0.00248979
 color = Color(0.0554515, 0.441783, 0.614248, 1)
 
@@ -73,6 +82,7 @@ position = Vector2(189, 800)
 [node name="Kelp2" parent="Boundaries/BOUNDARYRigidBody2D" instance=ExtResource("4_kx6l7")]
 position = Vector2(2460, 739)
 scale = Vector2(1, 1.90476)
+texture = ExtResource("6_i6od7")
 
 [node name="BOUNDARYRigidBody2D3" type="RigidBody2D" parent="Boundaries" groups=["Obstacle"]]
 position = Vector2(-96, 138)
@@ -109,16 +119,19 @@ color = Color(0, 0, 0, 1)
 
 [node name="Kelp" parent="Boundaries/BOUNDARYRigidBody2D2" instance=ExtResource("4_kx6l7")]
 position = Vector2(968, 161)
+texture = ExtResource("6_udfhf")
 
 [node name="Kelp2" parent="Boundaries/BOUNDARYRigidBody2D2" instance=ExtResource("4_kx6l7")]
 position = Vector2(702, 158)
 
 [node name="Kelp3" parent="Boundaries/BOUNDARYRigidBody2D2" instance=ExtResource("4_kx6l7")]
-position = Vector2(1997, 120)
+position = Vector2(1971, 158)
+texture = ExtResource("7_i6od7")
 
 [node name="Kelp4" parent="Boundaries/BOUNDARYRigidBody2D2" instance=ExtResource("4_kx6l7")]
-position = Vector2(2388, 18)
-scale = Vector2(1, 3.30357)
+position = Vector2(2337.5, 103)
+scale = Vector2(1.115, 1.76)
+texture = ExtResource("7_i6od7")
 
 [node name="Rock3" parent="Boundaries/BOUNDARYRigidBody2D2" instance=ExtResource("5_n46q3")]
 position = Vector2(2236, 127)
@@ -203,15 +216,17 @@ rotation = -3.14159
 scale = Vector2(1, 1.88156)
 
 [node name="Kelp3" parent="." instance=ExtResource("4_kx6l7")]
-position = Vector2(1615, 623)
-scale = Vector2(1, 2.85119)
+position = Vector2(1643.25, 564.28)
+scale = Vector2(1.2875, 2.4228)
+texture = ExtResource("10_ntdhj")
 
 [node name="Kelp4" parent="." instance=ExtResource("4_kx6l7")]
 position = Vector2(1530, 721)
 
 [node name="Kelp5" parent="." instance=ExtResource("4_kx6l7")]
-position = Vector2(1563, 593)
-scale = Vector2(1.11486, 3.66964)
+position = Vector2(1557, 599)
+scale = Vector2(1.31743, 2.00482)
+texture = ExtResource("8_ryfpa")
 
 [node name="Rock2" parent="." instance=ExtResource("5_n46q3")]
 position = Vector2(468, 725)
@@ -246,12 +261,14 @@ position = Vector2(2509, -10)
 freeze = true
 
 [node name="Kelp8" parent="." instance=ExtResource("4_kx6l7")]
-position = Vector2(2558, 600)
-scale = Vector2(1, 3.10119)
+position = Vector2(2568, 599)
+scale = Vector2(1.79, 1.8406)
+texture = ExtResource("8_ryfpa")
 
 [node name="Kelp9" parent="." instance=ExtResource("4_kx6l7")]
-position = Vector2(2649, 645)
-scale = Vector2(1.2027, 1.70238)
+position = Vector2(2677, 603.119)
+scale = Vector2(1.2027, 1.95119)
+texture = ExtResource("6_i6od7")
 
 [node name="RockLarge" parent="." instance=ExtResource("9_3sk1a")]
 position = Vector2(2558, 171)
@@ -285,10 +302,12 @@ freeze = true
 
 [node name="Kelp14" parent="." instance=ExtResource("4_kx6l7")]
 position = Vector2(4788, 684)
+texture = ExtResource("6_udfhf")
 
 [node name="Kelp15" parent="." instance=ExtResource("4_kx6l7")]
-position = Vector2(4890, 636)
-scale = Vector2(1, 2.77976)
+position = Vector2(4910, 560)
+scale = Vector2(0.96, 2.07488)
+texture = ExtResource("15_ryfpa")
 
 [node name="StalectiteMed" parent="." instance=ExtResource("10_08mmt")]
 freeze = true
@@ -333,14 +352,19 @@ position = Vector2(5663, 695)
 freeze = true
 
 [node name="Kelp21" parent="." instance=ExtResource("4_kx6l7")]
-position = Vector2(5588, 699)
+position = Vector2(5578.5, 711.5)
+scale = Vector2(0.905, 0.875)
+texture = ExtResource("6_udfhf")
 
 [node name="Kelp22" parent="." instance=ExtResource("4_kx6l7")]
-position = Vector2(5906, 622)
-scale = Vector2(1, 2.71429)
+position = Vector2(5909, 595)
+scale = Vector2(1.105, 1.89715)
+texture = ExtResource("6_i6od7")
 
 [node name="Kelp23" parent="." instance=ExtResource("4_kx6l7")]
-position = Vector2(5998, 686)
+position = Vector2(5978, 735)
+scale = Vector2(0.915, 0.995)
+texture = ExtResource("6_udfhf")
 
 [node name="Kelp24" parent="." instance=ExtResource("4_kx6l7")]
 position = Vector2(6619, 10)
@@ -701,3 +725,15 @@ rotation = 3.10325
 
 [node name="Kelp88" parent="." instance=ExtResource("4_kx6l7")]
 position = Vector2(24578, 713)
+
+[node name="JellyfishPink" parent="." instance=ExtResource("16_bgw3c")]
+position = Vector2(23670, -25)
+freeze = true
+
+[node name="JellyfishSmall" parent="." instance=ExtResource("17_lrvbd")]
+position = Vector2(2510, -176)
+freeze = true
+
+[node name="JellyfishTiny" parent="." instance=ExtResource("18_oqlok")]
+position = Vector2(1452, -35)
+freeze = true
