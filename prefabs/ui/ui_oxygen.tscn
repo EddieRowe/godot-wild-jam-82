@@ -1,0 +1,49 @@
+[gd_scene load_steps=4 format=3 uid="uid://dwuieya53d2na"]
+
+[ext_resource type="Script" uid="uid://meop4tdvmign" path="res://scripts/ui/ui_oxygen.gd" id="1_81r20"]
+[ext_resource type="PackedScene" uid="uid://q22penn5rm27" path="res://prefabs/ui/ui_oxygen_bubble.tscn" id="1_t7g1a"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t7g1a"]
+bg_color = Color(0.572549, 0.819608, 1, 1)
+
+[node name="UiOxygen" type="Panel"]
+custom_minimum_size = Vector2(250, 50)
+offset_right = 250.0
+offset_bottom = 50.0
+script = ExtResource("1_81r20")
+
+[node name="BubbleBox" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(250, 40)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 0
+
+[node name="Bubble1" parent="BubbleBox" instance=ExtResource("1_t7g1a")]
+layout_mode = 2
+
+[node name="Bubble2" parent="BubbleBox" instance=ExtResource("1_t7g1a")]
+layout_mode = 2
+
+[node name="Bubble3" parent="BubbleBox" instance=ExtResource("1_t7g1a")]
+layout_mode = 2
+
+[node name="Bubble4" parent="BubbleBox" instance=ExtResource("1_t7g1a")]
+layout_mode = 2
+
+[node name="Bubble5" parent="BubbleBox" instance=ExtResource("1_t7g1a")]
+layout_mode = 2
+
+[node name="OxyProgress" type="ProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -10.0
+offset_right = 250.0
+grow_vertical = 0
+theme_override_styles/fill = SubResource("StyleBoxFlat_t7g1a")
+step = 1.0
+value = 90.0
+rounded = true
+show_percentage = false
