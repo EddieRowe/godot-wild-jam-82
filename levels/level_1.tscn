@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cnep5qop4e823"]
+[gd_scene load_steps=19 format=3 uid="uid://cnep5qop4e823"]
 
 [ext_resource type="PackedScene" uid="uid://crghl5mtabw4e" path="res://prefabs/main_audio.tscn" id="1_l53as"]
 [ext_resource type="PackedScene" uid="uid://cphyt7srqwafr" path="res://prefabs/Player.tscn" id="1_vn7o3"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://cnkw37u6tf7mw" path="res://prefabs/rock_colossal.tscn" id="13_nmsli"]
 [ext_resource type="PackedScene" uid="uid://bvpj80d4ko5rs" path="res://prefabs/rock_ceiling.tscn" id="14_betor"]
 [ext_resource type="PackedScene" uid="uid://digqha4603pow" path="res://prefabs/finish_line.tscn" id="15_vjtdm"]
+[ext_resource type="PackedScene" uid="uid://dx71cipa1pnwn" path="res://prefabs/ui/game_overlay.tscn" id="16_bgw3c"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vn7o3"]
 radius = 61.0737
@@ -36,6 +37,10 @@ color = Color(0.0554515, 0.441783, 0.614248, 1)
 
 [node name="Player" parent="." instance=ExtResource("1_vn7o3")]
 position = Vector2(410, 401)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GameOverlay" parent="CanvasLayer" instance=ExtResource("16_bgw3c")]
 
 [node name="RockRigidBody2D" type="RigidBody2D" parent="." groups=["Obstacle"]]
 position = Vector2(1014, 270)
