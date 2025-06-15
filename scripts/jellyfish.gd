@@ -1,0 +1,15 @@
+extends RigidBody2D
+
+var speed : int = 10
+var player : PlayerMovement
+
+func _ready() -> void:
+	player = get_parent().get_node("Player/RigidBody2D")
+
+func _physics_process(delta: float) -> void:
+	var move_direction =  player.global_position - global_position
+	apply_central_force(move_direction.normalized() * speed)
+
+func _on_body_entered(body: Node) -> void:
+	if body is PlayerMovement:
+		body.health._take_damage(100)
