@@ -27,12 +27,12 @@ size = Vector2(26805.1, 118.5)
 [node name="Main Audio" parent="." instance=ExtResource("1_l53as")]
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -26.0
-offset_top = -20.0
-offset_right = 25060.0
-offset_bottom = 786.0
+offset_left = -1198.0
+offset_top = -439.0
+offset_right = 25059.0
+offset_bottom = 1384.0
 rotation = -0.00248979
-color = Color(0.0666667, 0.294118, 0.517647, 1)
+color = Color(0.0554515, 0.441783, 0.614248, 1)
 
 [node name="Player" parent="." instance=ExtResource("1_vn7o3")]
 position = Vector2(410, 401)

@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://res1bfy2i6r"]
+
+[ext_resource type="Texture2D" uid="uid://cphlsjsitl4ir" path="res://art/player_propellor_placeholder_.png" id="1_u1nbd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ubujo"]
+
+[node name="PropellorRigidbody" type="RigidBody2D"]
+gravity_scale = 0.1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ubujo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_u1nbd")

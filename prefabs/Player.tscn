@@ -1,18 +1,62 @@
-[gd_scene load_steps=9 format=3 uid="uid://cphyt7srqwafr"]
+[gd_scene load_steps=15 format=3 uid="uid://cphyt7srqwafr"]
 
 [ext_resource type="Script" uid="uid://4a7nsts8luh7" path="res://scripts/submarine_script.gd" id="1_glu7e"]
 [ext_resource type="Texture2D" uid="uid://dcl8d3ja31fie" path="res://art/player_placeholder_.png" id="2_ay6yh"]
 [ext_resource type="Script" uid="uid://ssj3qc07pg03" path="res://scripts/health.gd" id="3_ay6yh"]
-[ext_resource type="Script" path="res://scripts/oxygen.gd" id="4_p3xyx"]
+[ext_resource type="Texture2D" uid="uid://cphlsjsitl4ir" path="res://art/player_propellor_placeholder_.png" id="3_rwuho"]
+[ext_resource type="Script" uid="uid://cdj3fn4u6ytsb" path="res://scripts/oxygen.gd" id="4_p3xyx"]
 [ext_resource type="Texture2D" uid="uid://bygay2a087fb5" path="res://art/lightmask1.png" id="5_wuy1y"]
-[ext_resource type="Script" path="res://scripts/light_mask.gd" id="6_1nynx"]
+[ext_resource type="Script" uid="uid://cbqex3ko6h1np" path="res://scripts/light_mask.gd" id="6_1nynx"]
 [ext_resource type="Script" uid="uid://bfv8nph13ijuc" path="res://scripts/energy.gd" id="7_64pgi"]
+[ext_resource type="AudioStream" uid="uid://c1s5cepn2ucm1" path="res://sound/submarine_prop.ogg" id="8_0ep8a"]
+[ext_resource type="Script" uid="uid://b5xr11v4w61vc" path="res://scripts/submarine_audio.gd" id="8_70wo7"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0e48y"]
+radius = 15.0
+height = 96.0
+
+[sub_resource type="Animation" id="Animation_yhksc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_rwuho"]
+resource_name = "propellor_anim"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_634ti"]
+_data = {
+&"RESET": SubResource("Animation_yhksc"),
+&"propellor_anim": SubResource("Animation_rwuho")
+}
 
 [node name="Player" type="Node2D"]
+position = Vector2(-25, -15)
 
-[node name="RigidBody2D" type="RigidBody2D" parent="." node_paths=PackedStringArray("health", "oxygen", "energy", "sprite")]
+[node name="RigidBody2D" type="RigidBody2D" parent="." node_paths=PackedStringArray("health", "oxygen", "energy", "sprite", "audio", "propellor", "restart_timer")]
 continuous_cd = 1
 contact_monitor = true
 max_contacts_reported = 3
@@ -21,12 +65,26 @@ health = NodePath("../Health")
 oxygen = NodePath("../Oxygen")
 energy = NodePath("../Energy")
 sprite = NodePath("Sprite2D")
+audio = NodePath("../Submarine Audio")
+propellor = NodePath("Sprite2D/PropSprite2D/PropSpriteAnimationPlayer")
+restart_timer = NodePath("../RestartLevelTimer")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(1, 8)
+rotation = 1.5708
 shape = SubResource("CapsuleShape2D_0e48y")
 
 [node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
 texture = ExtResource("2_ay6yh")
+
+[node name="PropSprite2D" type="Sprite2D" parent="RigidBody2D/Sprite2D"]
+position = Vector2(-60, 7)
+texture = ExtResource("3_rwuho")
+
+[node name="PropSpriteAnimationPlayer" type="AnimationPlayer" parent="RigidBody2D/Sprite2D/PropSprite2D"]
+libraries = {
+&"": SubResource("AnimationLibrary_634ti")
+}
 
 [node name="Camera2D" type="Camera2D" parent="RigidBody2D"]
 
@@ -57,6 +115,19 @@ script = ExtResource("7_64pgi")
 lightSource = NodePath("../PointLight2D")
 metadata/_custom_type_script = "uid://bfv8nph13ijuc"
 
+[node name="Submarine Audio" type="Node2D" parent="." node_paths=PackedStringArray("sub_prop_audio_stream_player")]
+script = ExtResource("8_70wo7")
+sub_prop_audio_stream_player = NodePath("Submarine Prop Audio Stream Player")
+
+[node name="Submarine Prop Audio Stream Player" type="AudioStreamPlayer" parent="Submarine Audio"]
+stream = ExtResource("8_0ep8a")
+volume_db = -8.432
+
+[node name="RestartLevelTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
 [connection signal="body_entered" from="RigidBody2D" to="RigidBody2D" method="_on_body_entered"]
 [connection signal="timeout" from="Health/Repair Timer" to="Health" method="_on_repair_timer_timeout"]
 [connection signal="timeout" from="Oxygen/Breath Timer" to="Oxygen" method="_on_breath_timer_timeout"]
+[connection signal="timeout" from="RestartLevelTimer" to="RigidBody2D" method="_on_restart_level_timer_timeout"]
