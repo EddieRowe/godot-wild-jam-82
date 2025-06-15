@@ -22,6 +22,12 @@ func _physics_process(delta: float) -> void:
 			propellor.stop()
 		if restart_timer.is_stopped():
 			restart_timer.start()
+			propellor.get_parent().get_parent().texture = load("res://art/player_crushed_placeholder_.png")
+			propellor.get_parent().texture = null
+			var fake_prop = load("res://prefabs/propellor_rigidbody.tscn")
+			var fake_prop_instance = fake_prop.instantiate()
+			propellor.get_parent().get_parent().add_child(fake_prop_instance)
+			fake_prop_instance.position = propellor.get_parent().position
 		return
 	
 	var horizontal_movement = Input.get_axis("ui_left", "ui_right")
