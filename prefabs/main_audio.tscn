@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://crghl5mtabw4e"]
+[gd_scene load_steps=3 format=3 uid="uid://crghl5mtabw4e"]
 
 [ext_resource type="AudioStream" uid="uid://dg4sn8wi3itob" path="res://sound/bubbling.ogg" id="1_upxl3"]
+[ext_resource type="AudioStream" uid="uid://d2f8ef26v1j54" path="res://sound/music01.ogg" id="2_gja17"]
 
 [node name="Main Audio" type="Node2D"]
 
@@ -9,3 +10,6 @@ stream = ExtResource("1_upxl3")
 autoplay = true
 
 [node name="MusicAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_gja17")
+volume_db = -8.432
+autoplay = true
