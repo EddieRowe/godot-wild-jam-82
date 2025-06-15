@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://4a7nsts8luh7" path="res://scripts/submarine_script.gd" id="1_glu7e"]
 [ext_resource type="Texture2D" uid="uid://dcl8d3ja31fie" path="res://art/player_placeholder_.png" id="2_ay6yh"]
 [ext_resource type="Script" uid="uid://ssj3qc07pg03" path="res://scripts/health.gd" id="3_ay6yh"]
-[ext_resource type="Script" uid="uid://cdj3fn4u6ytsb" path="res://scripts/oxygen.gd" id="4_p3xyx"]
+[ext_resource type="Script" path="res://scripts/oxygen.gd" id="4_p3xyx"]
 [ext_resource type="Texture2D" uid="uid://bygay2a087fb5" path="res://art/lightmask1.png" id="5_wuy1y"]
 [ext_resource type="Script" path="res://scripts/light_mask.gd" id="6_1nynx"]
 [ext_resource type="Script" uid="uid://bfv8nph13ijuc" path="res://scripts/energy.gd" id="7_64pgi"]
@@ -40,7 +40,6 @@ autostart = true
 [node name="Oxygen" type="Node2D" parent="." node_paths=PackedStringArray("health")]
 script = ExtResource("4_p3xyx")
 health = NodePath("../Health")
-metadata/_custom_type_script = "uid://cdj3fn4u6ytsb"
 
 [node name="Breath Timer" type="Timer" parent="Oxygen"]
 autostart = true
