@@ -6,6 +6,7 @@ var move_speed = 300
 @export var oxygen : Oxygen
 @export var energy : Energy
 @export var sprite : Sprite2D
+@export var audio : SubmarineAudio
 
 var can_move : bool = true
 
@@ -14,6 +15,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if !can_move:
+		audio._stop_sub_prop_audio() # bad
 		return
 	
 	var horizontal_movement = Input.get_axis("ui_left", "ui_right")
@@ -25,6 +27,12 @@ func _physics_process(delta: float) -> void:
 	_handle_flip_sprite(movement)
 	
 	energy._handle_lighting(Input.is_action_pressed("ui_accept"))
+	
+	# also bad
+	if movement.length() > 0:
+		audio._start_sub_prop_audio()
+	else:
+		audio._stop_sub_prop_audio()
 
 func _handle_flip_sprite(movement : Vector2):
 	if movement.x < 0:
