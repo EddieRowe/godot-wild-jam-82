@@ -15,6 +15,21 @@
 radius = 15.0
 height = 96.0
 
+[sub_resource type="Animation" id="Animation_yhksc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
 [sub_resource type="Animation" id="Animation_rwuho"]
 resource_name = "propellor_anim"
 length = 0.3
@@ -32,21 +47,6 @@ tracks/0/keys = {
 "values": [0.0, 6.28319]
 }
 
-[sub_resource type="Animation" id="Animation_yhksc"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_634ti"]
 _data = {
 &"RESET": SubResource("Animation_yhksc"),
@@ -56,7 +56,7 @@ _data = {
 [node name="Player" type="Node2D"]
 position = Vector2(-25, -15)
 
-[node name="RigidBody2D" type="RigidBody2D" parent="." node_paths=PackedStringArray("health", "oxygen", "energy", "sprite", "audio", "propellor")]
+[node name="RigidBody2D" type="RigidBody2D" parent="." node_paths=PackedStringArray("health", "oxygen", "energy", "sprite", "audio", "propellor", "restart_timer")]
 continuous_cd = 1
 contact_monitor = true
 max_contacts_reported = 3
@@ -67,6 +67,7 @@ energy = NodePath("../Energy")
 sprite = NodePath("Sprite2D")
 audio = NodePath("../Submarine Audio")
 propellor = NodePath("Sprite2D/PropSprite2D/PropSpriteAnimationPlayer")
+restart_timer = NodePath("../RestartLevelTimer")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
 position = Vector2(1, 8)
@@ -122,6 +123,11 @@ sub_prop_audio_stream_player = NodePath("Submarine Prop Audio Stream Player")
 stream = ExtResource("8_0ep8a")
 volume_db = -8.432
 
+[node name="RestartLevelTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
 [connection signal="body_entered" from="RigidBody2D" to="RigidBody2D" method="_on_body_entered"]
 [connection signal="timeout" from="Health/Repair Timer" to="Health" method="_on_repair_timer_timeout"]
 [connection signal="timeout" from="Oxygen/Breath Timer" to="Oxygen" method="_on_breath_timer_timeout"]
+[connection signal="timeout" from="RestartLevelTimer" to="RigidBody2D" method="_on_restart_level_timer_timeout"]

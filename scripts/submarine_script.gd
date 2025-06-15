@@ -8,6 +8,7 @@ var move_speed = 300
 @export var sprite : Sprite2D
 @export var audio : SubmarineAudio
 @export var propellor : AnimationPlayer
+@export var restart_timer : Timer
 
 var can_move : bool = true
 
@@ -19,8 +20,9 @@ func _physics_process(delta: float) -> void:
 		audio._stop_sub_prop_audio() # bad
 		if propellor.is_playing():
 			propellor.stop()
-		get_tree().reload_current_scene()
-		#return
+		if restart_timer.is_stopped():
+			restart_timer.start()
+		return
 	
 	var horizontal_movement = Input.get_axis("ui_left", "ui_right")
 	var vertical_movement = Input.get_axis("ui_up", "ui_down")
@@ -58,3 +60,7 @@ func _on_body_entered(body: Node) -> void:
 	if body.is_in_group("LevelComplete"):
 		get_parent().queue_free()
 		
+
+
+func _on_restart_level_timer_timeout() -> void:
+	get_tree().reload_current_scene()
