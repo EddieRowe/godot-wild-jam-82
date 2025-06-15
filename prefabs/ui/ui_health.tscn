@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://ccgx6na8wcdlh"]
+
+[ext_resource type="Texture2D" uid="uid://dcl8d3ja31fie" path="res://art/player_placeholder_.png" id="1_a8gic"]
+[ext_resource type="Script" uid="uid://dlxgjia0fbgfw" path="res://scripts/ui/ui_health.gd" id="1_y3u0v"]
+
+[node name="UiHealth" type="Panel"]
+custom_minimum_size = Vector2(100, 50)
+offset_right = 100.0
+offset_bottom = 50.0
+script = ExtResource("1_y3u0v")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 50.0
+color = Color(0.172833, 0.172833, 0.172833, 1)
+
+[node name="SubImage" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 50.0
+size_flags_horizontal = 3
+texture = ExtResource("1_a8gic")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="HealthText" type="RichTextLabel" parent="."]
+layout_mode = 2
+offset_right = 100.0
+offset_bottom = 50.0
+bbcode_enabled = true
+text = "[wave][b]100 "
+fit_content = true
+horizontal_alignment = 2
+vertical_alignment = 2

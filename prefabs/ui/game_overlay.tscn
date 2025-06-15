@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://dx71cipa1pnwn"]
+
+[ext_resource type="Script" uid="uid://b04chlcpv5qgf" path="res://scripts/ui/game_overlay.gd" id="1_okyq7"]
+[ext_resource type="PackedScene" uid="uid://ccgx6na8wcdlh" path="res://prefabs/ui/ui_health.tscn" id="1_p8fij"]
+[ext_resource type="PackedScene" uid="uid://dwuieya53d2na" path="res://prefabs/ui/ui_oxygen.tscn" id="2_yuxmb"]
+[ext_resource type="PackedScene" uid="uid://bvusw6n4pyqn5" path="res://prefabs/ui/ui_energy.tscn" id="3_nsief"]
+
+[node name="GameOverlay" type="Panel"]
+custom_minimum_size = Vector2(450, 50)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -225.0
+offset_right = 225.0
+offset_bottom = 50.0
+grow_horizontal = 2
+script = ExtResource("1_okyq7")
+
+[node name="UiBox" type="HBoxContainer" parent="."]
+layout_mode = 1
+offset_right = 450.0
+offset_bottom = 50.0
+theme_override_constants/separation = 0
+
+[node name="UiHealth" parent="UiBox" instance=ExtResource("1_p8fij")]
+layout_mode = 2
+
+[node name="UiOxygen" parent="UiBox" instance=ExtResource("2_yuxmb")]
+layout_mode = 2
+
+[node name="UiEnergy" parent="UiBox" instance=ExtResource("3_nsief")]
+layout_mode = 2

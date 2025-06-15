@@ -32,3 +32,7 @@ func _handle_lighting(illuminate: bool):
 			currentLighting -= VARIANCE
 	
 	lightSource.scale = Vector2(currentLighting, currentLighting)
+
+func get_energy_perc() -> int:
+	var decimal = float(currentEnergy) / float(BATTERY_MAX)
+	return int(decimal * 100)
