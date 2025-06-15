@@ -19,7 +19,8 @@ func _physics_process(delta: float) -> void:
 		audio._stop_sub_prop_audio() # bad
 		if propellor.is_playing():
 			propellor.stop()
-		return
+		get_tree().reload_current_scene()
+		#return
 	
 	var horizontal_movement = Input.get_axis("ui_left", "ui_right")
 	var vertical_movement = Input.get_axis("ui_up", "ui_down")
@@ -54,3 +55,6 @@ func _on_body_entered(body: Node) -> void:
 		health._take_damage(body.damage)
 	if body is OxygenSource:
 		oxygen._collect_oxygen(body)
+	if body.is_in_group("LevelComplete"):
+		get_parent().queue_free()
+		
