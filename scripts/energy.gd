@@ -10,6 +10,8 @@ const LIGHTING_MAX : float = 1.8
 const LIGHTING_MIN : float = 1.0
 const VARIANCE : float = 0.04
 
+signal energyChanged(newValue: int)
+
 var currentEnergy : int = BATTERY_MAX
 var currentLighting : float = LIGHTING_MIN
 
@@ -26,7 +28,7 @@ func _handle_lighting(illuminate: bool):
 		currentEnergy -= CONSUMPTION_RATE
 		if currentEnergy <= BATTERY_MIN:
 			currentEnergy = BATTERY_MIN
-		
+		energyChanged.emit(get_energy_perc())
 	else:
 		if currentLighting > LIGHTING_MIN:
 			currentLighting -= VARIANCE
