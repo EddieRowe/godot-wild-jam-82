@@ -7,6 +7,7 @@ const CONSUMPTION_RATE : int = 1
 const DROWN_RATE : int = 5
 
 @export var health : Health
+signal oxygenChanged(newAmount : int)
 
 var initOxygen : int = 90
 var currentOxygen : int = 0
@@ -20,12 +21,14 @@ func _consume_oxygen(amount: int) -> void:
 	currentOxygen += amount
 	if currentOxygen >= LIMIT_MAX:
 		currentOxygen = LIMIT_MAX
+	oxygenChanged.emit(currentOxygen)
 
 func _on_breath_timer_timeout() -> void:
 	if health.is_alive():
 		if currentOxygen > LIMIT_MIN:
 			print("Breathing...")
 			currentOxygen -= CONSUMPTION_RATE
+			oxygenChanged.emit(currentOxygen)
 		else:
 			print("Drowning...")
 			health._take_damage(DROWN_RATE)
