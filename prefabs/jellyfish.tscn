@@ -7,6 +7,21 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_056dh"]
 radius = 114.495
 
+[sub_resource type="Animation" id="Animation_x5wq5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_056dh")]
+}
+
 [sub_resource type="Animation" id="Animation_056dh"]
 resource_name = "jellyfish_move"
 loop_mode = 1
@@ -23,21 +38,6 @@ tracks/0/keys = {
 "values": [ExtResource("2_056dh"), ExtResource("3_x5wq5")]
 }
 
-[sub_resource type="Animation" id="Animation_x5wq5"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("2_056dh")]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_x5wq5"]
 _data = {
 &"RESET": SubResource("Animation_x5wq5"),
@@ -51,6 +51,7 @@ contact_monitor = true
 max_contacts_reported = 3
 script = ExtResource("1_056dh")
 animation_player = NodePath("Sprite2D/AnimationPlayer")
+movement_animation_name = "jellyfish_move"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-3, -1)
