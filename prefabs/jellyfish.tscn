@@ -51,6 +51,7 @@ contact_monitor = true
 max_contacts_reported = 3
 script = ExtResource("1_056dh")
 animation_player = NodePath("Sprite2D/AnimationPlayer")
+movement_animation_name = "jellyfish_move"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-3, -1)
