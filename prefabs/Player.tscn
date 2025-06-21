@@ -68,6 +68,7 @@ sprite = NodePath("Sprite2D")
 audio = NodePath("../Submarine Audio")
 propellor = NodePath("Sprite2D/PropSprite2D/PropSpriteAnimationPlayer")
 restart_timer = NodePath("../RestartLevelTimer")
+rotation_speed = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
 position = Vector2(1, 8)
