@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvusw6n4pyqn5"]
+
+[ext_resource type="Script" uid="uid://ef7dmm80kmgt" path="res://scripts/ui/ui_energy.gd" id="1_gli8e"]
+[ext_resource type="Texture2D" uid="uid://dbtebb8ekiyp7" path="res://art/AWFUL_battery_sprite.png" id="2_gli8e"]
+
+[node name="UiEnergy" type="Panel"]
+custom_minimum_size = Vector2(100, 50)
+script = ExtResource("1_gli8e")
+
+[node name="EnergyBox" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 0
+
+[node name="EnergyImage" type="TextureRect" parent="EnergyBox"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_gli8e")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="EnergyProgress" type="ProgressBar" parent="EnergyBox"]
+custom_minimum_size = Vector2(5, 50)
+layout_mode = 2
+step = 0.1
+value = 50.0
+fill_mode = 3
+show_percentage = false
+
+[node name="EnergyText" type="RichTextLabel" parent="EnergyBox"]
+custom_minimum_size = Vector2(45, 50)
+layout_mode = 2
+bbcode_enabled = true
+text = "50%"
+horizontal_alignment = 1
+vertical_alignment = 1
