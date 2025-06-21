@@ -22,12 +22,11 @@
 [ext_resource type="PackedScene" uid="uid://bvpj80d4ko5rs" path="res://prefabs/rock_ceiling.tscn" id="14_betor"]
 [ext_resource type="Texture2D" uid="uid://ucdpxadxaed8" path="res://art/KelpGreen3.png" id="15_ryfpa"]
 [ext_resource type="PackedScene" uid="uid://digqha4603pow" path="res://prefabs/finish_line.tscn" id="15_vjtdm"]
-[ext_resource type="PackedScene" uid="uid://c6md5ixhopnoe" path="res://prefabs/jellyfish_pink.tscn" id="16_bgw3c"]
+[ext_resource type="PackedScene" uid="uid://dx71cipa1pnwn" path="res://prefabs/ui/game_overlay.tscn" id="16_bgw3c"]
 [ext_resource type="PackedScene" uid="uid://db8eqk6rbpg2d" path="res://prefabs/jellyfish_small.tscn" id="17_lrvbd"]
 [ext_resource type="Texture2D" uid="uid://cp4d550wonmbg" path="res://art/KelpMulticolor.png" id="18_0fu15"]
 [ext_resource type="PackedScene" uid="uid://bva7uggeq5tcl" path="res://prefabs/jellyfish_tiny.tscn" id="18_oqlok"]
 [ext_resource type="PackedScene" uid="uid://bf15fqnxqxfc0" path="res://prefabs/jellyfish.tscn" id="25_ntdhj"]
-[ext_resource type="PackedScene" uid="uid://dx71cipa1pnwn" path="res://prefabs/ui/game_overlay.tscn" id="16_bgw3c"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vn7o3"]
 radius = 61.0737
@@ -766,10 +765,6 @@ rotation = 3.10325
 
 [node name="Kelp88" parent="." instance=ExtResource("4_kx6l7")]
 position = Vector2(24578, 713)
-
-[node name="JellyfishPink" parent="." instance=ExtResource("16_bgw3c")]
-position = Vector2(23670, -25)
-freeze = true
 
 [node name="JellyfishSmall" parent="." instance=ExtResource("17_lrvbd")]
 position = Vector2(2510, -176)
