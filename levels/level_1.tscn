@@ -53,16 +53,16 @@ position = Vector2(410, 401)
 
 [node name="GameOverlay" parent="CanvasLayer" instance=ExtResource("16_bgw3c")]
 
-[node name="RockRigidBody2D" type="RigidBody2D" parent="." groups=["Obstacle"]]
+[node name="BigDebugObstacle" type="RigidBody2D" parent="." groups=["Obstacle"]]
 position = Vector2(1014, 270)
 gravity_scale = 0.0
 freeze = true
 script = ExtResource("2_bt44k")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RockRigidBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BigDebugObstacle"]
 shape = SubResource("CircleShape2D_vn7o3")
 
-[node name="Sprite2D" type="Sprite2D" parent="RockRigidBody2D"]
+[node name="Sprite2D" type="Sprite2D" parent="BigDebugObstacle"]
 texture = ExtResource("2_jirdo")
 
 [node name="Boundaries" type="Node2D" parent="."]
