@@ -43,7 +43,8 @@ func _recharge(amount : int) -> void:
 
 func collect_energy(source: EnergySource) -> void:
 	_recharge(source.energy_charge)
-	if source.is_single_use:
+	source.consume_count -= 1
+	if source.consume_count == 0:
 		source.dissipate()
 
 func get_energy_perc() -> int:

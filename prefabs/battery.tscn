@@ -11,7 +11,6 @@ height = 60.0
 freeze = true
 script = ExtResource("1_wsy6w")
 energy_charge = 200
-is_single_use = true
 metadata/_custom_type_script = "uid://cdnejrbkn8ice"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
