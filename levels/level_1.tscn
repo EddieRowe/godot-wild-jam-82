@@ -287,57 +287,6 @@ freeze = true
 [node name="FinishLine" parent="." instance=ExtResource("15_vjtdm")]
 position = Vector2(24773, -30)
 
-[node name="JellyfishSmall" parent="." instance=ExtResource("17_lrvbd")]
-position = Vector2(2450, 296)
-
-[node name="JellyRigidbody2D" parent="." instance=ExtResource("25_ntdhj")]
-position = Vector2(1593, 152)
-
-[node name="JellyfishTiny2" parent="." instance=ExtResource("8_4knja")]
-position = Vector2(1989, 359)
-rotation = -0.0349668
-
-[node name="JellyfishTiny" parent="." instance=ExtResource("18_oqlok")]
-position = Vector2(1408, 520)
-freeze = true
-
-[node name="JellyfishTiny3" parent="." instance=ExtResource("18_oqlok")]
-position = Vector2(3828, 330)
-freeze = true
-
-[node name="JellyfishTiny4" parent="." instance=ExtResource("18_oqlok")]
-position = Vector2(4408, 128)
-freeze = true
-
-[node name="JellyfishTiny5" parent="." instance=ExtResource("8_4knja")]
-position = Vector2(4886, 382)
-
-[node name="JellyfishTiny6" parent="." instance=ExtResource("8_4knja")]
-position = Vector2(3159, 99)
-
-[node name="JellyfishSmall2" parent="." instance=ExtResource("17_lrvbd")]
-position = Vector2(6341, 205)
-
-[node name="JellyfishPink" parent="." instance=ExtResource("28_voubc")]
-position = Vector2(8307, -8)
-
-[node name="JellyfishPink2" parent="." instance=ExtResource("28_voubc")]
-position = Vector2(11285, -39)
-
-[node name="JellyfishTiny7" parent="." instance=ExtResource("18_oqlok")]
-position = Vector2(13792, 218)
-freeze = true
-
-[node name="JellyfishTiny8" parent="." instance=ExtResource("18_oqlok")]
-position = Vector2(21719, 436)
-freeze = true
-
-[node name="JellyfishTiny9" parent="." instance=ExtResource("8_4knja")]
-position = Vector2(21880, 301)
-
-[node name="JellyfishPink3" parent="." instance=ExtResource("28_voubc")]
-position = Vector2(23523, 70)
-
 [node name="OxygenNode2D" type="Node2D" parent="."]
 
 [node name="OxygenBubble" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
@@ -1078,3 +1027,57 @@ rotation = 3.10325
 
 [node name="Kelp109" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
 position = Vector2(24578, 713)
+
+[node name="EnemiesNode2D" type="Node2D" parent="."]
+
+[node name="JellyfishPink3" parent="EnemiesNode2D" instance=ExtResource("28_voubc")]
+position = Vector2(23523, 70)
+
+[node name="JellyfishSmall" parent="EnemiesNode2D" instance=ExtResource("17_lrvbd")]
+position = Vector2(2450, 296)
+
+[node name="JellyRigidbody2D" parent="EnemiesNode2D" instance=ExtResource("25_ntdhj")]
+position = Vector2(1593, 152)
+
+[node name="JellyfishTiny2" parent="EnemiesNode2D" instance=ExtResource("8_4knja")]
+position = Vector2(1989, 359)
+rotation = -0.0349668
+scale = Vector2(1, 1)
+
+[node name="JellyfishTiny" parent="EnemiesNode2D" instance=ExtResource("18_oqlok")]
+position = Vector2(1408, 520)
+freeze = true
+
+[node name="JellyfishTiny3" parent="EnemiesNode2D" instance=ExtResource("18_oqlok")]
+position = Vector2(3828, 330)
+freeze = true
+
+[node name="JellyfishTiny4" parent="EnemiesNode2D" instance=ExtResource("18_oqlok")]
+position = Vector2(4408, 128)
+freeze = true
+
+[node name="JellyfishTiny5" parent="EnemiesNode2D" instance=ExtResource("8_4knja")]
+position = Vector2(4886, 382)
+
+[node name="JellyfishTiny6" parent="EnemiesNode2D" instance=ExtResource("8_4knja")]
+position = Vector2(3159, 99)
+
+[node name="JellyfishSmall2" parent="EnemiesNode2D" instance=ExtResource("17_lrvbd")]
+position = Vector2(6341, 205)
+
+[node name="JellyfishPink" parent="EnemiesNode2D" instance=ExtResource("28_voubc")]
+position = Vector2(8307, -8)
+
+[node name="JellyfishPink2" parent="EnemiesNode2D" instance=ExtResource("28_voubc")]
+position = Vector2(11285, -39)
+
+[node name="JellyfishTiny7" parent="EnemiesNode2D" instance=ExtResource("18_oqlok")]
+position = Vector2(13792, 218)
+freeze = true
+
+[node name="JellyfishTiny8" parent="EnemiesNode2D" instance=ExtResource("18_oqlok")]
+position = Vector2(21719, 436)
+freeze = true
+
+[node name="JellyfishTiny9" parent="EnemiesNode2D" instance=ExtResource("8_4knja")]
+position = Vector2(21880, 301)
