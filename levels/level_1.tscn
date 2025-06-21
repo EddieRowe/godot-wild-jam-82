@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://cnep5qop4e823"]
+[gd_scene load_steps=30 format=3 uid="uid://cnep5qop4e823"]
 
 [ext_resource type="PackedScene" uid="uid://crghl5mtabw4e" path="res://prefabs/main_audio.tscn" id="1_l53as"]
 [ext_resource type="PackedScene" uid="uid://cphyt7srqwafr" path="res://prefabs/Player.tscn" id="1_vn7o3"]
@@ -1042,7 +1042,6 @@ position = Vector2(1593, 152)
 [node name="JellyfishTiny2" parent="EnemiesNode2D" instance=ExtResource("8_4knja")]
 position = Vector2(1989, 359)
 rotation = -0.0349668
-scale = Vector2(1, 1)
 
 [node name="JellyfishTiny" parent="EnemiesNode2D" instance=ExtResource("18_oqlok")]
 position = Vector2(1408, 520)
