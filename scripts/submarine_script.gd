@@ -63,6 +63,8 @@ func _on_body_entered(body: Node) -> void:
 		health._take_damage(body.damage)
 	if body is OxygenSource:
 		oxygen._collect_oxygen(body)
+	if body is EnergySource:
+		energy.collect_energy(body)
 	if body.is_in_group("LevelComplete"):
 		get_tree().reload_current_scene()
 		

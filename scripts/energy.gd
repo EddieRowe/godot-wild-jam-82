@@ -35,6 +35,17 @@ func _handle_lighting(illuminate: bool):
 	
 	lightSource.scale = Vector2(currentLighting, currentLighting)
 
+func _recharge(amount : int) -> void:
+	currentEnergy += amount
+	if currentEnergy >= BATTERY_MAX:
+		currentEnergy = BATTERY_MAX
+	energyChanged.emit(get_energy_perc())
+
+func collect_energy(source: EnergySource) -> void:
+	_recharge(source.energy_charge)
+	if source.is_single_use:
+		source.dissipate()
+
 func get_energy_perc() -> int:
 	var decimal = float(currentEnergy) / float(BATTERY_MAX)
 	return int(decimal * 100)
