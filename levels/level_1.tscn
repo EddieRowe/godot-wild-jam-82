@@ -287,6 +287,8 @@ freeze = true
 
 [node name="FinishLine" parent="." groups=["LevelComplete"] instance=ExtResource("15_vjtdm")]
 position = Vector2(25066, 0)
+gravity_scale = 0.0
+freeze = true
 
 [node name="OxygenNode2D" type="Node2D" parent="."]
 
