@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://cnep5qop4e823"]
+[gd_scene load_steps=28 format=3 uid="uid://cnep5qop4e823"]
 
 [ext_resource type="PackedScene" uid="uid://crghl5mtabw4e" path="res://prefabs/main_audio.tscn" id="1_l53as"]
 [ext_resource type="PackedScene" uid="uid://cphyt7srqwafr" path="res://prefabs/Player.tscn" id="1_vn7o3"]
@@ -26,8 +26,6 @@
 [ext_resource type="Texture2D" uid="uid://cp4d550wonmbg" path="res://art/KelpMulticolor.png" id="18_0fu15"]
 [ext_resource type="PackedScene" uid="uid://bva7uggeq5tcl" path="res://prefabs/jellyfish_tiny.tscn" id="18_oqlok"]
 [ext_resource type="PackedScene" uid="uid://bf15fqnxqxfc0" path="res://prefabs/jellyfish.tscn" id="25_ntdhj"]
-[ext_resource type="PackedScene" uid="uid://bitecn2k7flpt" path="res://prefabs/electric_eel.tscn" id="28_0x1rk"]
-[ext_resource type="PackedScene" uid="uid://cnh6blsdmgrre" path="res://prefabs/battery.tscn" id="29_pnpm1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bt44k"]
 size = Vector2(26805.1, 118.5)
@@ -209,12 +207,6 @@ texture = ExtResource("6_udfhf")
 position = Vector2(21980, 161)
 
 [node name="EnergySources" type="Node2D" parent="."]
-
-[node name="Battery" parent="EnergySources" instance=ExtResource("29_pnpm1")]
-position = Vector2(3917, 525)
-
-[node name="ElectricEel" parent="EnergySources" instance=ExtResource("28_0x1rk")]
-position = Vector2(3389, 488)
 
 [node name="Obstacles" type="Node2D" parent="."]
 
