@@ -4,6 +4,7 @@ var speed : int = 10
 var player : PlayerMovement
 @export var animation_player : AnimationPlayer
 @export var movement_animation_name : String
+@export var damage : int = 15
 
 func _ready() -> void:
 	player = get_parent().get_node("Player/RigidBody2D")

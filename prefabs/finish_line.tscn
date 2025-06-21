@@ -3,7 +3,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dci07"]
 size = Vector2(232.5, 750.5)
 
-[node name="FinishLine" type="RigidBody2D" groups=["LevelComplete"]]
+[node name="FinishLine" type="RigidBody2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(169.75, 373.75)
