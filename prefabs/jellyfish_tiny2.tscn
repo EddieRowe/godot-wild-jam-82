@@ -1,14 +1,14 @@
 [gd_scene load_steps=8 format=3 uid="uid://btoe4pxxtf8si"]
 
 [ext_resource type="Script" uid="uid://cpty8c7tvj4qf" path="res://scripts/jellyfish.gd" id="1_lnnrt"]
-[ext_resource type="Texture2D" uid="uid://jkbquxepl510" path="res://art/JellyfishPink2.png" id="2_8r6fa"]
 [ext_resource type="Texture2D" uid="uid://beeh2eh2qs3io" path="res://art/JellyfishPink.png" id="3_lnnrt"]
+[ext_resource type="Texture2D" uid="uid://cjjun5elq1d5a" path="res://art/JellyfishPink2_Squeeze.png" id="3_m5hj0"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_61s87"]
 radius = 25.0
 height = 120.0
 
-[sub_resource type="Animation" id="Animation_m5hj0"]
+[sub_resource type="Animation" id="Animation_nh3ln"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -23,8 +23,8 @@ tracks/0/keys = {
 "values": [ExtResource("3_lnnrt")]
 }
 
-[sub_resource type="Animation" id="Animation_lnnrt"]
-resource_name = "jellyfish_pulse"
+[sub_resource type="Animation" id="Animation_8r6fa"]
+resource_name = "jellyfish_tiny2_move"
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -33,22 +33,26 @@ tracks/0/path = NodePath(".:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.0333333, 0.5),
+"times": PackedFloat32Array(0.2, 0.633333),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [ExtResource("3_lnnrt"), ExtResource("2_8r6fa")]
+"values": [ExtResource("3_m5hj0"), ExtResource("3_lnnrt")]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_nh3ln"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lnnrt"]
 _data = {
-&"RESET": SubResource("Animation_m5hj0"),
-&"jellyfish_pulse": SubResource("Animation_lnnrt")
+&"RESET": SubResource("Animation_nh3ln"),
+&"jellyfish_tiny2_move": SubResource("Animation_8r6fa")
 }
 
 [node name="JellyfishTiny2" type="RigidBody2D" node_paths=PackedStringArray("animation_player") groups=["Obstacle"]]
+freeze = true
+continuous_cd = 1
+contact_monitor = true
+max_contacts_reported = 3
 script = ExtResource("1_lnnrt")
 animation_player = NodePath("Sprite2D/AnimationPlayer")
-movement_animation_name = "jellyfish_pulse"
+movement_animation_name = "jellyfish_tiny2_move"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, -1)
@@ -62,7 +66,7 @@ texture = ExtResource("3_lnnrt")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
 libraries = {
-&"": SubResource("AnimationLibrary_nh3ln")
+&"": SubResource("AnimationLibrary_lnnrt")
 }
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

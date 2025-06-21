@@ -26,6 +26,8 @@
 [ext_resource type="Texture2D" uid="uid://cp4d550wonmbg" path="res://art/KelpMulticolor.png" id="18_0fu15"]
 [ext_resource type="PackedScene" uid="uid://bva7uggeq5tcl" path="res://prefabs/jellyfish_tiny.tscn" id="18_oqlok"]
 [ext_resource type="PackedScene" uid="uid://bf15fqnxqxfc0" path="res://prefabs/jellyfish.tscn" id="25_ntdhj"]
+[ext_resource type="PackedScene" uid="uid://c6md5ixhopnoe" path="res://prefabs/jellyfish_pink.tscn" id="28_voubc"]
+[ext_resource type="PackedScene" uid="uid://glvtqalegb67" path="res://prefabs/OxygenBubble.tscn" id="29_0x1rk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bt44k"]
 size = Vector2(26805.1, 118.5)
@@ -67,15 +69,6 @@ offset_right = 24573.0
 offset_bottom = 68.0
 color = Color(0, 0, 0, 1)
 
-[node name="Kelp" parent="Boundaries/BOUNDARYRigidBody2D" instance=ExtResource("4_kx6l7")]
-position = Vector2(189, 800)
-texture = ExtResource("10_ntdhj")
-
-[node name="Kelp2" parent="Boundaries/BOUNDARYRigidBody2D" instance=ExtResource("4_kx6l7")]
-position = Vector2(2460, 739)
-scale = Vector2(1, 1.90476)
-texture = ExtResource("6_i6od7")
-
 [node name="BOUNDARYRigidBody2D3" type="RigidBody2D" parent="Boundaries" groups=["Obstacle"]]
 position = Vector2(-96, 138)
 rotation = -1.57079
@@ -109,22 +102,6 @@ offset_right = 24577.0
 offset_bottom = 985.0
 color = Color(0, 0, 0, 1)
 
-[node name="Kelp" parent="Boundaries/BOUNDARYRigidBody2D2" instance=ExtResource("4_kx6l7")]
-position = Vector2(968, 161)
-texture = ExtResource("6_udfhf")
-
-[node name="Kelp2" parent="Boundaries/BOUNDARYRigidBody2D2" instance=ExtResource("4_kx6l7")]
-position = Vector2(702, 158)
-
-[node name="Kelp3" parent="Boundaries/BOUNDARYRigidBody2D2" instance=ExtResource("4_kx6l7")]
-position = Vector2(1971, 158)
-texture = ExtResource("7_i6od7")
-
-[node name="Kelp4" parent="Boundaries/BOUNDARYRigidBody2D2" instance=ExtResource("4_kx6l7")]
-position = Vector2(2337.5, 103)
-scale = Vector2(1.115, 1.76)
-texture = ExtResource("7_i6od7")
-
 [node name="Rock3" parent="Boundaries/BOUNDARYRigidBody2D2" instance=ExtResource("5_n46q3")]
 position = Vector2(2236, 127)
 freeze = true
@@ -133,637 +110,974 @@ freeze = true
 position = Vector2(14198, 124)
 freeze = true
 
-[node name="Kelp5" parent="Boundaries/BOUNDARYRigidBody2D2" instance=ExtResource("4_kx6l7")]
-position = Vector2(16404, -533)
-rotation = 3.06007
-
-[node name="Kelp6" parent="Boundaries/BOUNDARYRigidBody2D2" instance=ExtResource("4_kx6l7")]
-position = Vector2(20718, 198)
-texture = ExtResource("6_udfhf")
-
-[node name="Kelp7" parent="Boundaries/BOUNDARYRigidBody2D2" instance=ExtResource("4_kx6l7")]
-position = Vector2(21126, 155)
-texture = ExtResource("7_i6od7")
-
-[node name="Kelp8" parent="Boundaries/BOUNDARYRigidBody2D2" instance=ExtResource("4_kx6l7")]
-position = Vector2(21306, 144)
-scale = Vector2(1.06081, 1.44048)
-texture = ExtResource("7_i6od7")
-
-[node name="Kelp9" parent="Boundaries/BOUNDARYRigidBody2D2" instance=ExtResource("4_kx6l7")]
-position = Vector2(21214, 157)
-texture = ExtResource("6_udfhf")
-
-[node name="Kelp10" parent="Boundaries/BOUNDARYRigidBody2D2" instance=ExtResource("4_kx6l7")]
-position = Vector2(20917, 155)
-
-[node name="Kelp11" parent="Boundaries/BOUNDARYRigidBody2D2" instance=ExtResource("4_kx6l7")]
-position = Vector2(21380, 162)
-texture = ExtResource("6_udfhf")
-
-[node name="Kelp12" parent="Boundaries/BOUNDARYRigidBody2D2" instance=ExtResource("4_kx6l7")]
-position = Vector2(21537, 154)
-texture = ExtResource("7_i6od7")
-
-[node name="Kelp13" parent="Boundaries/BOUNDARYRigidBody2D2" instance=ExtResource("4_kx6l7")]
-position = Vector2(20838, -512)
-rotation = 3.12187
-scale = Vector2(1, 1.88126)
-
-[node name="Kelp14" parent="Boundaries/BOUNDARYRigidBody2D2" instance=ExtResource("4_kx6l7")]
-position = Vector2(20937, -555)
-rotation = 3.136
-
-[node name="Kelp15" parent="Boundaries/BOUNDARYRigidBody2D2" instance=ExtResource("4_kx6l7")]
-position = Vector2(20489, -549)
-rotation = 3.1249
-
-[node name="Kelp16" parent="Boundaries/BOUNDARYRigidBody2D2" instance=ExtResource("4_kx6l7")]
-position = Vector2(19705, -581)
-rotation = 3.13788
-
-[node name="Kelp17" parent="Boundaries/BOUNDARYRigidBody2D2" instance=ExtResource("4_kx6l7")]
-position = Vector2(20252, 147)
-texture = ExtResource("6_udfhf")
-
-[node name="Kelp18" parent="Boundaries/BOUNDARYRigidBody2D2" instance=ExtResource("4_kx6l7")]
-position = Vector2(20744, -556)
-rotation = -3.10247
-
-[node name="Kelp19" parent="Boundaries/BOUNDARYRigidBody2D2" instance=ExtResource("4_kx6l7")]
-position = Vector2(20206, -575)
-rotation = -3.06525
-
-[node name="Kelp20" parent="Boundaries/BOUNDARYRigidBody2D2" instance=ExtResource("4_kx6l7")]
-position = Vector2(21954, 82)
-scale = Vector2(0.965067, 0.74244)
-texture = ExtResource("18_0fu15")
-
-[node name="Kelp21" parent="Boundaries/BOUNDARYRigidBody2D2" instance=ExtResource("4_kx6l7")]
-position = Vector2(21823, 152)
-texture = ExtResource("6_udfhf")
-
-[node name="Kelp22" parent="Boundaries/BOUNDARYRigidBody2D2" instance=ExtResource("4_kx6l7")]
-position = Vector2(21980, 161)
-
-[node name="EnergySources" type="Node2D" parent="."]
-
 [node name="Obstacles" type="Node2D" parent="."]
 
-[node name="Kelp" parent="." instance=ExtResource("4_kx6l7")]
-position = Vector2(342, 695)
-
-[node name="Kelp2" parent="." instance=ExtResource("4_kx6l7")]
-position = Vector2(823, 42)
-rotation = -3.14159
-scale = Vector2(1, 1.88156)
-
-[node name="Kelp3" parent="." instance=ExtResource("4_kx6l7")]
-position = Vector2(1643.25, 564.28)
-scale = Vector2(1.2875, 2.4228)
-texture = ExtResource("10_ntdhj")
-
-[node name="Kelp4" parent="." instance=ExtResource("4_kx6l7")]
-position = Vector2(1530, 721)
-
-[node name="Kelp5" parent="." instance=ExtResource("4_kx6l7")]
-position = Vector2(1557, 599)
-scale = Vector2(1.31743, 2.00482)
-texture = ExtResource("8_ryfpa")
-
-[node name="Rock2" parent="." instance=ExtResource("5_n46q3")]
+[node name="Rock2" parent="Obstacles" instance=ExtResource("5_n46q3")]
 position = Vector2(468, 725)
 freeze = true
 
-[node name="Rock3" parent="." instance=ExtResource("5_n46q3")]
+[node name="Rock3" parent="Obstacles" instance=ExtResource("5_n46q3")]
 position = Vector2(845, 710)
 scale = Vector2(1.7817, 1.32423)
 freeze = true
 
-[node name="Rock1" parent="." instance=ExtResource("6_btoec")]
+[node name="Rock1" parent="Obstacles" instance=ExtResource("6_btoec")]
 position = Vector2(1430, 307)
 
-[node name="Stalactite" parent="." instance=ExtResource("8_l53as")]
+[node name="Stalactite" parent="Obstacles" instance=ExtResource("8_l53as")]
 freeze = true
 
-[node name="Stalactite2" parent="." instance=ExtResource("8_l53as")]
+[node name="Stalactite2" parent="Obstacles" instance=ExtResource("8_l53as")]
 position = Vector2(2153, -35)
 scale = Vector2(1.47176, 1.99089)
 freeze = true
 
-[node name="Kelp6" parent="." instance=ExtResource("4_kx6l7")]
-position = Vector2(742, 679.703)
-scale = Vector2(1, 1.61703)
-texture = ExtResource("6_i6od7")
-
-[node name="Kelp7" parent="." instance=ExtResource("4_kx6l7")]
-position = Vector2(754, -3)
-rotation = -3.09934
-
-[node name="Stalactite3" parent="." instance=ExtResource("8_l53as")]
+[node name="Stalactite3" parent="Obstacles" instance=ExtResource("8_l53as")]
 position = Vector2(2509, -10)
 freeze = true
 
-[node name="Kelp8" parent="." instance=ExtResource("4_kx6l7")]
-position = Vector2(2568, 599)
-scale = Vector2(1.79, 1.8406)
-texture = ExtResource("8_ryfpa")
-
-[node name="Kelp9" parent="." instance=ExtResource("4_kx6l7")]
-position = Vector2(2677, 603.119)
-scale = Vector2(1.2027, 1.95119)
-texture = ExtResource("6_i6od7")
-
-[node name="RockLarge" parent="." instance=ExtResource("9_3sk1a")]
+[node name="RockLarge" parent="Obstacles" instance=ExtResource("9_3sk1a")]
 position = Vector2(2558, 171)
-rotation = -6.27721
+rotation = 0.00597507
 scale = Vector2(2.34716, 1.37067)
 freeze = true
 
-[node name="Kelp10" parent="." instance=ExtResource("4_kx6l7")]
-position = Vector2(1936, 11)
-rotation = 3.04759
-scale = Vector2(0.939189, 1.41071)
-
-[node name="Kelp11" parent="." instance=ExtResource("4_kx6l7")]
-position = Vector2(3277, 13)
-rotation = -3.12744
-
-[node name="Kelp12" parent="." instance=ExtResource("4_kx6l7")]
-position = Vector2(3936, 513)
-scale = Vector2(1, 1.79167)
-texture = ExtResource("6_udfhf")
-
-[node name="Kelp13" parent="." instance=ExtResource("4_kx6l7")]
-position = Vector2(3838, 555)
-
-[node name="Stalactite4" parent="." instance=ExtResource("8_l53as")]
+[node name="Stalactite4" parent="Obstacles" instance=ExtResource("8_l53as")]
 position = Vector2(4822, -5)
 freeze = true
 
-[node name="Stalactite5" parent="." instance=ExtResource("8_l53as")]
+[node name="Stalactite5" parent="Obstacles" instance=ExtResource("8_l53as")]
 position = Vector2(5075, -5)
 freeze = true
 
-[node name="Kelp14" parent="." instance=ExtResource("4_kx6l7")]
-position = Vector2(4788, 684)
-texture = ExtResource("6_udfhf")
-
-[node name="Kelp15" parent="." instance=ExtResource("4_kx6l7")]
-position = Vector2(4910, 560)
-scale = Vector2(0.96, 2.07488)
-texture = ExtResource("15_ryfpa")
-
-[node name="StalectiteMed" parent="." instance=ExtResource("10_08mmt")]
+[node name="StalectiteMed" parent="Obstacles" instance=ExtResource("10_08mmt")]
 freeze = true
 
-[node name="StalectiteMed2" parent="." instance=ExtResource("10_08mmt")]
+[node name="StalectiteMed2" parent="Obstacles" instance=ExtResource("10_08mmt")]
 position = Vector2(5465, -9)
 freeze = true
 
-[node name="Stalactite6" parent="." instance=ExtResource("8_l53as")]
+[node name="Stalactite6" parent="Obstacles" instance=ExtResource("8_l53as")]
 position = Vector2(5594, -59)
 freeze = true
 
-[node name="Kelp16" parent="." instance=ExtResource("4_kx6l7")]
-position = Vector2(5313, 9.99998)
-rotation = 3.12204
-scale = Vector2(1, 1.22024)
-
-[node name="Kelp17" parent="." instance=ExtResource("4_kx6l7")]
-position = Vector2(5263, -4.00003)
-rotation = 3.08904
-
-[node name="Kelp18" parent="." instance=ExtResource("4_kx6l7")]
-position = Vector2(5851, -13)
-rotation = 2.98593
-
-[node name="Kelp19" parent="." instance=ExtResource("4_kx6l7")]
-position = Vector2(4505, -8.00002)
-rotation = 3.10864
-
-[node name="Kelp20" parent="." instance=ExtResource("4_kx6l7")]
-position = Vector2(4072, 561)
-
-[node name="StalectiteLarge" parent="." instance=ExtResource("11_5ot28")]
+[node name="StalectiteLarge" parent="Obstacles" instance=ExtResource("11_5ot28")]
 freeze = true
 
-[node name="StalectiteLarge2" parent="." instance=ExtResource("11_5ot28")]
+[node name="StalectiteLarge2" parent="Obstacles" instance=ExtResource("11_5ot28")]
 position = Vector2(6048, -11)
 freeze = true
 
-[node name="Rock4" parent="." instance=ExtResource("5_n46q3")]
+[node name="Rock4" parent="Obstacles" instance=ExtResource("5_n46q3")]
 position = Vector2(5663, 695)
 freeze = true
 
-[node name="Kelp21" parent="." instance=ExtResource("4_kx6l7")]
-position = Vector2(5578.5, 711.5)
-scale = Vector2(0.905, 0.875)
-texture = ExtResource("6_udfhf")
-
-[node name="Kelp22" parent="." instance=ExtResource("4_kx6l7")]
-position = Vector2(5909, 595)
-scale = Vector2(1.105, 1.89715)
-texture = ExtResource("6_i6od7")
-
-[node name="Kelp23" parent="." instance=ExtResource("4_kx6l7")]
-position = Vector2(5978, 735)
-scale = Vector2(0.915, 0.995)
-texture = ExtResource("6_udfhf")
-
-[node name="Kelp24" parent="." instance=ExtResource("4_kx6l7")]
-position = Vector2(6619, 10)
-rotation = 3.14015
-
-[node name="Kelp25" parent="." instance=ExtResource("4_kx6l7")]
-position = Vector2(6703, 5.99999)
-rotation = -3.58314
-
-[node name="RockLarge2" parent="." instance=ExtResource("9_3sk1a")]
+[node name="RockLarge2" parent="Obstacles" instance=ExtResource("9_3sk1a")]
 position = Vector2(6184, 297)
 freeze = true
 
-[node name="Kelp26" parent="." instance=ExtResource("4_kx6l7")]
-position = Vector2(7413, 691)
-texture = ExtResource("6_udfhf")
-
-[node name="Kelp27" parent="." instance=ExtResource("4_kx6l7")]
-position = Vector2(7591, 590)
-scale = Vector2(1.32645, 1.30822)
-texture = ExtResource("18_0fu15")
-
-[node name="Kelp28" parent="." instance=ExtResource("4_kx6l7")]
-position = Vector2(9602, 584)
-scale = Vector2(1.2775, 1.32071)
-texture = ExtResource("18_0fu15")
-
-[node name="Kelp29" parent="." instance=ExtResource("4_kx6l7")]
-position = Vector2(7659, 687)
-texture = ExtResource("7_i6od7")
-
-[node name="Kelp30" parent="." instance=ExtResource("4_kx6l7")]
-position = Vector2(8006, 674)
-
-[node name="Rock5" parent="." instance=ExtResource("6_btoec")]
+[node name="Rock5" parent="Obstacles" instance=ExtResource("6_btoec")]
 position = Vector2(7807, 264)
 
-[node name="Rock6" parent="." instance=ExtResource("5_n46q3")]
+[node name="Rock6" parent="Obstacles" instance=ExtResource("5_n46q3")]
 position = Vector2(7857, 724)
 freeze = true
 
-[node name="Kelp31" parent="." instance=ExtResource("4_kx6l7")]
-position = Vector2(8762, 645)
-scale = Vector2(1, 1.99405)
-
-[node name="Kelp32" parent="." instance=ExtResource("4_kx6l7")]
-position = Vector2(7522, 44)
-rotation = -3.13206
-scale = Vector2(1, 2.09162)
-
-[node name="Kelp33" parent="." instance=ExtResource("4_kx6l7")]
-position = Vector2(7622, 21.9999)
-rotation = 2.94388
-
-[node name="RockLarge3" parent="." instance=ExtResource("12_aerfg")]
+[node name="RockLarge3" parent="Obstacles" instance=ExtResource("12_aerfg")]
 position = Vector2(13380, 618)
 freeze = true
 
-[node name="RockLarge4" parent="." instance=ExtResource("12_aerfg")]
+[node name="RockLarge4" parent="Obstacles" instance=ExtResource("12_aerfg")]
 position = Vector2(10035, 452)
 freeze = true
 
-[node name="Kelp34" parent="." instance=ExtResource("4_kx6l7")]
-position = Vector2(9822, 696)
-texture = ExtResource("6_udfhf")
-
-[node name="Kelp36" parent="." instance=ExtResource("4_kx6l7")]
-position = Vector2(9692, 655)
-scale = Vector2(1.28378, 1.42262)
-texture = ExtResource("15_ryfpa")
-
-[node name="Kelp38" parent="." instance=ExtResource("4_kx6l7")]
-position = Vector2(9409, 691)
-texture = ExtResource("6_udfhf")
-
-[node name="Stalactite7" parent="." instance=ExtResource("8_l53as")]
+[node name="Stalactite7" parent="Obstacles" instance=ExtResource("8_l53as")]
 position = Vector2(9059, -15)
 freeze = true
 
-[node name="Stalactite8" parent="." instance=ExtResource("8_l53as")]
+[node name="Stalactite8" parent="Obstacles" instance=ExtResource("8_l53as")]
 position = Vector2(9168, 14)
 freeze = true
 
-[node name="Rock7" parent="." instance=ExtResource("5_n46q3")]
+[node name="Rock7" parent="Obstacles" instance=ExtResource("5_n46q3")]
 position = Vector2(10705, 682)
 
-[node name="Kelp40" parent="." instance=ExtResource("4_kx6l7")]
-position = Vector2(10749, 631)
-texture = ExtResource("7_i6od7")
-
-[node name="RockLarge5" parent="." instance=ExtResource("9_3sk1a")]
+[node name="RockLarge5" parent="Obstacles" instance=ExtResource("9_3sk1a")]
 position = Vector2(11909, 298)
 freeze = true
 
-[node name="RockLarge6" parent="." instance=ExtResource("9_3sk1a")]
+[node name="RockLarge6" parent="Obstacles" instance=ExtResource("9_3sk1a")]
 position = Vector2(11558, 255)
 freeze = true
 
-[node name="Kelp41" parent="." instance=ExtResource("4_kx6l7")]
-position = Vector2(11507, 714)
-texture = ExtResource("6_udfhf")
-
-[node name="Kelp42" parent="." instance=ExtResource("4_kx6l7")]
-position = Vector2(11413, 609)
-scale = Vector2(1.155, 1.99155)
-texture = ExtResource("6_i6od7")
-
-[node name="Kelp43" parent="." instance=ExtResource("4_kx6l7")]
-position = Vector2(13183, 695)
-texture = ExtResource("6_udfhf")
-
-[node name="StalectiteLarge3" parent="." instance=ExtResource("11_5ot28")]
+[node name="StalectiteLarge3" parent="Obstacles" instance=ExtResource("11_5ot28")]
 position = Vector2(14431, -20)
 freeze = true
 
-[node name="Kelp44" parent="." instance=ExtResource("4_kx6l7")]
-position = Vector2(14304, 640)
-scale = Vector2(1.4, 1.52821)
-texture = ExtResource("15_ryfpa")
-
-[node name="Kelp45" parent="." instance=ExtResource("4_kx6l7")]
-position = Vector2(14391, 673)
-
-[node name="Kelp46" parent="." instance=ExtResource("4_kx6l7")]
-position = Vector2(14244, 727)
-
-[node name="Kelp47" parent="." instance=ExtResource("4_kx6l7")]
-position = Vector2(15032, 559)
-scale = Vector2(1.2829, 1.47964)
-texture = ExtResource("18_0fu15")
-
-[node name="Kelp48" parent="." instance=ExtResource("4_kx6l7")]
-position = Vector2(15593, 599)
-scale = Vector2(1.145, 1.96393)
-texture = ExtResource("6_i6od7")
-
-[node name="Kelp49" parent="." instance=ExtResource("4_kx6l7")]
-position = Vector2(14907, 729)
-scale = Vector2(1, 1.57143)
-texture = ExtResource("7_i6od7")
-
-[node name="Kelp50" parent="." instance=ExtResource("4_kx6l7")]
-position = Vector2(12154, 65.0001)
-rotation = 3.07075
-scale = Vector2(1, 2.01337)
-
-[node name="Kelp51" parent="." instance=ExtResource("4_kx6l7")]
-position = Vector2(12027, 25)
-rotation = 3.12592
-
-[node name="Kelp52" parent="." instance=ExtResource("4_kx6l7")]
-position = Vector2(12723, 8)
-rotation = -3.13516
-
-[node name="Kelp53" parent="." instance=ExtResource("4_kx6l7")]
-position = Vector2(13158, 12)
-rotation = 3.02672
-
-[node name="Kelp54" parent="." instance=ExtResource("4_kx6l7")]
-position = Vector2(13267, 48.0001)
-rotation = 3.04292
-scale = Vector2(1, 2.56865)
-
-[node name="Kelp55" parent="." instance=ExtResource("4_kx6l7")]
-position = Vector2(10364, 24.9998)
-rotation = 2.92655
-scale = Vector2(1, 1.5)
-
-[node name="StalectiteMed3" parent="." instance=ExtResource("10_08mmt")]
+[node name="StalectiteMed3" parent="Obstacles" instance=ExtResource("10_08mmt")]
 position = Vector2(15131, -142)
 freeze = true
 
-[node name="Kelp56" parent="." instance=ExtResource("4_kx6l7")]
-position = Vector2(15100, 741)
-texture = ExtResource("7_i6od7")
-
-[node name="Stalactite9" parent="." instance=ExtResource("8_l53as")]
+[node name="Stalactite9" parent="Obstacles" instance=ExtResource("8_l53as")]
 position = Vector2(15366, -71)
 freeze = true
 
-[node name="Stalactite10" parent="." instance=ExtResource("8_l53as")]
+[node name="Stalactite10" parent="Obstacles" instance=ExtResource("8_l53as")]
 position = Vector2(15546, -4)
 freeze = true
 
-[node name="RockLarge7" parent="." instance=ExtResource("9_3sk1a")]
+[node name="RockLarge7" parent="Obstacles" instance=ExtResource("9_3sk1a")]
 position = Vector2(15500, 322)
 freeze = true
 
-[node name="Rock8" parent="." instance=ExtResource("6_btoec")]
+[node name="Rock8" parent="Obstacles" instance=ExtResource("6_btoec")]
 position = Vector2(16147, 380)
 
-[node name="Kelp57" parent="." instance=ExtResource("4_kx6l7")]
-position = Vector2(16365, 643)
-
-[node name="Kelp58" parent="." instance=ExtResource("4_kx6l7")]
-position = Vector2(16619, 512)
-scale = Vector2(1, 2.14286)
-
-[node name="Kelp59" parent="." instance=ExtResource("4_kx6l7")]
-position = Vector2(16749, 577)
-
-[node name="StalectiteLarge4" parent="." instance=ExtResource("11_5ot28")]
+[node name="StalectiteLarge4" parent="Obstacles" instance=ExtResource("11_5ot28")]
 position = Vector2(17361, 15)
 freeze = true
 
-[node name="StalectiteMed4" parent="." instance=ExtResource("10_08mmt")]
+[node name="StalectiteMed4" parent="Obstacles" instance=ExtResource("10_08mmt")]
 position = Vector2(17524, 7)
 freeze = true
 
-[node name="Stalactite11" parent="." instance=ExtResource("8_l53as")]
+[node name="Stalactite11" parent="Obstacles" instance=ExtResource("8_l53as")]
 position = Vector2(17624, 15)
 freeze = true
 
-[node name="Kelp60" parent="." instance=ExtResource("4_kx6l7")]
-position = Vector2(17010, 54.9997)
-rotation = -3.22832
-scale = Vector2(1, 1.67262)
-
-[node name="RockCollosal" parent="." instance=ExtResource("13_nmsli")]
+[node name="RockCollosal" parent="Obstacles" instance=ExtResource("13_nmsli")]
 position = Vector2(18087, 391)
 freeze = true
 
-[node name="RockLarge8" parent="." instance=ExtResource("12_aerfg")]
+[node name="RockLarge8" parent="Obstacles" instance=ExtResource("12_aerfg")]
 position = Vector2(19950, 508)
 freeze = true
 
-[node name="Kelp61" parent="." instance=ExtResource("4_kx6l7")]
-position = Vector2(19768, 561)
-scale = Vector2(1.12324, 1.71095)
-texture = ExtResource("18_0fu15")
-
-[node name="Kelp62" parent="." instance=ExtResource("4_kx6l7")]
-position = Vector2(19667, 636.905)
-scale = Vector2(1.3, 1.66905)
-texture = ExtResource("10_ntdhj")
-
-[node name="Kelp63" parent="." instance=ExtResource("4_kx6l7")]
-position = Vector2(20055, 458)
-
-[node name="Kelp64" parent="." instance=ExtResource("4_kx6l7")]
-position = Vector2(17773.5, 651.583)
-scale = Vector2(0.785, 1.45583)
-texture = ExtResource("15_ryfpa")
-
-[node name="Kelp65" parent="." instance=ExtResource("4_kx6l7")]
-position = Vector2(17688, 612)
-scale = Vector2(1.17, 1.93274)
-texture = ExtResource("15_ryfpa")
-
-[node name="Kelp66" parent="." instance=ExtResource("4_kx6l7")]
-position = Vector2(17582, 700)
-texture = ExtResource("6_udfhf")
-
-[node name="Kelp67" parent="." instance=ExtResource("4_kx6l7")]
-position = Vector2(17321, 549)
-scale = Vector2(0.865, 1.31965)
-texture = ExtResource("18_0fu15")
-
-[node name="Kelp68" parent="." instance=ExtResource("4_kx6l7")]
-position = Vector2(17194, 691)
-scale = Vector2(1, 1.82143)
-texture = ExtResource("7_i6od7")
-
-[node name="Rock9" parent="." instance=ExtResource("5_n46q3")]
+[node name="Rock9" parent="Obstacles" instance=ExtResource("5_n46q3")]
 position = Vector2(17235, 679)
 freeze = true
 
-[node name="Stalactite12" parent="." instance=ExtResource("8_l53as")]
+[node name="Stalactite12" parent="Obstacles" instance=ExtResource("8_l53as")]
 position = Vector2(18083, -39)
 freeze = true
 
-[node name="Kelp69" parent="." instance=ExtResource("4_kx6l7")]
-position = Vector2(17941, -27)
-rotation = -3.12741
-
-[node name="StalectiteMed5" parent="." instance=ExtResource("10_08mmt")]
+[node name="StalectiteMed5" parent="Obstacles" instance=ExtResource("10_08mmt")]
 position = Vector2(19670, -156)
 freeze = true
 
-[node name="Stalactite13" parent="." instance=ExtResource("8_l53as")]
+[node name="Stalactite13" parent="Obstacles" instance=ExtResource("8_l53as")]
 position = Vector2(19478, -56)
 
-[node name="Kelp70" parent="." instance=ExtResource("4_kx6l7")]
-position = Vector2(21008, 623)
-scale = Vector2(1.02027, 1.93452)
-texture = ExtResource("15_ryfpa")
-
-[node name="Kelp71" parent="." instance=ExtResource("4_kx6l7")]
-position = Vector2(21110, 576)
-scale = Vector2(1.17973, 2.30607)
-texture = ExtResource("6_i6od7")
-
-[node name="Kelp72" parent="." instance=ExtResource("4_kx6l7")]
-position = Vector2(20487, 43)
-rotation = -3.05674
-scale = Vector2(1, 1.64286)
-
-[node name="Kelp73" parent="." instance=ExtResource("4_kx6l7")]
-position = Vector2(20448, -3)
-rotation = 2.85809
-
-[node name="Kelp74" parent="." instance=ExtResource("4_kx6l7")]
-position = Vector2(22508, 615)
-scale = Vector2(1.125, 1.69929)
-texture = ExtResource("6_i6od7")
-
-[node name="Kelp75" parent="." instance=ExtResource("4_kx6l7")]
-position = Vector2(22581, 738)
-texture = ExtResource("7_i6od7")
-
-[node name="RockCeiling" parent="." instance=ExtResource("14_betor")]
+[node name="RockCeiling" parent="Obstacles" instance=ExtResource("14_betor")]
 position = Vector2(21439, -54)
 freeze = true
 
-[node name="Kelp76" parent="." instance=ExtResource("4_kx6l7")]
-position = Vector2(23108, 23)
-rotation = 3.03716
-scale = Vector2(1, 1.67857)
-
-[node name="Kelp77" parent="." instance=ExtResource("4_kx6l7")]
-position = Vector2(23167, 5.99976)
-rotation = 2.98118
-
-[node name="Kelp78" parent="." instance=ExtResource("4_kx6l7")]
-position = Vector2(23428, 3.8147e-06)
-rotation = 3.0821
-
-[node name="Rock10" parent="." instance=ExtResource("5_n46q3")]
+[node name="Rock10" parent="Obstacles" instance=ExtResource("5_n46q3")]
 position = Vector2(22574, 682)
 freeze = true
 
-[node name="Kelp79" parent="." instance=ExtResource("4_kx6l7")]
-position = Vector2(22709, 673)
-
-[node name="Kelp80" parent="." instance=ExtResource("4_kx6l7")]
-position = Vector2(23050, 621)
-scale = Vector2(0.8125, 1.00797)
-texture = ExtResource("18_0fu15")
-
-[node name="Kelp81" parent="." instance=ExtResource("4_kx6l7")]
-position = Vector2(22918, 708)
-texture = ExtResource("6_udfhf")
-
-[node name="Rock11" parent="." instance=ExtResource("5_n46q3")]
+[node name="Rock11" parent="Obstacles" instance=ExtResource("5_n46q3")]
 position = Vector2(22694, 703)
 freeze = true
 
-[node name="Kelp82" parent="." instance=ExtResource("4_kx6l7")]
-position = Vector2(23136, 728)
-texture = ExtResource("6_udfhf")
-
-[node name="Kelp83" parent="." instance=ExtResource("4_kx6l7")]
-position = Vector2(23528, 719)
-
-[node name="Rock12" parent="." instance=ExtResource("5_n46q3")]
+[node name="Rock12" parent="Obstacles" instance=ExtResource("5_n46q3")]
 position = Vector2(23328, 697)
 freeze = true
 
 [node name="FinishLine" parent="." instance=ExtResource("15_vjtdm")]
 position = Vector2(24773, -30)
 
-[node name="Kelp84" parent="." instance=ExtResource("4_kx6l7")]
+[node name="OxygenNode2D" type="Node2D" parent="."]
+
+[node name="OxygenBubble" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
+position = Vector2(1538, 522)
+freeze = true
+
+[node name="OxygenBubble2" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
+position = Vector2(1628, 405)
+freeze = true
+
+[node name="OxygenBubble3" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
+position = Vector2(2430, 672)
+freeze = true
+
+[node name="OxygenBubble4" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
+position = Vector2(2464, 573)
+freeze = true
+
+[node name="OxygenBubble5" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
+position = Vector2(2635, 509)
+freeze = true
+
+[node name="OxygenBubble6" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
+position = Vector2(2780, 563)
+freeze = true
+
+[node name="OxygenBubble7" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
+position = Vector2(2990, 498)
+freeze = true
+
+[node name="OxygenBubble8" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
+position = Vector2(3937, 418)
+freeze = true
+
+[node name="OxygenBubble9" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
+position = Vector2(4877, 485)
+freeze = true
+
+[node name="OxygenBubble10" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
+position = Vector2(4786, 620)
+freeze = true
+
+[node name="OxygenBubble11" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
+position = Vector2(5572, 675)
+freeze = true
+
+[node name="OxygenBubble12" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
+position = Vector2(5868, 532)
+freeze = true
+
+[node name="OxygenBubble13" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
+position = Vector2(7390, 579)
+freeze = true
+
+[node name="OxygenBubble43" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
+position = Vector2(21221, 615)
+freeze = true
+
+[node name="OxygenBubble44" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
+position = Vector2(21652, 625)
+freeze = true
+
+[node name="OxygenBubble45" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
+position = Vector2(21727, 571)
+freeze = true
+
+[node name="OxygenBubble46" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
+position = Vector2(21854, 607)
+freeze = true
+
+[node name="OxygenBubble47" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
+position = Vector2(21908, 553)
+freeze = true
+
+[node name="OxygenBubble48" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
+position = Vector2(22080, 571)
+freeze = true
+
+[node name="OxygenBubble49" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
+position = Vector2(22269, 558)
+freeze = true
+
+[node name="OxygenBubble50" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
+position = Vector2(22342, 449)
+freeze = true
+
+[node name="OxygenBubble51" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
+position = Vector2(22479, 498)
+freeze = true
+
+[node name="OxygenBubble52" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
+position = Vector2(22575, 566)
+freeze = true
+
+[node name="OxygenBubble53" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
+position = Vector2(22866, 573)
+freeze = true
+
+[node name="OxygenBubble54" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
+position = Vector2(22951, 522)
+freeze = true
+
+[node name="OxygenBubble55" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
+position = Vector2(23050, 475)
+freeze = true
+
+[node name="OxygenBubble56" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
+position = Vector2(23153, 584)
+freeze = true
+
+[node name="OxygenBubble57" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
+position = Vector2(24792, 594)
+freeze = true
+
+[node name="OxygenBubble58" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
+position = Vector2(24787, 407)
+freeze = true
+
+[node name="OxygenBubble59" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
+position = Vector2(24751, 462)
+freeze = true
+
+[node name="OxygenBubble60" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
+position = Vector2(24872, 324)
+freeze = true
+
+[node name="OxygenBubble61" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
+position = Vector2(24797, 254)
+freeze = true
+
+[node name="OxygenBubble62" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
+position = Vector2(24792, 125)
+freeze = true
+
+[node name="OxygenBubble63" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
+position = Vector2(24870, 177)
+freeze = true
+
+[node name="OxygenBubble64" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
+position = Vector2(24735, 47)
+freeze = true
+
+[node name="OxygenBubble65" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
+position = Vector2(21678, 171)
+freeze = true
+
+[node name="OxygenBubble66" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
+position = Vector2(21800, 143)
+freeze = true
+
+[node name="OxygenBubble67" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
+position = Vector2(22342, 179)
+freeze = true
+
+[node name="OxygenBubble68" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
+position = Vector2(22599, 114)
+freeze = true
+
+[node name="OxygenBubble14" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
+position = Vector2(7471, 509)
+freeze = true
+
+[node name="OxygenBubble15" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
+position = Vector2(7593, 503)
+freeze = true
+
+[node name="OxygenBubble16" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
+position = Vector2(9386, 586)
+freeze = true
+
+[node name="OxygenBubble17" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
+position = Vector2(9492, 477)
+freeze = true
+
+[node name="OxygenBubble18" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
+position = Vector2(9669, 524)
+freeze = true
+
+[node name="OxygenBubble19" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
+position = Vector2(9757, 553)
+freeze = true
+
+[node name="OxygenBubble20" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
+position = Vector2(10719, 514)
+freeze = true
+
+[node name="OxygenBubble21" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
+position = Vector2(11373, 496)
+freeze = true
+
+[node name="OxygenBubble22" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
+position = Vector2(11466, 537)
+freeze = true
+
+[node name="OxygenBubble23" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
+position = Vector2(11562, 628)
+freeze = true
+
+[node name="OxygenBubble24" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
+position = Vector2(13163, 602)
+freeze = true
+
+[node name="OxygenBubble25" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
+position = Vector2(14252, 532)
+freeze = true
+
+[node name="OxygenBubble26" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
+position = Vector2(14914, 428)
+freeze = true
+
+[node name="OxygenBubble27" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
+position = Vector2(15056, 532)
+freeze = true
+
+[node name="OxygenBubble28" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
+position = Vector2(15095, 615)
+freeze = true
+
+[node name="OxygenBubble29" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
+position = Vector2(15525, 498)
+freeze = true
+
+[node name="OxygenBubble30" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
+position = Vector2(15647, 547)
+freeze = true
+
+[node name="OxygenBubble31" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
+position = Vector2(17163, 519)
+freeze = true
+
+[node name="OxygenBubble32" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
+position = Vector2(17267, 387)
+freeze = true
+
+[node name="OxygenBubble33" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
+position = Vector2(17329, 511)
+freeze = true
+
+[node name="OxygenBubble34" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
+position = Vector2(17557, 597)
+freeze = true
+
+[node name="OxygenBubble35" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
+position = Vector2(17656, 501)
+freeze = true
+
+[node name="OxygenBubble36" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
+position = Vector2(17762, 592)
+freeze = true
+
+[node name="OxygenBubble37" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
+position = Vector2(19618, 410)
+freeze = true
+
+[node name="OxygenBubble38" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
+position = Vector2(19743, 397)
+freeze = true
+
+[node name="OxygenBubble39" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
+position = Vector2(20726, 628)
+freeze = true
+
+[node name="OxygenBubble40" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
+position = Vector2(20951, 514)
+freeze = true
+
+[node name="OxygenBubble41" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
+position = Vector2(21073, 451)
+freeze = true
+
+[node name="OxygenBubble42" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
+position = Vector2(21169, 560)
+freeze = true
+
+[node name="KelpNode2D" type="Node2D" parent="."]
+
+[node name="Kelp" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(678, 704)
+texture = ExtResource("10_ntdhj")
+
+[node name="Kelp2" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(2949, 643)
+scale = Vector2(1, 1.90476)
+texture = ExtResource("6_i6od7")
+
+[node name="Kelp3" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(1457, 722)
+texture = ExtResource("6_udfhf")
+
+[node name="Kelp4" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(1191, 719)
+
+[node name="Kelp5" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(2460, 719)
+texture = ExtResource("7_i6od7")
+
+[node name="Kelp6" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(2826.5, 664)
+scale = Vector2(1.115, 1.76)
+texture = ExtResource("7_i6od7")
+
+[node name="Kelp7" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(16893, 28)
+rotation = 3.06007
+
+[node name="Kelp8" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(21207, 759)
+texture = ExtResource("6_udfhf")
+
+[node name="Kelp9" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(21615, 716)
+texture = ExtResource("7_i6od7")
+
+[node name="Kelp10" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(21795, 705)
+scale = Vector2(1.06081, 1.44048)
+texture = ExtResource("7_i6od7")
+
+[node name="Kelp11" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(21703, 718)
+texture = ExtResource("6_udfhf")
+
+[node name="Kelp12" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(21406, 716)
+
+[node name="Kelp13" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(21869, 723)
+texture = ExtResource("6_udfhf")
+
+[node name="Kelp14" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(22026, 715)
+texture = ExtResource("7_i6od7")
+
+[node name="Kelp15" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(21327, 49)
+rotation = 3.12187
+scale = Vector2(1, 1.88126)
+
+[node name="Kelp16" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(21426, 6)
+rotation = 3.136
+
+[node name="Kelp17" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(20978, 12)
+rotation = 3.1249
+
+[node name="Kelp18" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(20194, -20)
+rotation = 3.13788
+
+[node name="Kelp19" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(20741, 708)
+texture = ExtResource("6_udfhf")
+
+[node name="Kelp20" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(21233, 5)
+rotation = -3.10247
+
+[node name="Kelp21" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(20695, -14)
+rotation = -3.06525
+
+[node name="Kelp22" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(22443, 643)
+scale = Vector2(0.965067, 0.74244)
+texture = ExtResource("18_0fu15")
+
+[node name="Kelp23" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(22312, 713)
+texture = ExtResource("6_udfhf")
+
+[node name="Kelp24" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(22469, 722)
+
+[node name="Kelp25" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(342, 695)
+
+[node name="Kelp26" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(823, 42)
+rotation = -3.14159
+scale = Vector2(1, 1.88156)
+
+[node name="Kelp27" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(1643.25, 564.28)
+scale = Vector2(1.2875, 2.4228)
+texture = ExtResource("10_ntdhj")
+
+[node name="Kelp28" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(1530, 721)
+
+[node name="Kelp29" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(1557, 599)
+scale = Vector2(1.31743, 2.00482)
+texture = ExtResource("8_ryfpa")
+
+[node name="Kelp30" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(742, 679.703)
+scale = Vector2(1, 1.61703)
+texture = ExtResource("6_i6od7")
+
+[node name="Kelp31" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(754, -3)
+rotation = -3.09934
+
+[node name="Kelp32" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(2568, 599)
+scale = Vector2(1.79, 1.8406)
+texture = ExtResource("8_ryfpa")
+
+[node name="Kelp33" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(2677, 603.119)
+scale = Vector2(1.2027, 1.95119)
+texture = ExtResource("6_i6od7")
+
+[node name="Kelp34" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(1936, 11)
+rotation = 3.04759
+scale = Vector2(0.939189, 1.41071)
+
+[node name="Kelp35" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(3277, 13)
+rotation = -3.12744
+
+[node name="Kelp36" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(3936, 513)
+scale = Vector2(1, 1.79167)
+texture = ExtResource("6_udfhf")
+
+[node name="Kelp37" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(3838, 555)
+
+[node name="Kelp38" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(4788, 684)
+texture = ExtResource("6_udfhf")
+
+[node name="Kelp39" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(4910, 560)
+scale = Vector2(0.96, 2.07488)
+texture = ExtResource("15_ryfpa")
+
+[node name="Kelp40" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(5313, 9.99998)
+rotation = 3.12204
+scale = Vector2(1, 1.22024)
+
+[node name="Kelp41" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(5263, -4.00003)
+rotation = 3.08904
+
+[node name="Kelp42" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(5851, -13)
+rotation = 2.98593
+
+[node name="Kelp43" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(4505, -8.00002)
+rotation = 3.10864
+
+[node name="Kelp44" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(4072, 561)
+
+[node name="Kelp45" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(5578.5, 711.5)
+scale = Vector2(0.905, 0.875)
+texture = ExtResource("6_udfhf")
+
+[node name="Kelp46" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(5909, 595)
+scale = Vector2(1.105, 1.89715)
+texture = ExtResource("6_i6od7")
+
+[node name="Kelp47" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(5978, 735)
+scale = Vector2(0.915, 0.995)
+texture = ExtResource("6_udfhf")
+
+[node name="Kelp48" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(6619, 10)
+rotation = 3.14015
+
+[node name="Kelp49" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(6703, 5.99999)
+rotation = 2.70005
+
+[node name="Kelp50" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(7413, 691)
+texture = ExtResource("6_udfhf")
+
+[node name="Kelp51" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(7591, 590)
+scale = Vector2(1.32645, 1.30822)
+texture = ExtResource("18_0fu15")
+
+[node name="Kelp52" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(9602, 584)
+scale = Vector2(1.2775, 1.32071)
+texture = ExtResource("18_0fu15")
+
+[node name="Kelp53" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(7659, 687)
+texture = ExtResource("7_i6od7")
+
+[node name="Kelp54" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(8006, 674)
+
+[node name="Kelp55" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(8762, 645)
+scale = Vector2(1, 1.99405)
+
+[node name="Kelp56" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(7522, 44)
+rotation = -3.13206
+scale = Vector2(1, 2.09162)
+
+[node name="Kelp57" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(7622, 21.9999)
+rotation = 2.94388
+
+[node name="Kelp58" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(9822, 696)
+texture = ExtResource("6_udfhf")
+
+[node name="Kelp59" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(9692, 655)
+scale = Vector2(1.28378, 1.42262)
+texture = ExtResource("15_ryfpa")
+
+[node name="Kelp60" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(9409, 691)
+texture = ExtResource("6_udfhf")
+
+[node name="Kelp61" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(10749, 631)
+texture = ExtResource("7_i6od7")
+
+[node name="Kelp62" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(11507, 714)
+texture = ExtResource("6_udfhf")
+
+[node name="Kelp63" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(11413, 609)
+scale = Vector2(1.155, 1.99155)
+texture = ExtResource("6_i6od7")
+
+[node name="Kelp64" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(13183, 695)
+texture = ExtResource("6_udfhf")
+
+[node name="Kelp65" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(14304, 640)
+scale = Vector2(1.4, 1.52821)
+texture = ExtResource("15_ryfpa")
+
+[node name="Kelp66" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(14391, 673)
+
+[node name="Kelp67" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(14244, 727)
+
+[node name="Kelp68" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(15032, 559)
+scale = Vector2(1.2829, 1.47964)
+texture = ExtResource("18_0fu15")
+
+[node name="Kelp69" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(15593, 599)
+scale = Vector2(1.145, 1.96393)
+texture = ExtResource("6_i6od7")
+
+[node name="Kelp70" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(14907, 729)
+scale = Vector2(1, 1.57143)
+texture = ExtResource("7_i6od7")
+
+[node name="Kelp71" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(12154, 65.0001)
+rotation = 3.07075
+scale = Vector2(1, 2.01337)
+
+[node name="Kelp72" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(12027, 25)
+rotation = 3.12592
+
+[node name="Kelp73" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(12723, 8)
+rotation = -3.13516
+
+[node name="Kelp74" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(13158, 12)
+rotation = 3.02672
+
+[node name="Kelp75" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(13267, 48.0001)
+rotation = 3.04292
+scale = Vector2(1, 2.56865)
+
+[node name="Kelp76" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(10364, 24.9998)
+rotation = 2.92655
+scale = Vector2(1, 1.5)
+
+[node name="Kelp77" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(15100, 741)
+texture = ExtResource("7_i6od7")
+
+[node name="Kelp78" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(16365, 643)
+
+[node name="Kelp79" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(16619, 512)
+scale = Vector2(1, 2.14286)
+
+[node name="Kelp80" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(16749, 577)
+
+[node name="Kelp81" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(17010, 54.9997)
+rotation = 3.05487
+scale = Vector2(1, 1.67262)
+
+[node name="Kelp82" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(19768, 561)
+scale = Vector2(1.12324, 1.71095)
+texture = ExtResource("18_0fu15")
+
+[node name="Kelp83" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(19667, 636.905)
+scale = Vector2(1.3, 1.66905)
+texture = ExtResource("10_ntdhj")
+
+[node name="Kelp84" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(20055, 458)
+
+[node name="Kelp85" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(17773.5, 651.583)
+scale = Vector2(0.785, 1.45583)
+texture = ExtResource("15_ryfpa")
+
+[node name="Kelp86" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(17688, 612)
+scale = Vector2(1.17, 1.93274)
+texture = ExtResource("15_ryfpa")
+
+[node name="Kelp87" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(17582, 700)
+texture = ExtResource("6_udfhf")
+
+[node name="Kelp88" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(17321, 549)
+scale = Vector2(0.865, 1.31965)
+texture = ExtResource("18_0fu15")
+
+[node name="Kelp89" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(17194, 691)
+scale = Vector2(1, 1.82143)
+texture = ExtResource("7_i6od7")
+
+[node name="Kelp90" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(17941, -27)
+rotation = -3.12741
+
+[node name="Kelp91" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(21008, 623)
+scale = Vector2(1.02027, 1.93452)
+texture = ExtResource("15_ryfpa")
+
+[node name="Kelp92" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(21110, 576)
+scale = Vector2(1.17973, 2.30607)
+texture = ExtResource("6_i6od7")
+
+[node name="Kelp93" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(20487, 43)
+rotation = -3.05674
+scale = Vector2(1, 1.64286)
+
+[node name="Kelp94" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(20448, -3)
+rotation = 2.85809
+
+[node name="Kelp95" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(22508, 615)
+scale = Vector2(1.125, 1.69929)
+texture = ExtResource("6_i6od7")
+
+[node name="Kelp96" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(22581, 738)
+texture = ExtResource("7_i6od7")
+
+[node name="Kelp97" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(23108, 23)
+rotation = 3.03716
+scale = Vector2(1, 1.67857)
+
+[node name="Kelp98" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(23167, 5.99976)
+rotation = 2.98118
+
+[node name="Kelp99" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(23428, 3.8147e-06)
+rotation = 3.0821
+
+[node name="Kelp100" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(22709, 673)
+
+[node name="Kelp101" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(23050, 621)
+scale = Vector2(0.8125, 1.00797)
+texture = ExtResource("18_0fu15")
+
+[node name="Kelp102" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(22918, 708)
+texture = ExtResource("6_udfhf")
+
+[node name="Kelp103" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(23136, 728)
+texture = ExtResource("6_udfhf")
+
+[node name="Kelp104" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
+position = Vector2(23528, 719)
+
+[node name="Kelp105" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
 position = Vector2(24969, 591)
 scale = Vector2(0.877228, 1.26262)
 texture = ExtResource("18_0fu15")
 
-[node name="Kelp85" parent="." instance=ExtResource("4_kx6l7")]
+[node name="Kelp106" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
 position = Vector2(24841, 744)
 texture = ExtResource("6_udfhf")
 
-[node name="Kelp86" parent="." instance=ExtResource("4_kx6l7")]
+[node name="Kelp107" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
 position = Vector2(24960, 2.00026)
 rotation = 3.05241
 scale = Vector2(1, 1.27065)
 
-[node name="Kelp87" parent="." instance=ExtResource("4_kx6l7")]
+[node name="Kelp108" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
 position = Vector2(24866, -32)
 rotation = 3.10325
 
-[node name="Kelp88" parent="." instance=ExtResource("4_kx6l7")]
+[node name="Kelp109" parent="KelpNode2D" instance=ExtResource("4_kx6l7")]
 position = Vector2(24578, 713)
 
-[node name="JellyfishSmall" parent="." instance=ExtResource("17_lrvbd")]
-position = Vector2(2510, -176)
-freeze = true
+[node name="EnemiesNode2D" type="Node2D" parent="."]
 
-[node name="JellyfishTiny" parent="." instance=ExtResource("18_oqlok")]
-position = Vector2(1452, -35)
-freeze = true
+[node name="JellyfishPink3" parent="EnemiesNode2D" instance=ExtResource("28_voubc")]
+position = Vector2(23523, 70)
 
-[node name="JellyRigidbody2D" parent="." instance=ExtResource("25_ntdhj")]
+[node name="JellyfishSmall" parent="EnemiesNode2D" instance=ExtResource("17_lrvbd")]
+position = Vector2(2450, 296)
+
+[node name="JellyRigidbody2D" parent="EnemiesNode2D" instance=ExtResource("25_ntdhj")]
 position = Vector2(1593, 152)
 
-[node name="JellyfishTiny2" parent="." instance=ExtResource("8_4knja")]
-position = Vector2(1339, 418)
+[node name="JellyfishTiny2" parent="EnemiesNode2D" instance=ExtResource("8_4knja")]
+position = Vector2(1989, 359)
 rotation = -0.0349668
+scale = Vector2(1, 1)
+
+[node name="JellyfishTiny" parent="EnemiesNode2D" instance=ExtResource("18_oqlok")]
+position = Vector2(1408, 520)
 freeze = true
+
+[node name="JellyfishTiny3" parent="EnemiesNode2D" instance=ExtResource("18_oqlok")]
+position = Vector2(3828, 330)
+freeze = true
+
+[node name="JellyfishTiny4" parent="EnemiesNode2D" instance=ExtResource("18_oqlok")]
+position = Vector2(4408, 128)
+freeze = true
+
+[node name="JellyfishTiny5" parent="EnemiesNode2D" instance=ExtResource("8_4knja")]
+position = Vector2(4886, 382)
+
+[node name="JellyfishTiny6" parent="EnemiesNode2D" instance=ExtResource("8_4knja")]
+position = Vector2(3159, 99)
+
+[node name="JellyfishSmall2" parent="EnemiesNode2D" instance=ExtResource("17_lrvbd")]
+position = Vector2(6341, 205)
+
+[node name="JellyfishPink" parent="EnemiesNode2D" instance=ExtResource("28_voubc")]
+position = Vector2(8307, -8)
+
+[node name="JellyfishPink2" parent="EnemiesNode2D" instance=ExtResource("28_voubc")]
+position = Vector2(11285, -39)
+
+[node name="JellyfishTiny7" parent="EnemiesNode2D" instance=ExtResource("18_oqlok")]
+position = Vector2(13792, 218)
+freeze = true
+
+[node name="JellyfishTiny8" parent="EnemiesNode2D" instance=ExtResource("18_oqlok")]
+position = Vector2(21719, 436)
+freeze = true
+
+[node name="JellyfishTiny9" parent="EnemiesNode2D" instance=ExtResource("8_4knja")]
+position = Vector2(21880, 301)
