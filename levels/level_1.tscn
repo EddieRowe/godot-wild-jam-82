@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://cnep5qop4e823"]
+[gd_scene load_steps=32 format=3 uid="uid://cnep5qop4e823"]
 
 [ext_resource type="PackedScene" uid="uid://crghl5mtabw4e" path="res://prefabs/main_audio.tscn" id="1_l53as"]
 [ext_resource type="PackedScene" uid="uid://cphyt7srqwafr" path="res://prefabs/Player.tscn" id="1_vn7o3"]
@@ -27,6 +27,8 @@
 [ext_resource type="Texture2D" uid="uid://cp4d550wonmbg" path="res://art/KelpMulticolor.png" id="18_0fu15"]
 [ext_resource type="PackedScene" uid="uid://bva7uggeq5tcl" path="res://prefabs/jellyfish_tiny.tscn" id="18_oqlok"]
 [ext_resource type="PackedScene" uid="uid://bf15fqnxqxfc0" path="res://prefabs/jellyfish.tscn" id="25_ntdhj"]
+[ext_resource type="PackedScene" uid="uid://c6md5ixhopnoe" path="res://prefabs/jellyfish_pink.tscn" id="28_voubc"]
+[ext_resource type="PackedScene" uid="uid://glvtqalegb67" path="res://prefabs/OxygenBubble.tscn" id="29_0x1rk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vn7o3"]
 radius = 61.0737
@@ -63,6 +65,7 @@ script = ExtResource("2_bt44k")
 shape = SubResource("CircleShape2D_vn7o3")
 
 [node name="Sprite2D" type="Sprite2D" parent="RockRigidBody2D"]
+position = Vector2(28, -176)
 texture = ExtResource("2_jirdo")
 
 [node name="Boundaries" type="Node2D" parent="."]
@@ -767,17 +770,308 @@ rotation = 3.10325
 position = Vector2(24578, 713)
 
 [node name="JellyfishSmall" parent="." instance=ExtResource("17_lrvbd")]
-position = Vector2(2510, -176)
-freeze = true
-
-[node name="JellyfishTiny" parent="." instance=ExtResource("18_oqlok")]
-position = Vector2(1452, -35)
-freeze = true
+position = Vector2(2450, 296)
 
 [node name="JellyRigidbody2D" parent="." instance=ExtResource("25_ntdhj")]
 position = Vector2(1593, 152)
 
 [node name="JellyfishTiny2" parent="." instance=ExtResource("8_4knja")]
-position = Vector2(1339, 418)
+position = Vector2(1989, 359)
 rotation = -0.0349668
+
+[node name="JellyfishTiny" parent="." instance=ExtResource("18_oqlok")]
+position = Vector2(1408, 520)
+freeze = true
+
+[node name="JellyfishTiny3" parent="." instance=ExtResource("18_oqlok")]
+position = Vector2(3828, 330)
+freeze = true
+
+[node name="JellyfishTiny4" parent="." instance=ExtResource("18_oqlok")]
+position = Vector2(4408, 128)
+freeze = true
+
+[node name="JellyfishTiny5" parent="." instance=ExtResource("8_4knja")]
+position = Vector2(4886, 382)
+
+[node name="JellyfishTiny6" parent="." instance=ExtResource("8_4knja")]
+position = Vector2(3159, 99)
+
+[node name="JellyfishSmall2" parent="." instance=ExtResource("17_lrvbd")]
+position = Vector2(6341, 205)
+
+[node name="JellyfishPink" parent="." instance=ExtResource("28_voubc")]
+position = Vector2(8307, -8)
+
+[node name="JellyfishPink2" parent="." instance=ExtResource("28_voubc")]
+position = Vector2(11285, -39)
+
+[node name="JellyfishTiny7" parent="." instance=ExtResource("18_oqlok")]
+position = Vector2(13792, 218)
+freeze = true
+
+[node name="JellyfishTiny8" parent="." instance=ExtResource("18_oqlok")]
+position = Vector2(21719, 436)
+freeze = true
+
+[node name="JellyfishTiny9" parent="." instance=ExtResource("8_4knja")]
+position = Vector2(21880, 301)
+
+[node name="JellyfishPink3" parent="." instance=ExtResource("28_voubc")]
+position = Vector2(23523, 70)
+
+[node name="OxygenBubble" parent="." instance=ExtResource("29_0x1rk")]
+position = Vector2(1538, 522)
+freeze = true
+
+[node name="OxygenBubble2" parent="." instance=ExtResource("29_0x1rk")]
+position = Vector2(1628, 405)
+freeze = true
+
+[node name="OxygenBubble3" parent="." instance=ExtResource("29_0x1rk")]
+position = Vector2(2430, 672)
+freeze = true
+
+[node name="OxygenBubble4" parent="." instance=ExtResource("29_0x1rk")]
+position = Vector2(2464, 573)
+freeze = true
+
+[node name="OxygenBubble5" parent="." instance=ExtResource("29_0x1rk")]
+position = Vector2(2635, 509)
+freeze = true
+
+[node name="OxygenBubble6" parent="." instance=ExtResource("29_0x1rk")]
+position = Vector2(2780, 563)
+freeze = true
+
+[node name="OxygenBubble7" parent="." instance=ExtResource("29_0x1rk")]
+position = Vector2(2990, 498)
+freeze = true
+
+[node name="OxygenBubble8" parent="." instance=ExtResource("29_0x1rk")]
+position = Vector2(3937, 418)
+freeze = true
+
+[node name="OxygenBubble9" parent="." instance=ExtResource("29_0x1rk")]
+position = Vector2(4877, 485)
+freeze = true
+
+[node name="OxygenBubble10" parent="." instance=ExtResource("29_0x1rk")]
+position = Vector2(4786, 620)
+freeze = true
+
+[node name="OxygenBubble11" parent="." instance=ExtResource("29_0x1rk")]
+position = Vector2(5572, 675)
+freeze = true
+
+[node name="OxygenBubble12" parent="." instance=ExtResource("29_0x1rk")]
+position = Vector2(5868, 532)
+freeze = true
+
+[node name="OxygenBubble13" parent="." instance=ExtResource("29_0x1rk")]
+position = Vector2(7390, 579)
+freeze = true
+
+[node name="OxygenBubble14" parent="." instance=ExtResource("29_0x1rk")]
+position = Vector2(7471, 509)
+freeze = true
+
+[node name="OxygenBubble15" parent="." instance=ExtResource("29_0x1rk")]
+position = Vector2(7593, 503)
+freeze = true
+
+[node name="OxygenBubble16" parent="." instance=ExtResource("29_0x1rk")]
+position = Vector2(9386, 586)
+freeze = true
+
+[node name="OxygenBubble17" parent="." instance=ExtResource("29_0x1rk")]
+position = Vector2(9492, 477)
+freeze = true
+
+[node name="OxygenBubble18" parent="." instance=ExtResource("29_0x1rk")]
+position = Vector2(9669, 524)
+freeze = true
+
+[node name="OxygenBubble19" parent="." instance=ExtResource("29_0x1rk")]
+position = Vector2(9757, 553)
+freeze = true
+
+[node name="OxygenBubble20" parent="." instance=ExtResource("29_0x1rk")]
+position = Vector2(10719, 514)
+freeze = true
+
+[node name="OxygenBubble21" parent="." instance=ExtResource("29_0x1rk")]
+position = Vector2(11373, 496)
+freeze = true
+
+[node name="OxygenBubble22" parent="." instance=ExtResource("29_0x1rk")]
+position = Vector2(11466, 537)
+freeze = true
+
+[node name="OxygenBubble23" parent="." instance=ExtResource("29_0x1rk")]
+position = Vector2(11562, 628)
+freeze = true
+
+[node name="OxygenBubble24" parent="." instance=ExtResource("29_0x1rk")]
+position = Vector2(13163, 602)
+freeze = true
+
+[node name="OxygenBubble25" parent="." instance=ExtResource("29_0x1rk")]
+position = Vector2(14252, 532)
+freeze = true
+
+[node name="OxygenBubble26" parent="." instance=ExtResource("29_0x1rk")]
+position = Vector2(14914, 428)
+freeze = true
+
+[node name="OxygenBubble27" parent="." instance=ExtResource("29_0x1rk")]
+position = Vector2(15056, 532)
+freeze = true
+
+[node name="OxygenBubble28" parent="." instance=ExtResource("29_0x1rk")]
+position = Vector2(15095, 615)
+freeze = true
+
+[node name="OxygenBubble29" parent="." instance=ExtResource("29_0x1rk")]
+position = Vector2(15525, 498)
+freeze = true
+
+[node name="OxygenBubble30" parent="." instance=ExtResource("29_0x1rk")]
+position = Vector2(15647, 547)
+freeze = true
+
+[node name="OxygenBubble31" parent="." instance=ExtResource("29_0x1rk")]
+position = Vector2(17163, 519)
+freeze = true
+
+[node name="OxygenBubble32" parent="." instance=ExtResource("29_0x1rk")]
+position = Vector2(17267, 387)
+freeze = true
+
+[node name="OxygenBubble33" parent="." instance=ExtResource("29_0x1rk")]
+position = Vector2(17329, 511)
+freeze = true
+
+[node name="OxygenBubble34" parent="." instance=ExtResource("29_0x1rk")]
+position = Vector2(17557, 597)
+freeze = true
+
+[node name="OxygenBubble35" parent="." instance=ExtResource("29_0x1rk")]
+position = Vector2(17656, 501)
+freeze = true
+
+[node name="OxygenBubble36" parent="." instance=ExtResource("29_0x1rk")]
+position = Vector2(17762, 592)
+freeze = true
+
+[node name="OxygenBubble37" parent="." instance=ExtResource("29_0x1rk")]
+position = Vector2(19618, 410)
+freeze = true
+
+[node name="OxygenBubble38" parent="." instance=ExtResource("29_0x1rk")]
+position = Vector2(19743, 397)
+freeze = true
+
+[node name="OxygenBubble39" parent="." instance=ExtResource("29_0x1rk")]
+position = Vector2(20726, 628)
+freeze = true
+
+[node name="OxygenBubble40" parent="." instance=ExtResource("29_0x1rk")]
+position = Vector2(20951, 514)
+freeze = true
+
+[node name="OxygenBubble41" parent="." instance=ExtResource("29_0x1rk")]
+position = Vector2(21073, 451)
+freeze = true
+
+[node name="OxygenBubble42" parent="." instance=ExtResource("29_0x1rk")]
+position = Vector2(21169, 560)
+freeze = true
+
+[node name="OxygenBubble43" parent="." instance=ExtResource("29_0x1rk")]
+position = Vector2(21221, 615)
+freeze = true
+
+[node name="OxygenBubble44" parent="." instance=ExtResource("29_0x1rk")]
+position = Vector2(21652, 625)
+freeze = true
+
+[node name="OxygenBubble45" parent="." instance=ExtResource("29_0x1rk")]
+position = Vector2(21727, 571)
+freeze = true
+
+[node name="OxygenBubble46" parent="." instance=ExtResource("29_0x1rk")]
+position = Vector2(21854, 607)
+freeze = true
+
+[node name="OxygenBubble47" parent="." instance=ExtResource("29_0x1rk")]
+position = Vector2(21908, 553)
+freeze = true
+
+[node name="OxygenBubble48" parent="." instance=ExtResource("29_0x1rk")]
+position = Vector2(22080, 571)
+freeze = true
+
+[node name="OxygenBubble49" parent="." instance=ExtResource("29_0x1rk")]
+position = Vector2(22269, 558)
+freeze = true
+
+[node name="OxygenBubble50" parent="." instance=ExtResource("29_0x1rk")]
+position = Vector2(22342, 449)
+freeze = true
+
+[node name="OxygenBubble51" parent="." instance=ExtResource("29_0x1rk")]
+position = Vector2(22479, 498)
+freeze = true
+
+[node name="OxygenBubble52" parent="." instance=ExtResource("29_0x1rk")]
+position = Vector2(22575, 566)
+freeze = true
+
+[node name="OxygenBubble53" parent="." instance=ExtResource("29_0x1rk")]
+position = Vector2(22866, 573)
+freeze = true
+
+[node name="OxygenBubble54" parent="." instance=ExtResource("29_0x1rk")]
+position = Vector2(22951, 522)
+freeze = true
+
+[node name="OxygenBubble55" parent="." instance=ExtResource("29_0x1rk")]
+position = Vector2(23050, 475)
+freeze = true
+
+[node name="OxygenBubble56" parent="." instance=ExtResource("29_0x1rk")]
+position = Vector2(23153, 584)
+freeze = true
+
+[node name="OxygenBubble57" parent="." instance=ExtResource("29_0x1rk")]
+position = Vector2(24792, 594)
+freeze = true
+
+[node name="OxygenBubble58" parent="." instance=ExtResource("29_0x1rk")]
+position = Vector2(24787, 407)
+freeze = true
+
+[node name="OxygenBubble59" parent="." instance=ExtResource("29_0x1rk")]
+position = Vector2(24751, 462)
+freeze = true
+
+[node name="OxygenBubble60" parent="." instance=ExtResource("29_0x1rk")]
+position = Vector2(24872, 324)
+freeze = true
+
+[node name="OxygenBubble61" parent="." instance=ExtResource("29_0x1rk")]
+position = Vector2(24797, 254)
+freeze = true
+
+[node name="OxygenBubble62" parent="." instance=ExtResource("29_0x1rk")]
+position = Vector2(24792, 125)
+freeze = true
+
+[node name="OxygenBubble63" parent="." instance=ExtResource("29_0x1rk")]
+position = Vector2(24870, 177)
+freeze = true
+
+[node name="OxygenBubble64" parent="." instance=ExtResource("29_0x1rk")]
+position = Vector2(24735, 47)
 freeze = true
