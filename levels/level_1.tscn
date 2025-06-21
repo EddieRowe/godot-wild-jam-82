@@ -1,9 +1,9 @@
-[gd_scene load_steps=30 format=3 uid="uid://cnep5qop4e823"]
+[gd_scene load_steps=31 format=3 uid="uid://cnep5qop4e823"]
 
 [ext_resource type="PackedScene" uid="uid://crghl5mtabw4e" path="res://prefabs/main_audio.tscn" id="1_l53as"]
 [ext_resource type="PackedScene" uid="uid://cphyt7srqwafr" path="res://prefabs/Player.tscn" id="1_vn7o3"]
 [ext_resource type="Script" uid="uid://dgvltd8eyaevh" path="res://scripts/obstacle.gd" id="2_bt44k"]
-[ext_resource type="PackedScene" uid="uid://psx14rlat6ij" path="res://prefabs/kelp.tscn" id="4_kx6l7"]
+[ext_resource type="PackedScene" uid="uid://psx14rlat6ij" path="res://prefabs/kelp_black.tscn" id="4_kx6l7"]
 [ext_resource type="PackedScene" uid="uid://cbasaylk3eohx" path="res://prefabs/rock_1.tscn" id="5_n46q3"]
 [ext_resource type="PackedScene" uid="uid://vv3icacjpd3r" path="res://prefabs/rock_2.tscn" id="6_btoec"]
 [ext_resource type="Texture2D" uid="uid://cvvjch0mp3ri1" path="res://art/KelpGreen4.png" id="6_i6od7"]
@@ -28,6 +28,7 @@
 [ext_resource type="PackedScene" uid="uid://bf15fqnxqxfc0" path="res://prefabs/jellyfish.tscn" id="25_ntdhj"]
 [ext_resource type="PackedScene" uid="uid://c6md5ixhopnoe" path="res://prefabs/jellyfish_pink.tscn" id="28_voubc"]
 [ext_resource type="PackedScene" uid="uid://glvtqalegb67" path="res://prefabs/OxygenBubble.tscn" id="29_0x1rk"]
+[ext_resource type="PackedScene" uid="uid://ddmscuyoh7haw" path="res://prefabs/OxygenBubble_Big.tscn" id="30_06ecp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bt44k"]
 size = Vector2(26805.1, 118.5)
@@ -45,7 +46,7 @@ rotation = -0.00248979
 color = Color(0.0554515, 0.441783, 0.614248, 1)
 
 [node name="Player" parent="." instance=ExtResource("1_vn7o3")]
-position = Vector2(410, 401)
+position = Vector2(19649, 399)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -65,7 +66,7 @@ shape = SubResource("RectangleShape2D_bt44k")
 [node name="ColorRect" type="ColorRect" parent="Boundaries/BOUNDARYRigidBody2D"]
 offset_left = -567.0
 offset_top = -663.0
-offset_right = 24573.0
+offset_right = 26553.0
 offset_bottom = 68.0
 color = Color(0, 0, 0, 1)
 
@@ -92,7 +93,7 @@ freeze = true
 script = ExtResource("2_bt44k")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/BOUNDARYRigidBody2D2"]
-position = Vector2(11997, 230)
+position = Vector2(11118, 240)
 shape = SubResource("RectangleShape2D_bt44k")
 
 [node name="ColorRect2" type="ColorRect" parent="Boundaries/BOUNDARYRigidBody2D2"]
@@ -284,8 +285,10 @@ freeze = true
 position = Vector2(23328, 697)
 freeze = true
 
-[node name="FinishLine" parent="." instance=ExtResource("15_vjtdm")]
-position = Vector2(24773, -30)
+[node name="FinishLine" parent="." groups=["LevelComplete"] instance=ExtResource("15_vjtdm")]
+position = Vector2(25066, 0)
+gravity_scale = 0.0
+freeze = true
 
 [node name="OxygenNode2D" type="Node2D" parent="."]
 
@@ -560,6 +563,75 @@ freeze = true
 [node name="OxygenBubble42" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
 position = Vector2(21169, 560)
 freeze = true
+
+[node name="OxygenBubbleBig" parent="OxygenNode2D" instance=ExtResource("30_06ecp")]
+position = Vector2(25699, 1514)
+
+[node name="OxygenBubbleBig2" parent="OxygenNode2D" instance=ExtResource("30_06ecp")]
+position = Vector2(25639, 2121)
+
+[node name="OxygenBubbleBig3" parent="OxygenNode2D" instance=ExtResource("30_06ecp")]
+position = Vector2(25780, 2965)
+
+[node name="OxygenBubbleBig4" parent="OxygenNode2D" instance=ExtResource("30_06ecp")]
+position = Vector2(26231, 1862)
+
+[node name="OxygenBubbleBig5" parent="OxygenNode2D" instance=ExtResource("30_06ecp")]
+position = Vector2(26128, 2565)
+
+[node name="OxygenBubbleBig6" parent="OxygenNode2D" instance=ExtResource("30_06ecp")]
+position = Vector2(26602, 3808)
+
+[node name="OxygenBubbleBig7" parent="OxygenNode2D" instance=ExtResource("30_06ecp")]
+position = Vector2(26387, 3275)
+
+[node name="OxygenBubbleBig8" parent="OxygenNode2D" instance=ExtResource("30_06ecp")]
+position = Vector2(25728, 4356)
+
+[node name="OxygenBubbleBig9" parent="OxygenNode2D" instance=ExtResource("30_06ecp")]
+position = Vector2(26246, 4881)
+
+[node name="OxygenBubbleBig10" parent="OxygenNode2D" instance=ExtResource("30_06ecp")]
+position = Vector2(26217, 4519)
+
+[node name="OxygenBubbleBig11" parent="OxygenNode2D" instance=ExtResource("30_06ecp")]
+position = Vector2(25869, 5288)
+
+[node name="OxygenBubbleBig12" parent="OxygenNode2D" instance=ExtResource("30_06ecp")]
+position = Vector2(25625, 6021)
+
+[node name="OxygenBubbleBig13" parent="OxygenNode2D" instance=ExtResource("30_06ecp")]
+position = Vector2(26291, 6376)
+
+[node name="OxygenBubbleBig14" parent="OxygenNode2D" instance=ExtResource("30_06ecp")]
+position = Vector2(26509, 7985)
+
+[node name="OxygenBubbleBig15" parent="OxygenNode2D" instance=ExtResource("30_06ecp")]
+position = Vector2(25891, 6916)
+
+[node name="OxygenBubbleBig16" parent="OxygenNode2D" instance=ExtResource("30_06ecp")]
+position = Vector2(26328, 7131)
+
+[node name="OxygenBubbleBig17" parent="OxygenNode2D" instance=ExtResource("30_06ecp")]
+position = Vector2(25761, 8689)
+
+[node name="OxygenBubbleBig18" parent="OxygenNode2D" instance=ExtResource("30_06ecp")]
+position = Vector2(25836, 7876)
+
+[node name="OxygenBubbleBig19" parent="OxygenNode2D" instance=ExtResource("30_06ecp")]
+position = Vector2(26354, 8798)
+
+[node name="OxygenBubbleBig20" parent="OxygenNode2D" instance=ExtResource("30_06ecp")]
+position = Vector2(25606, 9565)
+
+[node name="OxygenBubbleBig21" parent="OxygenNode2D" instance=ExtResource("30_06ecp")]
+position = Vector2(26220, 10237)
+
+[node name="OxygenBubbleBig22" parent="OxygenNode2D" instance=ExtResource("30_06ecp")]
+position = Vector2(25721, 10583)
+
+[node name="OxygenBubbleBig23" parent="OxygenNode2D" instance=ExtResource("30_06ecp")]
+position = Vector2(26239, 9431)
 
 [node name="KelpNode2D" type="Node2D" parent="."]
 
@@ -1042,7 +1114,6 @@ position = Vector2(1593, 152)
 [node name="JellyfishTiny2" parent="EnemiesNode2D" instance=ExtResource("8_4knja")]
 position = Vector2(1989, 359)
 rotation = -0.0349668
-scale = Vector2(1, 1)
 
 [node name="JellyfishTiny" parent="EnemiesNode2D" instance=ExtResource("18_oqlok")]
 position = Vector2(1408, 520)

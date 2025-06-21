@@ -1,20 +1,25 @@
-[gd_scene load_steps=2 format=3 uid="uid://digqha4603pow"]
+[gd_scene load_steps=3 format=3 uid="uid://digqha4603pow"]
+
+[ext_resource type="Script" uid="uid://dvlp866b6vamd" path="res://prefabs/finish_line.gd" id="1_eldoa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dci07"]
-size = Vector2(232.5, 750.5)
+size = Vector2(1998.5, 11444.5)
 
-[node name="FinishLine" type="RigidBody2D"]
+[node name="FinishLine" type="Area2D" groups=["LevelComplete"]]
+script = ExtResource("1_eldoa")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(169.75, 373.75)
+position = Vector2(1052.75, 5720.75)
 shape = SubResource("RectangleShape2D_dci07")
 debug_color = Color(0.247972, 0.517998, 0.963311, 0.42)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="Sprite2D"]
-offset_left = 56.0
-offset_top = -3.0
-offset_right = 290.0
-offset_bottom = 745.0
-color = Color(0.231373, 0.717647, 1, 0.301961)
+offset_left = -5.0
+offset_top = -7.0
+offset_right = 1996.0
+offset_bottom = 11396.0
+color = Color(0.231373, 0.717647, 1, 0.741176)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

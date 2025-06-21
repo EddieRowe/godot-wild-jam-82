@@ -12,10 +12,11 @@ var move_speed = 300
 @export var rotation_speed = 15
 
 var can_move : bool = true
+var level : int 
 
 func _ready() -> void:
 	gravity_scale = 0.1
-
+	
 func _physics_process(delta: float) -> void:
 	if !can_move:
 		audio._stop_sub_prop_audio() # bad
@@ -81,9 +82,8 @@ func _on_body_entered(body: Node) -> void:
 		health._take_damage(body.damage)
 	if body is OxygenSource:
 		oxygen._collect_oxygen(body)
-	if body.is_in_group("LevelComplete"):
-		get_tree().reload_current_scene()
-		
+	
+				
 
 
 func _on_restart_level_timer_timeout() -> void:

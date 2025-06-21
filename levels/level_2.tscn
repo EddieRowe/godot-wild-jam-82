@@ -1,0 +1,92 @@
+[gd_scene load_steps=7 format=3 uid="uid://cdgp02o6rqnh5"]
+
+[ext_resource type="PackedScene" uid="uid://crghl5mtabw4e" path="res://prefabs/main_audio.tscn" id="1_mi4ay"]
+[ext_resource type="PackedScene" uid="uid://cphyt7srqwafr" path="res://prefabs/Player.tscn" id="2_pqqg8"]
+[ext_resource type="PackedScene" uid="uid://dx71cipa1pnwn" path="res://prefabs/ui/game_overlay.tscn" id="3_0srwa"]
+[ext_resource type="Script" uid="uid://dgvltd8eyaevh" path="res://scripts/obstacle.gd" id="4_5722l"]
+[ext_resource type="PackedScene" uid="uid://cbasaylk3eohx" path="res://prefabs/rock_1.tscn" id="5_ilhis"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ep78u"]
+size = Vector2(26805.1, 118.5)
+
+[node name="Level2" type="Node2D"]
+
+[node name="Main Audio" parent="." instance=ExtResource("1_mi4ay")]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -1189.0
+offset_top = -433.0
+offset_right = 25068.0
+offset_bottom = 1390.0
+rotation = -0.00248979
+color = Color(0.317647, 0.443137, 0.615686, 1)
+
+[node name="Player" parent="." instance=ExtResource("2_pqqg8")]
+position = Vector2(-350, 432)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GameOverlay" parent="CanvasLayer" instance=ExtResource("3_0srwa")]
+offset_left = -1775.0
+offset_right = -1325.0
+
+[node name="Boundaries" type="Node2D" parent="."]
+
+[node name="BOUNDARYRigidBody2D" type="RigidBody2D" parent="Boundaries" groups=["Obstacle"]]
+position = Vector2(489, -96)
+freeze = true
+script = ExtResource("4_5722l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/BOUNDARYRigidBody2D"]
+position = Vector2(11077, -68)
+shape = SubResource("RectangleShape2D_ep78u")
+
+[node name="ColorRect" type="ColorRect" parent="Boundaries/BOUNDARYRigidBody2D"]
+offset_left = -1688.0
+offset_top = -717.0
+offset_right = 23452.0
+offset_bottom = 14.0
+color = Color(0, 0, 0, 1)
+
+[node name="BOUNDARYRigidBody2D3" type="RigidBody2D" parent="Boundaries" groups=["Obstacle"]]
+position = Vector2(-96, 138)
+rotation = -1.57079
+freeze = true
+script = ExtResource("4_5722l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/BOUNDARYRigidBody2D3"]
+position = Vector2(618, -10)
+shape = SubResource("RectangleShape2D_ep78u")
+
+[node name="ColorRect" type="ColorRect" parent="Boundaries/BOUNDARYRigidBody2D3"]
+offset_left = -1655.01
+offset_top = -2329.99
+offset_right = 1619.99
+offset_bottom = -1102.99
+color = Color(0, 0, 0, 1)
+
+[node name="BOUNDARYRigidBody2D2" type="RigidBody2D" parent="Boundaries" groups=["Obstacle"]]
+position = Vector2(489, 561)
+freeze = true
+script = ExtResource("4_5722l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/BOUNDARYRigidBody2D2"]
+position = Vector2(11936, 475)
+shape = SubResource("RectangleShape2D_ep78u")
+
+[node name="ColorRect2" type="ColorRect" parent="Boundaries/BOUNDARYRigidBody2D2"]
+offset_left = -1688.0
+offset_top = 411.0
+offset_right = 23443.0
+offset_bottom = 1232.0
+color = Color(0, 0, 0, 1)
+
+[node name="Rock3" parent="Boundaries/BOUNDARYRigidBody2D2" instance=ExtResource("5_ilhis")]
+position = Vector2(2030, 411)
+freeze = true
+
+[node name="Rock4" parent="Boundaries/BOUNDARYRigidBody2D2" instance=ExtResource("5_ilhis")]
+position = Vector2(14176, 411)
+freeze = true
+
+[node name="KelpNode2D" type="Node2D" parent="."]
