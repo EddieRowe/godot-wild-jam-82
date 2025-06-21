@@ -9,6 +9,7 @@ var move_speed = 300
 @export var audio : SubmarineAudio
 @export var propellor : AnimationPlayer
 @export var restart_timer : Timer
+@export var rotation_speed = 15
 
 var can_move : bool = true
 
@@ -35,7 +36,9 @@ func _physics_process(delta: float) -> void:
 	var movement = Vector2(horizontal_movement, vertical_movement)
 	
 	apply_central_force(movement * move_speed)
+	apply_torque((0 - rotation) * 10000)
 	
+	_handle_rotate_sprite(delta)
 	_handle_flip_sprite(movement)
 	
 	energy._handle_lighting(Input.is_action_pressed("ui_accept"))
@@ -51,20 +54,35 @@ func _physics_process(delta: float) -> void:
 			propellor.stop()
 
 func _handle_flip_sprite(movement : Vector2):
-	if movement.x < 0:
-		sprite.flip_h = true
-		propellor.get_parent().position.x = 60.0
-	elif movement.x > 0:
-		sprite.flip_h = false
-		propellor.get_parent().position.x = -60.0
+	# Flip sprite based on rotation
+	#var clamped_rotation = sprite.rotation % (2*PI)
+	
+	if sprite.rotation > PI/2 or sprite.rotation < -PI/2:
+		sprite.flip_v = true
+		propellor.get_parent().position.y = -7
+	else:
+		sprite.flip_v = false
+		propellor.get_parent().position.y = 7
 
+func _handle_rotate_sprite(delta : float):
+	var target_angle = linear_velocity.angle()
+	var current_angle = sprite.rotation	
+	var angle_diff = target_angle - current_angle
+	
+	if angle_diff > PI:
+		angle_diff -= 2 * PI
+	elif angle_diff < -PI:
+		angle_diff += 2 * PI
+	
+	#sprite.rotation = lerp_angle(current_angle, target_angle, rotation_speed * delta)
+	
 func _on_body_entered(body: Node) -> void:
 	if body.is_in_group("Obstacle"):
 		health._take_damage(body.damage)
 	if body is OxygenSource:
 		oxygen._collect_oxygen(body)
 	if body.is_in_group("LevelComplete"):
-		get_parent().queue_free()
+		get_tree().reload_current_scene()
 		
 
 
