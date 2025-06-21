@@ -7,7 +7,7 @@ var player : PlayerMovement
 @export var damage : int = 15
 
 func _ready() -> void:
-	player = get_parent().get_node("Player/RigidBody2D")
+	player = get_parent().get_parent().get_node("Player/RigidBody2D")
 	animation_player.play(movement_animation_name)
 
 func _physics_process(delta: float) -> void:
