@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://c6md5ixhopnoe"]
+
+[ext_resource type="Script" uid="uid://dgvltd8eyaevh" path="res://scripts/obstacle.gd" id="1_g5glt"]
+[ext_resource type="Texture2D" uid="uid://beeh2eh2qs3io" path="res://art/JellyfishPink.png" id="2_gk2ab"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_syejm"]
+radius = 63.0
+height = 326.0
+
+[node name="JellyfishPink" type="RigidBody2D" groups=["Obstacle"]]
+script = ExtResource("1_g5glt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(483, 313)
+rotation = -0.252828
+shape = SubResource("CapsuleShape2D_syejm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(510, 271)
+texture = ExtResource("2_gk2ab")
