@@ -1,7 +1,9 @@
 extends RigidBody2D
 class_name PlayerMovement
 
-var move_speed = 300
+const MIN_COLLISION_SPEED : int = 30
+const MOVE_SPEED : int = 300
+
 @export var health : Health
 @export var oxygen : Oxygen
 @export var energy : Energy
@@ -48,7 +50,7 @@ func _physics_process(delta: float) -> void:
 			game_started_signal.emit()
 	
 	if game_started:
-		apply_central_force(movement * move_speed)
+		apply_central_force(movement * MOVE_SPEED)
 		_handle_flip_sprite(movement)
 	
 	
@@ -96,7 +98,7 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 func _on_body_entered(body: Node) -> void:
 	if body.is_in_group("Obstacle"):
 		free_floating = true
-		if linear_velocity.length() > 40:
+		if linear_velocity.length() > MIN_COLLISION_SPEED:
 			health._take_damage(body.damage)
 	if body is OxygenSource:
 		oxygen._collect_oxygen(body)
