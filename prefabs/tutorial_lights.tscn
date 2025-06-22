@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dqw7p7cfaavxx" path="res://art/Icon_Spacebar.png" id="1_e5i0m"]
 
 [node name="tutorial_lights" type="Node2D"]
+z_index = -1
 
 [node name="LightsRichTextLabel" type="RichTextLabel" parent="."]
 offset_top = -1.0

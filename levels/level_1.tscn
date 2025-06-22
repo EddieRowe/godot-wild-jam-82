@@ -44,6 +44,7 @@ size = Vector2(26805.1, 118.5)
 [node name="Main Audio" parent="." instance=ExtResource("1_l53as")]
 
 [node name="ColorRect" type="ColorRect" parent="."]
+z_index = -1
 offset_left = -1189.0
 offset_top = -433.0
 offset_right = 25068.0

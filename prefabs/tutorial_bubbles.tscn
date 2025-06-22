@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cwmpq5farutqm"]
 
 [node name="tutorial_bubbles" type="Node2D"]
+z_index = -1
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 offset_top = -1.0
