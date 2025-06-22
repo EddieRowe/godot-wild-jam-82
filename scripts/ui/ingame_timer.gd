@@ -4,16 +4,22 @@ var current_run_time : float = 0.0
 @onready var timer_rich_text_label: RichTextLabel = $PanelContainer/TimerRichTextLabel
 var running = true
 @onready var animation_player: AnimationPlayer = $PanelContainer/TimerRichTextLabel/AnimationPlayer
+var finish_line : Area2D 
 
 func _ready() -> void:
 	var player : PlayerMovement = get_parent().get_node("Player/RigidBody2D")
 	player.health.healthChanged.connect(_player_health_update)
 	animation_player.play("timer_run")
+	finish_line = get_parent().get_node("FinishLine")
+	finish_line.finished_level.connect(_finished_level)
 
 func _player_health_update(newHealth : int) -> void:
 	if newHealth <= 0 and running:
 		running = false
 		animation_player.play("timer_dead")
+
+func _finished_level():
+	running = false
 
 func _process(delta: float) -> void:
 	current_run_time += delta
