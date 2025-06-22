@@ -34,6 +34,7 @@ func _physics_process(delta: float) -> void:
 			var fake_prop_instance = fake_prop.instantiate()
 			propellor.get_parent().get_parent().add_child(fake_prop_instance)
 			fake_prop_instance.position = propellor.get_parent().position
+			bubble_stream.emitting = false
 		return
 	
 	var horizontal_movement = Input.get_axis("ui_left", "ui_right")
