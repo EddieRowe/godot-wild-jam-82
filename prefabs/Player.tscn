@@ -73,6 +73,7 @@ turbulence_noise_speed_random = 0.0
 position = Vector2(-25, -15)
 
 [node name="RigidBody2D" type="RigidBody2D" parent="." node_paths=PackedStringArray("health", "oxygen", "energy", "sprite", "audio", "propellor", "bubble_stream", "restart_timer", "electrocuted_timer") groups=["Player"]]
+position = Vector2(25, 6)
 freeze = true
 continuous_cd = 1
 contact_monitor = true
@@ -94,10 +95,11 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_0e48y")
 
 [node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+position = Vector2(0, 8)
 texture = ExtResource("2_ay6yh")
 
 [node name="PropSprite2D" type="Sprite2D" parent="RigidBody2D/Sprite2D"]
-position = Vector2(-60, 7)
+position = Vector2(-60, -1)
 texture = ExtResource("3_rwuho")
 
 [node name="PropSpriteAnimationPlayer" type="AnimationPlayer" parent="RigidBody2D/Sprite2D/PropSprite2D"]
