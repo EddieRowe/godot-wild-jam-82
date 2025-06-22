@@ -1,10 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://cphyt7srqwafr"]
+[gd_scene load_steps=17 format=3 uid="uid://cphyt7srqwafr"]
 
 [ext_resource type="Script" uid="uid://4a7nsts8luh7" path="res://scripts/submarine_script.gd" id="1_glu7e"]
 [ext_resource type="Texture2D" uid="uid://dcl8d3ja31fie" path="res://art/player_placeholder_.png" id="2_ay6yh"]
 [ext_resource type="Script" uid="uid://ssj3qc07pg03" path="res://scripts/health.gd" id="3_ay6yh"]
 [ext_resource type="Texture2D" uid="uid://cphlsjsitl4ir" path="res://art/player_propellor_placeholder_.png" id="3_rwuho"]
 [ext_resource type="Script" uid="uid://cdj3fn4u6ytsb" path="res://scripts/oxygen.gd" id="4_p3xyx"]
+[ext_resource type="Texture2D" uid="uid://bluv0ytravv8x" path="res://art/bubble_tiny.png" id="4_yhksc"]
 [ext_resource type="Texture2D" uid="uid://bygay2a087fb5" path="res://art/lightmask1.png" id="5_wuy1y"]
 [ext_resource type="Script" uid="uid://cbqex3ko6h1np" path="res://scripts/light_mask.gd" id="6_1nynx"]
 [ext_resource type="Script" uid="uid://bfv8nph13ijuc" path="res://scripts/energy.gd" id="7_64pgi"]
@@ -53,10 +54,23 @@ _data = {
 &"propellor_anim": SubResource("Animation_rwuho")
 }
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_yhksc"]
+lifetime_randomness = 0.2
+particle_flag_disable_z = true
+angle_min = -90.0
+angle_max = 90.0
+initial_velocity_min = 50.0
+initial_velocity_max = 50.0
+gravity = Vector3(0, -90, 0)
+scale_min = 0.2
+scale_max = 0.4
+turbulence_enabled = true
+turbulence_noise_speed_random = 0.0
+
 [node name="Player" type="Node2D" groups=["Player"]]
 position = Vector2(-25, -15)
 
-[node name="RigidBody2D" type="RigidBody2D" parent="." node_paths=PackedStringArray("health", "oxygen", "energy", "sprite", "audio", "propellor", "restart_timer") groups=["Player"]]
+[node name="RigidBody2D" type="RigidBody2D" parent="." node_paths=PackedStringArray("health", "oxygen", "energy", "sprite", "audio", "propellor", "bubble_stream", "restart_timer") groups=["Player"]]
 freeze = true
 continuous_cd = 1
 contact_monitor = true
@@ -68,6 +82,7 @@ energy = NodePath("../Energy")
 sprite = NodePath("Sprite2D")
 audio = NodePath("../Submarine Audio")
 propellor = NodePath("Sprite2D/PropSprite2D/PropSpriteAnimationPlayer")
+bubble_stream = NodePath("Sprite2D/PropSprite2D/BubbleStreamGPUParticles2D")
 restart_timer = NodePath("../RestartLevelTimer")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
@@ -86,6 +101,12 @@ texture = ExtResource("3_rwuho")
 libraries = {
 &"": SubResource("AnimationLibrary_634ti")
 }
+
+[node name="BubbleStreamGPUParticles2D" type="GPUParticles2D" parent="RigidBody2D/Sprite2D/PropSprite2D"]
+emitting = false
+amount = 18
+texture = ExtResource("4_yhksc")
+process_material = SubResource("ParticleProcessMaterial_yhksc")
 
 [node name="Camera2D" type="Camera2D" parent="RigidBody2D"]
 
