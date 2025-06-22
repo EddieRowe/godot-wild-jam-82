@@ -46,7 +46,7 @@ rotation = -0.00248979
 color = Color(0.0554515, 0.441783, 0.614248, 1)
 
 [node name="Player" parent="." instance=ExtResource("1_vn7o3")]
-position = Vector2(19649, 399)
+position = Vector2(268, 353)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -285,10 +285,8 @@ freeze = true
 position = Vector2(23328, 697)
 freeze = true
 
-[node name="FinishLine" parent="." groups=["LevelComplete"] instance=ExtResource("15_vjtdm")]
+[node name="FinishLine" parent="." instance=ExtResource("15_vjtdm")]
 position = Vector2(25066, 0)
-gravity_scale = 0.0
-freeze = true
 
 [node name="OxygenNode2D" type="Node2D" parent="."]
 
