@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b2r7rc1leger7" path="res://art/bubble_placeholder.png" id="1_xabnt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lu3mb"]
-size = Vector2(1974, 2561)
+size = Vector2(2002, 2561)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1h1cv"]
 particle_flag_disable_z = true
@@ -20,7 +20,7 @@ script = ExtResource("1_1h1cv")
 level_to_load = "res://levels/level_3.tscn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(977, 1270.5)
+position = Vector2(991, 1270.5)
 shape = SubResource("RectangleShape2D_lu3mb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -28,7 +28,7 @@ shape = SubResource("RectangleShape2D_lu3mb")
 [node name="ColorRect" type="ColorRect" parent="Sprite2D"]
 offset_left = -5.0
 offset_top = -5.0
-offset_right = 1965.0
+offset_right = 1987.0
 offset_bottom = 2545.0
 color = Color(1, 0.745098, 1, 0.517647)
 
