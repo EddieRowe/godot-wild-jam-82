@@ -67,7 +67,7 @@ offset_bottom = 2474.0
 color = Color(0.568627, 0, 0.266667, 0.407843)
 
 [node name="Player" parent="." instance=ExtResource("2_pqqg8")]
-position = Vector2(21520, 383)
+position = Vector2(247, 458)
 
 [node name="Boundaries" type="Node2D" parent="."]
 
