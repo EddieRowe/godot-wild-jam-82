@@ -33,7 +33,7 @@
 [ext_resource type="PackedScene" uid="uid://dltgktwbvtmmv" path="res://prefabs/jellyfish_tiny2_moving.tscn" id="31_4xp61"]
 [ext_resource type="PackedScene" uid="uid://db8eqk6rbpg2d" path="res://prefabs/jellyfish_small.tscn" id="31_m4706"]
 [ext_resource type="PackedScene" uid="uid://cq20n71woytq6" path="res://prefabs/jellyfish_tiny_moving.tscn" id="32_4yoxl"]
-[ext_resource type="PackedScene" uid="uid://digqha4603pow" path="res://prefabs/finish_line.tscn" id="33_4yoxl"]
+[ext_resource type="PackedScene" uid="uid://dfni1rfckwtt8" path="res://prefabs/finish_line_2.tscn" id="34_6dcgf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ep78u"]
 size = Vector2(26805.1, 118.5)
@@ -53,10 +53,10 @@ rotation = -0.00248979
 color = Color(0.317647, 0.443137, 0.615686, 1)
 
 [node name="SideWall" type="ColorRect" parent="."]
-offset_left = 26991.0
-offset_top = -826.0
-offset_right = 27874.0
-offset_bottom = 2473.0
+offset_left = 26970.0
+offset_top = -824.0
+offset_right = 27853.0
+offset_bottom = 2475.0
 color = Color(0.00566116, 0.00566115, 0.00566115, 1)
 
 [node name="NextLevelView" type="ColorRect" parent="."]
@@ -67,7 +67,7 @@ offset_bottom = 2474.0
 color = Color(0.568627, 0, 0.266667, 0.407843)
 
 [node name="Player" parent="." instance=ExtResource("2_pqqg8")]
-position = Vector2(141, 433)
+position = Vector2(21520, 383)
 
 [node name="Boundaries" type="Node2D" parent="."]
 
@@ -1109,5 +1109,5 @@ movement_animation_name = "jellyfish_tiny_move"
 position = Vector2(17785, 587)
 movement_animation_name = "jellyfish_tiny2_move"
 
-[node name="FinishLine" parent="." instance=ExtResource("33_4yoxl")]
-position = Vector2(24995, -90)
+[node name="FinishLine" parent="." instance=ExtResource("34_6dcgf")]
+position = Vector2(25015, -96)
