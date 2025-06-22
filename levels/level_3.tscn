@@ -1,0 +1,872 @@
+[gd_scene load_steps=29 format=3 uid="uid://bjtioua5gwk3t"]
+
+[ext_resource type="PackedScene" uid="uid://boaipqmv57708" path="res://prefabs/in_game_timer_canvas_layer.tscn" id="1_bmgug"]
+[ext_resource type="PackedScene" uid="uid://crghl5mtabw4e" path="res://prefabs/main_audio.tscn" id="2_20opy"]
+[ext_resource type="PackedScene" uid="uid://cphyt7srqwafr" path="res://prefabs/Player.tscn" id="3_8l0e1"]
+[ext_resource type="PackedScene" uid="uid://dx71cipa1pnwn" path="res://prefabs/ui/game_overlay.tscn" id="4_lfnxh"]
+[ext_resource type="Script" uid="uid://dgvltd8eyaevh" path="res://scripts/obstacle.gd" id="5_8l0e1"]
+[ext_resource type="PackedScene" uid="uid://cbasaylk3eohx" path="res://prefabs/rock_1.tscn" id="6_lfnxh"]
+[ext_resource type="PackedScene" uid="uid://wyj4yseicfyb" path="res://prefabs/stalactite_large.tscn" id="7_lfnxh"]
+[ext_resource type="PackedScene" uid="uid://bwwhwabnwtcwa" path="res://prefabs/kelp_huge_multicolor.tscn" id="7_xe1ru"]
+[ext_resource type="PackedScene" uid="uid://df4eaxgeperka" path="res://prefabs/stalactite.tscn" id="8_ofchu"]
+[ext_resource type="Texture2D" uid="uid://cp4d550wonmbg" path="res://art/KelpMulticolor.png" id="9_lsnkt"]
+[ext_resource type="Texture2D" uid="uid://bynxseyvojhl2" path="res://art/KelpGreen.png" id="10_wj73x"]
+[ext_resource type="PackedScene" uid="uid://vv3icacjpd3r" path="res://prefabs/rock_2.tscn" id="11_u4kh1"]
+[ext_resource type="PackedScene" uid="uid://bck55k4gxutt3" path="res://prefabs/rock_large.tscn" id="11_wj73x"]
+[ext_resource type="PackedScene" uid="uid://cnkw37u6tf7mw" path="res://prefabs/rock_colossal.tscn" id="12_0unm6"]
+[ext_resource type="PackedScene" uid="uid://bvpj80d4ko5rs" path="res://prefabs/rock_ceiling.tscn" id="13_q42ux"]
+[ext_resource type="PackedScene" uid="uid://dhh22p6ic0tqq" path="res://prefabs/rock_3.tscn" id="14_wi0qq"]
+[ext_resource type="PackedScene" uid="uid://dwx1hxf8wu11" path="res://prefabs/rock_colossal2.tscn" id="15_s3q8p"]
+[ext_resource type="PackedScene" uid="uid://ortbhodpm47m" path="res://prefabs/stalactite_med.tscn" id="17_svivd"]
+[ext_resource type="Texture2D" uid="uid://cdjlc4spvk08p" path="res://art/KelpGreen2.png" id="18_46211"]
+[ext_resource type="Texture2D" uid="uid://ucdpxadxaed8" path="res://art/KelpGreen3.png" id="19_t5hu4"]
+[ext_resource type="Texture2D" uid="uid://b1sg4x08bgbvw" path="res://art/KelpGreen4_Move.png" id="20_eg35p"]
+[ext_resource type="PackedScene" uid="uid://psx14rlat6ij" path="res://prefabs/kelp_black.tscn" id="21_67vg4"]
+[ext_resource type="PackedScene" uid="uid://glvtqalegb67" path="res://prefabs/OxygenBubble.tscn" id="22_67vg4"]
+[ext_resource type="PackedScene" uid="uid://cki0lwwtx0b8q" path="res://prefabs/kelp_huge.tscn" id="23_mqvtj"]
+[ext_resource type="Texture2D" uid="uid://cvvjch0mp3ri1" path="res://art/KelpGreen4.png" id="24_8swdu"]
+[ext_resource type="Texture2D" uid="uid://ckl1ygu6q43ua" path="res://art/KelpLong2.png" id="26_6anhs"]
+[ext_resource type="PackedScene" uid="uid://cgnhs05fry7sc" path="res://prefabs/side_wall.tscn" id="27_e28pm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ofchu"]
+size = Vector2(28827.6, 118.5)
+
+[node name="level_3" type="Node2D"]
+
+[node name="InGameTimerCanvasLayer" parent="." instance=ExtResource("1_bmgug")]
+
+[node name="Main Audio" parent="." instance=ExtResource("2_20opy")]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -1189.0
+offset_top = -433.0
+offset_right = 25068.0
+offset_bottom = 1390.0
+rotation = -0.00248979
+color = Color(0.65098, 0.254902, 0.337255, 0.556863)
+
+[node name="NextLevelView" type="ColorRect" parent="."]
+offset_left = 25058.0
+offset_top = 1981.0
+offset_right = 27073.0
+offset_bottom = 2947.0
+color = Color(0.00596516, 0, 0.264718, 0.407843)
+
+[node name="SideWall" type="ColorRect" parent="."]
+offset_left = 27063.0
+offset_top = -759.0
+offset_right = 27946.0
+offset_bottom = 2947.0
+color = Color(0.00566116, 0.00566115, 0.00566115, 1)
+
+[node name="Player" parent="." instance=ExtResource("3_8l0e1")]
+position = Vector2(489, 457)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GameOverlay" parent="CanvasLayer" instance=ExtResource("4_lfnxh")]
+
+[node name="Boundaries" type="Node2D" parent="."]
+
+[node name="BOUNDARYRigidBody2D" type="RigidBody2D" parent="Boundaries" groups=["Obstacle"]]
+position = Vector2(489, -96)
+freeze = true
+script = ExtResource("5_8l0e1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/BOUNDARYRigidBody2D"]
+position = Vector2(12860, -663)
+shape = SubResource("RectangleShape2D_ofchu")
+
+[node name="ColorRect" type="ColorRect" parent="Boundaries/BOUNDARYRigidBody2D"]
+offset_left = -567.0
+offset_top = -663.0
+offset_right = 26553.0
+offset_bottom = 68.0
+color = Color(0, 0, 0, 1)
+
+[node name="BOUNDARYRigidBody2D3" type="RigidBody2D" parent="Boundaries" groups=["Obstacle"]]
+position = Vector2(-96, 138)
+rotation = -1.57079
+freeze = true
+script = ExtResource("5_8l0e1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/BOUNDARYRigidBody2D3"]
+position = Vector2(618, -10)
+shape = SubResource("RectangleShape2D_ofchu")
+
+[node name="ColorRect" type="ColorRect" parent="Boundaries/BOUNDARYRigidBody2D3"]
+offset_left = -2399.01
+offset_top = -1180.98
+offset_right = 875.996
+offset_bottom = 46.0195
+color = Color(0, 0, 0, 1)
+
+[node name="BOUNDARYRigidBody2D2" type="RigidBody2D" parent="Boundaries" groups=["Obstacle"]]
+position = Vector2(489, 561)
+freeze = true
+script = ExtResource("5_8l0e1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/BOUNDARYRigidBody2D2"]
+position = Vector2(10226, 296)
+shape = SubResource("RectangleShape2D_ofchu")
+
+[node name="ColorRect2" type="ColorRect" parent="Boundaries/BOUNDARYRigidBody2D2"]
+offset_left = -523.0
+offset_top = 248.0
+offset_right = 24608.0
+offset_bottom = 2470.0
+color = Color(0, 0, 0, 1)
+
+[node name="KelpNode2D" type="Node2D" parent="."]
+
+[node name="KelpMulticolor" type="Sprite2D" parent="KelpNode2D"]
+position = Vector2(677, 756)
+texture = ExtResource("9_lsnkt")
+
+[node name="KelpGreen" type="Sprite2D" parent="KelpNode2D"]
+position = Vector2(731, 822)
+texture = ExtResource("10_wj73x")
+
+[node name="KelpGreen2" type="Sprite2D" parent="KelpNode2D"]
+position = Vector2(1000, 855)
+texture = ExtResource("18_46211")
+
+[node name="KelpGreen3" type="Sprite2D" parent="KelpNode2D"]
+position = Vector2(1819, 852)
+texture = ExtResource("18_46211")
+
+[node name="KelpGreen4" type="Sprite2D" parent="KelpNode2D"]
+position = Vector2(2709, 869)
+texture = ExtResource("19_t5hu4")
+
+[node name="KelpGreen5" type="Sprite2D" parent="KelpNode2D"]
+position = Vector2(3020, 872)
+texture = ExtResource("18_46211")
+
+[node name="KelpGreen6" type="Sprite2D" parent="KelpNode2D"]
+position = Vector2(2926, 909)
+texture = ExtResource("19_t5hu4")
+
+[node name="KelpGreen7" type="Sprite2D" parent="KelpNode2D"]
+position = Vector2(4609, 866)
+texture = ExtResource("19_t5hu4")
+
+[node name="KelpGreen8" type="Sprite2D" parent="KelpNode2D"]
+position = Vector2(4758, 829)
+texture = ExtResource("18_46211")
+
+[node name="KelpGreen9" type="Sprite2D" parent="KelpNode2D"]
+position = Vector2(4512, 829)
+texture = ExtResource("18_46211")
+
+[node name="KelpMulticolor2" type="Sprite2D" parent="KelpNode2D"]
+position = Vector2(1973, 966)
+texture = ExtResource("9_lsnkt")
+
+[node name="KelpGreen4Move" type="Sprite2D" parent="KelpNode2D"]
+position = Vector2(4621, 981)
+texture = ExtResource("20_eg35p")
+
+[node name="KelpGreen4Move2" type="Sprite2D" parent="KelpNode2D"]
+position = Vector2(6085, 855)
+texture = ExtResource("20_eg35p")
+
+[node name="KelpGreen10" type="Sprite2D" parent="KelpNode2D"]
+position = Vector2(6099, 949)
+texture = ExtResource("18_46211")
+
+[node name="KelpGreen11" type="Sprite2D" parent="KelpNode2D"]
+position = Vector2(6738, 795)
+texture = ExtResource("19_t5hu4")
+
+[node name="KelpMulticolor3" type="Sprite2D" parent="KelpNode2D"]
+position = Vector2(7463, 798)
+texture = ExtResource("9_lsnkt")
+
+[node name="KelpGreen4Move3" type="Sprite2D" parent="KelpNode2D"]
+position = Vector2(6693, 778)
+texture = ExtResource("20_eg35p")
+
+[node name="Kelp" parent="KelpNode2D" instance=ExtResource("21_67vg4")]
+position = Vector2(4925, -11)
+rotation = -3.14159
+
+[node name="Kelp2" parent="KelpNode2D" instance=ExtResource("21_67vg4")]
+position = Vector2(5737, -33)
+rotation = -3.14159
+
+[node name="Kelp3" parent="KelpNode2D" instance=ExtResource("21_67vg4")]
+position = Vector2(2867, -15)
+rotation = -3.14159
+
+[node name="Kelp4" parent="KelpNode2D" instance=ExtResource("21_67vg4")]
+position = Vector2(7290, -1)
+rotation = -3.14159
+
+[node name="Kelp5" parent="KelpNode2D" instance=ExtResource("21_67vg4")]
+position = Vector2(7977, -1)
+rotation = -3.14159
+
+[node name="Kelp6" parent="KelpNode2D" instance=ExtResource("21_67vg4")]
+position = Vector2(1152, -6)
+rotation = 3.14159
+
+[node name="KelpHuge" parent="KelpNode2D" instance=ExtResource("23_mqvtj")]
+position = Vector2(7901, 769)
+
+[node name="KelpGreen12" type="Sprite2D" parent="KelpNode2D"]
+position = Vector2(7658, 792)
+texture = ExtResource("24_8swdu")
+
+[node name="KelpHugeMulticolor" parent="KelpNode2D" instance=ExtResource("7_xe1ru")]
+position = Vector2(8063, 585)
+
+[node name="KelpHugeMulticolor2" parent="KelpNode2D" instance=ExtResource("7_xe1ru")]
+position = Vector2(8252, 566)
+
+[node name="KelpHugeMulticolor3" parent="KelpNode2D" instance=ExtResource("7_xe1ru")]
+position = Vector2(8911, 556)
+
+[node name="KelpHugeMulticolor4" parent="KelpNode2D" instance=ExtResource("7_xe1ru")]
+position = Vector2(8452, 557)
+
+[node name="KelpHugeMulticolor5" parent="KelpNode2D" instance=ExtResource("7_xe1ru")]
+position = Vector2(8652, 557)
+
+[node name="KelpHugeMulticolor6" parent="KelpNode2D" instance=ExtResource("7_xe1ru")]
+position = Vector2(9180, 566)
+
+[node name="KelpHugeMulticolor7" parent="KelpNode2D" instance=ExtResource("7_xe1ru")]
+position = Vector2(9403, 583)
+
+[node name="KelpHuge2" parent="KelpNode2D" instance=ExtResource("23_mqvtj")]
+position = Vector2(8751, 736)
+
+[node name="KelpHuge3" parent="KelpNode2D" instance=ExtResource("23_mqvtj")]
+position = Vector2(8511, 747)
+
+[node name="KelpHuge4" parent="KelpNode2D" instance=ExtResource("23_mqvtj")]
+position = Vector2(8328, 734)
+
+[node name="KelpHuge5" parent="KelpNode2D" instance=ExtResource("23_mqvtj")]
+position = Vector2(8133, 762)
+
+[node name="KelpHuge6" parent="KelpNode2D" instance=ExtResource("23_mqvtj")]
+position = Vector2(9027, 725)
+
+[node name="KelpHuge7" parent="KelpNode2D" instance=ExtResource("23_mqvtj")]
+position = Vector2(9272, 727)
+
+[node name="KelpHugeMulticolor8" parent="KelpNode2D" instance=ExtResource("7_xe1ru")]
+position = Vector2(9660, 562)
+
+[node name="KelpHuge8" parent="KelpNode2D" instance=ExtResource("23_mqvtj")]
+position = Vector2(9505, 732)
+
+[node name="KelpHuge9" parent="KelpNode2D" instance=ExtResource("23_mqvtj")]
+position = Vector2(11642, 724)
+
+[node name="KelpHugeMulticolor9" parent="KelpNode2D" instance=ExtResource("7_xe1ru")]
+position = Vector2(11827, 577)
+
+[node name="KelpHugeMulticolor10" parent="KelpNode2D" instance=ExtResource("7_xe1ru")]
+position = Vector2(12254, 536)
+
+[node name="KelpHuge10" parent="KelpNode2D" instance=ExtResource("23_mqvtj")]
+position = Vector2(12310, 752)
+
+[node name="KelpHugeMulticolor11" parent="KelpNode2D" instance=ExtResource("7_xe1ru")]
+position = Vector2(12672, 610)
+
+[node name="KelpHugeMulticolor12" parent="KelpNode2D" instance=ExtResource("7_xe1ru")]
+position = Vector2(12824, 572)
+
+[node name="KelpHugeMulticolor13" parent="KelpNode2D" instance=ExtResource("7_xe1ru")]
+position = Vector2(13549, 556)
+
+[node name="KelpHuge11" parent="KelpNode2D" instance=ExtResource("23_mqvtj")]
+position = Vector2(13673, 731)
+
+[node name="KelpHugeMulticolor14" parent="KelpNode2D" instance=ExtResource("7_xe1ru")]
+position = Vector2(14270, 589)
+
+[node name="KelpHuge12" parent="KelpNode2D" instance=ExtResource("23_mqvtj")]
+position = Vector2(14381, 759)
+
+[node name="KelpHugeMulticolor15" parent="KelpNode2D" instance=ExtResource("7_xe1ru")]
+position = Vector2(14963, 548)
+
+[node name="KelpHugeMulticolor16" parent="KelpNode2D" instance=ExtResource("7_xe1ru")]
+position = Vector2(15079, 608)
+
+[node name="KelpHugeMulticolor17" parent="KelpNode2D" instance=ExtResource("7_xe1ru")]
+position = Vector2(15627, 553)
+
+[node name="KelpHuge13" parent="KelpNode2D" instance=ExtResource("23_mqvtj")]
+position = Vector2(15505, 729)
+
+[node name="KelpHugeMulticolor18" parent="KelpNode2D" instance=ExtResource("7_xe1ru")]
+position = Vector2(16052, 645)
+
+[node name="KelpHugeMulticolor19" parent="KelpNode2D" instance=ExtResource("7_xe1ru")]
+position = Vector2(16238, 592)
+
+[node name="KelpHuge14" parent="KelpNode2D" instance=ExtResource("23_mqvtj")]
+position = Vector2(16590, 733)
+
+[node name="KelpHugeMulticolor20" parent="KelpNode2D" instance=ExtResource("7_xe1ru")]
+position = Vector2(16753, 604)
+
+[node name="KelpHuge15" parent="KelpNode2D" instance=ExtResource("23_mqvtj")]
+position = Vector2(17303, 766)
+
+[node name="KelpHugeMulticolor21" parent="KelpNode2D" instance=ExtResource("7_xe1ru")]
+position = Vector2(17473, 601)
+
+[node name="KelpHugeMulticolor22" parent="KelpNode2D" instance=ExtResource("7_xe1ru")]
+position = Vector2(17845, 575)
+
+[node name="KelpHuge16" parent="KelpNode2D" instance=ExtResource("23_mqvtj")]
+position = Vector2(17931, 757)
+
+[node name="KelpHugeMulticolor23" parent="KelpNode2D" instance=ExtResource("7_xe1ru")]
+position = Vector2(18601, 591)
+
+[node name="KelpHugeMulticolor24" parent="KelpNode2D" instance=ExtResource("7_xe1ru")]
+position = Vector2(18755, 676)
+
+[node name="KelpHugeMulticolor25" parent="KelpNode2D" instance=ExtResource("7_xe1ru")]
+position = Vector2(19420, 602)
+
+[node name="KelpHuge17" parent="KelpNode2D" instance=ExtResource("23_mqvtj")]
+position = Vector2(19252, 748)
+
+[node name="KelpHugeMulticolor26" parent="KelpNode2D" instance=ExtResource("7_xe1ru")]
+position = Vector2(19785, 580)
+
+[node name="KelpHugeMulticolor27" parent="KelpNode2D" instance=ExtResource("7_xe1ru")]
+position = Vector2(19948, 636)
+
+[node name="KelpHugeMulticolor28" parent="KelpNode2D" instance=ExtResource("7_xe1ru")]
+position = Vector2(20123, 561)
+
+[node name="KelpHuge18" parent="KelpNode2D" instance=ExtResource("23_mqvtj")]
+position = Vector2(20460, 725)
+
+[node name="KelpHugeMulticolor29" parent="KelpNode2D" instance=ExtResource("7_xe1ru")]
+position = Vector2(20639, 546)
+
+[node name="KelpHuge19" parent="KelpNode2D" instance=ExtResource("23_mqvtj")]
+position = Vector2(20864, 750)
+
+[node name="KelpHugeMulticolor30" parent="KelpNode2D" instance=ExtResource("7_xe1ru")]
+position = Vector2(21030, 588)
+
+[node name="KelpHugeMulticolor31" parent="KelpNode2D" instance=ExtResource("7_xe1ru")]
+position = Vector2(21182, 548)
+
+[node name="KelpMulticolor4" type="Sprite2D" parent="KelpNode2D"]
+position = Vector2(7727, 52)
+rotation = 3.14159
+texture = ExtResource("9_lsnkt")
+
+[node name="KelpMulticolor5" type="Sprite2D" parent="KelpNode2D"]
+position = Vector2(8259, 50)
+rotation = 3.14159
+texture = ExtResource("9_lsnkt")
+
+[node name="KelpMulticolor6" type="Sprite2D" parent="KelpNode2D"]
+position = Vector2(8442, 40)
+rotation = -3.14159
+texture = ExtResource("9_lsnkt")
+
+[node name="KelpGreen13" type="Sprite2D" parent="KelpNode2D"]
+position = Vector2(8791, 47)
+rotation = -3.14159
+texture = ExtResource("19_t5hu4")
+
+[node name="KelpGreen14" type="Sprite2D" parent="KelpNode2D"]
+position = Vector2(8911, -4)
+rotation = 3.14159
+texture = ExtResource("18_46211")
+
+[node name="KelpGreen15" type="Sprite2D" parent="KelpNode2D"]
+position = Vector2(9239, 40)
+rotation = -3.14159
+texture = ExtResource("24_8swdu")
+
+[node name="KelpGreen16" type="Sprite2D" parent="KelpNode2D"]
+position = Vector2(9403, -12)
+rotation = 3.14159
+texture = ExtResource("18_46211")
+
+[node name="KelpGreen17" type="Sprite2D" parent="KelpNode2D"]
+position = Vector2(9870, 42)
+rotation = 3.14159
+texture = ExtResource("24_8swdu")
+
+[node name="KelpGreen4Move4" type="Sprite2D" parent="KelpNode2D"]
+position = Vector2(10252, 13)
+rotation = -2.87979
+texture = ExtResource("20_eg35p")
+
+[node name="KelpGreen18" type="Sprite2D" parent="KelpNode2D"]
+position = Vector2(10544, -0.000244141)
+rotation = 2.87979
+texture = ExtResource("18_46211")
+
+[node name="KelpHugeMulticolor32" parent="KelpNode2D" instance=ExtResource("7_xe1ru")]
+position = Vector2(7827, 566)
+
+[node name="KelpHugeMulticolor33" parent="KelpNode2D" instance=ExtResource("7_xe1ru")]
+position = Vector2(10085, 594)
+
+[node name="KelpHuge20" parent="KelpNode2D" instance=ExtResource("23_mqvtj")]
+position = Vector2(9919, 747)
+
+[node name="KelpHugeMulticolor34" parent="KelpNode2D" instance=ExtResource("7_xe1ru")]
+position = Vector2(10487, 599)
+
+[node name="KelpHugeMulticolor35" parent="KelpNode2D" instance=ExtResource("7_xe1ru")]
+position = Vector2(10370, 601)
+
+[node name="KelpHuge21" parent="KelpNode2D" instance=ExtResource("23_mqvtj")]
+position = Vector2(10715, 723)
+
+[node name="KelpHugeMulticolor36" parent="KelpNode2D" instance=ExtResource("7_xe1ru")]
+position = Vector2(10850, 583)
+
+[node name="KelpHuge22" parent="KelpNode2D" instance=ExtResource("23_mqvtj")]
+position = Vector2(10967, 734)
+
+[node name="KelpHugeMulticolor37" parent="KelpNode2D" instance=ExtResource("7_xe1ru")]
+position = Vector2(11310, 580)
+
+[node name="KelpHuge23" parent="KelpNode2D" instance=ExtResource("23_mqvtj")]
+position = Vector2(11388, 740)
+
+[node name="KelpGreen4Move5" type="Sprite2D" parent="KelpNode2D"]
+position = Vector2(12672, 40)
+rotation = 3.14159
+texture = ExtResource("20_eg35p")
+
+[node name="KelpGreen4Move6" type="Sprite2D" parent="KelpNode2D"]
+position = Vector2(13349, 17)
+rotation = -2.87979
+texture = ExtResource("20_eg35p")
+
+[node name="KelpHugeMulticolor38" parent="KelpNode2D" instance=ExtResource("7_xe1ru")]
+position = Vector2(13810, 293)
+rotation = -3.14159
+
+[node name="KelpGreen19" type="Sprite2D" parent="KelpNode2D"]
+position = Vector2(13792, -17)
+rotation = -3.14159
+texture = ExtResource("18_46211")
+
+[node name="KelpGreen20" type="Sprite2D" parent="KelpNode2D"]
+position = Vector2(14070, 40)
+rotation = 3.14159
+texture = ExtResource("19_t5hu4")
+
+[node name="KelpGreen21" type="Sprite2D" parent="KelpNode2D"]
+position = Vector2(14665, 50)
+rotation = 3.14159
+texture = ExtResource("24_8swdu")
+
+[node name="KelpGreen22" type="Sprite2D" parent="KelpNode2D"]
+position = Vector2(14547, -12)
+rotation = 3.14159
+texture = ExtResource("18_46211")
+
+[node name="KelpGreen23" type="Sprite2D" parent="KelpNode2D"]
+position = Vector2(14199, -12)
+rotation = -3.14159
+texture = ExtResource("18_46211")
+
+[node name="KelpGreen24" type="Sprite2D" parent="KelpNode2D"]
+position = Vector2(10997, 36)
+rotation = 3.14159
+texture = ExtResource("24_8swdu")
+
+[node name="KelpMulticolor7" type="Sprite2D" parent="KelpNode2D"]
+position = Vector2(11452, 100)
+rotation = -3.14159
+texture = ExtResource("9_lsnkt")
+
+[node name="KelpMulticolor8" type="Sprite2D" parent="KelpNode2D"]
+position = Vector2(11573, 50)
+rotation = -3.14159
+texture = ExtResource("9_lsnkt")
+
+[node name="KelpHugeMulticolor39" parent="KelpNode2D" instance=ExtResource("7_xe1ru")]
+position = Vector2(15574, 171)
+rotation = 3.14159
+
+[node name="KelpHugeMulticolor40" parent="KelpNode2D" instance=ExtResource("7_xe1ru")]
+position = Vector2(16238, 171)
+rotation = -3.14159
+
+[node name="KelpHuge24" parent="KelpNode2D" instance=ExtResource("23_mqvtj")]
+position = Vector2(15826, 11)
+rotation = 3.14159
+
+[node name="KelpGreen25" type="Sprite2D" parent="KelpNode2D"]
+position = Vector2(16521, 24)
+rotation = -3.14159
+texture = ExtResource("19_t5hu4")
+
+[node name="KelpGreen26" type="Sprite2D" parent="KelpNode2D"]
+position = Vector2(16019, -13)
+rotation = -3.14159
+texture = ExtResource("18_46211")
+
+[node name="KelpGreen27" type="Sprite2D" parent="KelpNode2D"]
+position = Vector2(16865, -3)
+rotation = -3.14159
+texture = ExtResource("18_46211")
+
+[node name="KelpMulticolor9" type="Sprite2D" parent="KelpNode2D"]
+position = Vector2(17158, 80)
+rotation = 3.14159
+texture = ExtResource("9_lsnkt")
+
+[node name="KelpMulticolor10" type="Sprite2D" parent="KelpNode2D"]
+position = Vector2(17587, 43)
+rotation = -3.14159
+texture = ExtResource("9_lsnkt")
+
+[node name="KelpGreen28" type="Sprite2D" parent="KelpNode2D"]
+position = Vector2(17493, -6)
+rotation = 3.14159
+texture = ExtResource("24_8swdu")
+
+[node name="KelpGreen4Move7" type="Sprite2D" parent="KelpNode2D"]
+position = Vector2(18086, 23)
+rotation = -2.87979
+texture = ExtResource("20_eg35p")
+
+[node name="KelpGreen29" type="Sprite2D" parent="KelpNode2D"]
+position = Vector2(18601, 27)
+rotation = 3.14159
+texture = ExtResource("24_8swdu")
+
+[node name="KelpMulticolor11" type="Sprite2D" parent="KelpNode2D"]
+position = Vector2(18679, 100)
+rotation = -3.14159
+texture = ExtResource("9_lsnkt")
+
+[node name="KelpLong2" type="Sprite2D" parent="KelpNode2D"]
+position = Vector2(19183, 15)
+rotation = 3.14159
+texture = ExtResource("26_6anhs")
+
+[node name="KelpGreen30" type="Sprite2D" parent="KelpNode2D"]
+position = Vector2(19321, 14.9995)
+rotation = 2.87979
+texture = ExtResource("10_wj73x")
+
+[node name="KelpGreen31" type="Sprite2D" parent="KelpNode2D"]
+position = Vector2(19814, 38)
+rotation = -3.14159
+texture = ExtResource("24_8swdu")
+
+[node name="KelpMulticolor12" type="Sprite2D" parent="KelpNode2D"]
+position = Vector2(20198, 42)
+rotation = -2.87979
+texture = ExtResource("9_lsnkt")
+
+[node name="KelpMulticolor13" type="Sprite2D" parent="KelpNode2D"]
+position = Vector2(20328, 27)
+rotation = 3.14159
+texture = ExtResource("9_lsnkt")
+
+[node name="KelpGreen32" type="Sprite2D" parent="KelpNode2D"]
+position = Vector2(20657, 15)
+rotation = 3.14159
+texture = ExtResource("18_46211")
+
+[node name="KelpGreen33" type="Sprite2D" parent="KelpNode2D"]
+position = Vector2(20984, 8)
+rotation = 3.14159
+texture = ExtResource("24_8swdu")
+
+[node name="ObstaclesNode2D" type="Node2D" parent="."]
+
+[node name="StalectiteLarge" parent="ObstaclesNode2D" instance=ExtResource("7_lfnxh")]
+position = Vector2(819, -33)
+freeze = true
+
+[node name="Stalactite" parent="ObstaclesNode2D" instance=ExtResource("8_ofchu")]
+position = Vector2(844, -4)
+freeze = true
+
+[node name="Rock3" parent="ObstaclesNode2D" instance=ExtResource("6_lfnxh")]
+position = Vector2(768, 822)
+freeze = true
+
+[node name="RockLarge3" parent="ObstaclesNode2D" instance=ExtResource("11_wj73x")]
+position = Vector2(1141, 723)
+freeze = true
+
+[node name="RockCollosal" parent="ObstaclesNode2D" instance=ExtResource("12_0unm6")]
+position = Vector2(3084, 734)
+freeze = true
+
+[node name="RockCeiling" parent="ObstaclesNode2D" instance=ExtResource("13_q42ux")]
+position = Vector2(1481, -49)
+freeze = true
+
+[node name="RockLarge" parent="ObstaclesNode2D" instance=ExtResource("14_wi0qq")]
+position = Vector2(1660, 514)
+freeze = true
+
+[node name="RockCeiling2" parent="ObstaclesNode2D" instance=ExtResource("13_q42ux")]
+position = Vector2(3245, -60)
+freeze = true
+
+[node name="RockColossal2" parent="ObstaclesNode2D" instance=ExtResource("15_s3q8p")]
+position = Vector2(5450, 1120)
+freeze = true
+
+[node name="Rock4" parent="ObstaclesNode2D" instance=ExtResource("6_lfnxh")]
+position = Vector2(4545, 807)
+freeze = true
+
+[node name="Stalactite2" parent="ObstaclesNode2D" instance=ExtResource("8_ofchu")]
+position = Vector2(5074, -12)
+freeze = true
+
+[node name="Stalactite3" parent="ObstaclesNode2D" instance=ExtResource("8_ofchu")]
+position = Vector2(5199, -88)
+freeze = true
+
+[node name="Rock5" parent="ObstaclesNode2D" instance=ExtResource("6_lfnxh")]
+position = Vector2(7464, 822)
+freeze = true
+
+[node name="StalectiteLarge2" parent="ObstaclesNode2D" instance=ExtResource("7_lfnxh")]
+position = Vector2(7399, -60)
+freeze = true
+
+[node name="StalectiteMed" parent="ObstaclesNode2D" instance=ExtResource("17_svivd")]
+position = Vector2(7468, -83)
+freeze = true
+
+[node name="Rock6" parent="ObstaclesNode2D" instance=ExtResource("6_lfnxh")]
+position = Vector2(7813, 866)
+freeze = true
+
+[node name="Rock7" parent="ObstaclesNode2D" instance=ExtResource("6_lfnxh")]
+position = Vector2(8199, 788)
+freeze = true
+
+[node name="Rock8" parent="ObstaclesNode2D" instance=ExtResource("6_lfnxh")]
+position = Vector2(8620, 822)
+freeze = true
+
+[node name="Rock1" parent="ObstaclesNode2D" instance=ExtResource("11_u4kh1")]
+position = Vector2(9269, 536)
+
+[node name="Rock9" parent="ObstaclesNode2D" instance=ExtResource("6_lfnxh")]
+position = Vector2(10123, 781)
+freeze = true
+
+[node name="Rock10" parent="ObstaclesNode2D" instance=ExtResource("6_lfnxh")]
+position = Vector2(10512, 797)
+freeze = true
+
+[node name="RockLarge2" parent="ObstaclesNode2D" instance=ExtResource("14_wi0qq")]
+position = Vector2(10635, 489)
+freeze = true
+
+[node name="Rock2" parent="ObstaclesNode2D" instance=ExtResource("11_u4kh1")]
+position = Vector2(11525, 591)
+
+[node name="Rock11" parent="ObstaclesNode2D" instance=ExtResource("6_lfnxh")]
+position = Vector2(12369, 789)
+freeze = true
+
+[node name="Rock12" parent="ObstaclesNode2D" instance=ExtResource("11_u4kh1")]
+position = Vector2(12599, 384)
+
+[node name="RockLarge4" parent="ObstaclesNode2D" instance=ExtResource("14_wi0qq")]
+position = Vector2(13408, 491)
+freeze = true
+
+[node name="RockLarge5" parent="ObstaclesNode2D" instance=ExtResource("11_wj73x")]
+position = Vector2(15213, 751)
+freeze = true
+
+[node name="Rock13" parent="ObstaclesNode2D" instance=ExtResource("6_lfnxh")]
+position = Vector2(15750, 764)
+freeze = true
+
+[node name="Rock14" parent="ObstaclesNode2D" instance=ExtResource("6_lfnxh")]
+position = Vector2(16406, 809)
+freeze = true
+
+[node name="Rock15" parent="ObstaclesNode2D" instance=ExtResource("11_u4kh1")]
+position = Vector2(16481, 516)
+
+[node name="Rock16" parent="ObstaclesNode2D" instance=ExtResource("6_lfnxh")]
+position = Vector2(17931, 814)
+freeze = true
+
+[node name="Rock17" parent="ObstaclesNode2D" instance=ExtResource("6_lfnxh")]
+position = Vector2(18355, 833)
+freeze = true
+
+[node name="Rock18" parent="ObstaclesNode2D" instance=ExtResource("11_u4kh1")]
+position = Vector2(18496, 544)
+
+[node name="Rock19" parent="ObstaclesNode2D" instance=ExtResource("6_lfnxh")]
+position = Vector2(20254, 797)
+freeze = true
+
+[node name="RockColossal3" parent="ObstaclesNode2D" instance=ExtResource("15_s3q8p")]
+position = Vector2(21929, 1077)
+freeze = true
+
+[node name="RockCeiling3" parent="ObstaclesNode2D" instance=ExtResource("13_q42ux")]
+position = Vector2(21164, -65)
+freeze = true
+
+[node name="KelpGreen3" type="Sprite2D" parent="ObstaclesNode2D"]
+position = Vector2(12086, 17)
+rotation = 3.14159
+texture = ExtResource("19_t5hu4")
+
+[node name="Rock20" parent="ObstaclesNode2D" instance=ExtResource("11_u4kh1")]
+position = Vector2(6499, 491)
+
+[node name="RockCeiling4" parent="ObstaclesNode2D" instance=ExtResource("13_q42ux")]
+position = Vector2(5791, -71)
+freeze = true
+
+[node name="Stalactite4" parent="ObstaclesNode2D" instance=ExtResource("8_ofchu")]
+position = Vector2(2944, -17)
+freeze = true
+
+[node name="Rock21" parent="ObstaclesNode2D" instance=ExtResource("11_u4kh1")]
+position = Vector2(5799, 491)
+
+[node name="Stalactite5" parent="ObstaclesNode2D" instance=ExtResource("8_ofchu")]
+position = Vector2(3006, -90)
+freeze = true
+
+[node name="Rock22" parent="ObstaclesNode2D" instance=ExtResource("6_lfnxh")]
+position = Vector2(2703, 835)
+freeze = true
+
+[node name="Rock23" parent="ObstaclesNode2D" instance=ExtResource("6_lfnxh")]
+position = Vector2(14665, 783)
+freeze = true
+
+[node name="RockLarge6" parent="ObstaclesNode2D" instance=ExtResource("14_wi0qq")]
+position = Vector2(8502, 528)
+freeze = true
+
+[node name="Rock24" parent="ObstaclesNode2D" instance=ExtResource("11_u4kh1")]
+position = Vector2(22144, 454)
+
+[node name="RockCeiling5" parent="ObstaclesNode2D" instance=ExtResource("13_q42ux")]
+position = Vector2(23134, -57)
+freeze = true
+
+[node name="RockCeiling6" parent="ObstaclesNode2D" instance=ExtResource("13_q42ux")]
+position = Vector2(7554, -131)
+freeze = true
+
+[node name="RockCeiling7" parent="ObstaclesNode2D" instance=ExtResource("13_q42ux")]
+position = Vector2(8856, -122)
+freeze = true
+
+[node name="RockCeiling8" parent="ObstaclesNode2D" instance=ExtResource("13_q42ux")]
+position = Vector2(10083, -150)
+freeze = true
+
+[node name="RockCeiling9" parent="ObstaclesNode2D" instance=ExtResource("13_q42ux")]
+position = Vector2(11398, -147)
+freeze = true
+
+[node name="RockCeiling10" parent="ObstaclesNode2D" instance=ExtResource("13_q42ux")]
+position = Vector2(12634, -159)
+freeze = true
+
+[node name="RockCeiling11" parent="ObstaclesNode2D" instance=ExtResource("13_q42ux")]
+position = Vector2(13874, -109)
+freeze = true
+
+[node name="OxygenNode2D" type="Node2D" parent="."]
+
+[node name="OxygenBubble" parent="OxygenNode2D" instance=ExtResource("22_67vg4")]
+position = Vector2(697, 652)
+
+[node name="OxygenBubble2" parent="OxygenNode2D" instance=ExtResource("22_67vg4")]
+position = Vector2(964, 737)
+
+[node name="OxygenBubble3" parent="OxygenNode2D" instance=ExtResource("22_67vg4")]
+position = Vector2(1726, 696)
+
+[node name="OxygenBubble4" parent="OxygenNode2D" instance=ExtResource("22_67vg4")]
+position = Vector2(1886, 649)
+
+[node name="OxygenBubble5" parent="OxygenNode2D" instance=ExtResource("22_67vg4")]
+position = Vector2(1968, 709)
+
+[node name="OxygenBubble6" parent="OxygenNode2D" instance=ExtResource("22_67vg4")]
+position = Vector2(2574, 674)
+
+[node name="OxygenBubble7" parent="OxygenNode2D" instance=ExtResource("22_67vg4")]
+position = Vector2(2677, 614)
+
+[node name="OxygenBubble8" parent="OxygenNode2D" instance=ExtResource("22_67vg4")]
+position = Vector2(2947, 677)
+
+[node name="OxygenBubble9" parent="OxygenNode2D" instance=ExtResource("22_67vg4")]
+position = Vector2(4403, 658)
+
+[node name="OxygenBubble10" parent="OxygenNode2D" instance=ExtResource("22_67vg4")]
+position = Vector2(4538, 690)
+
+[node name="OxygenBubble11" parent="OxygenNode2D" instance=ExtResource("22_67vg4")]
+position = Vector2(4689, 649)
+
+[node name="OxygenBubble12" parent="OxygenNode2D" instance=ExtResource("22_67vg4")]
+position = Vector2(6002, 705)
+
+[node name="OxygenBubble13" parent="OxygenNode2D" instance=ExtResource("22_67vg4")]
+position = Vector2(6642, 655)
+
+[node name="OxygenBubble14" parent="OxygenNode2D" instance=ExtResource("22_67vg4")]
+position = Vector2(6787, 599)
+
+[node name="OxygenBubble15" parent="OxygenNode2D" instance=ExtResource("22_67vg4")]
+position = Vector2(7301, 633)
+
+[node name="OxygenBubble16" parent="OxygenNode2D" instance=ExtResource("22_67vg4")]
+position = Vector2(7477, 705)
+
+[node name="RockCeiling" parent="OxygenNode2D" instance=ExtResource("13_q42ux")]
+position = Vector2(15160, -164)
+freeze = true
+
+[node name="RockCeiling2" parent="OxygenNode2D" instance=ExtResource("13_q42ux")]
+position = Vector2(16407, -158)
+freeze = true
+
+[node name="RockCeiling3" parent="OxygenNode2D" instance=ExtResource("13_q42ux")]
+position = Vector2(17692, -158)
+freeze = true
+
+[node name="RockCeiling4" parent="OxygenNode2D" instance=ExtResource("13_q42ux")]
+position = Vector2(18933, -146)
+freeze = true
+
+[node name="RockCeiling5" parent="OxygenNode2D" instance=ExtResource("13_q42ux")]
+position = Vector2(20098, -199)
+freeze = true
+
+[node name="SideWall2" parent="." instance=ExtResource("27_e28pm")]
+position = Vector2(27946, -759)
