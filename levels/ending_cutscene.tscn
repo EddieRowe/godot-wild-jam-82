@@ -1,0 +1,601 @@
+[gd_scene load_steps=35 format=3 uid="uid://ca1jri3qtuhia"]
+
+[ext_resource type="Texture2D" uid="uid://dcl8d3ja31fie" path="res://art/player_placeholder_.png" id="1_hgxys"]
+[ext_resource type="Script" uid="uid://dp2b0f1sf031y" path="res://scripts/ending_cutscene.gd" id="1_lepj7"]
+[ext_resource type="Texture2D" uid="uid://cphlsjsitl4ir" path="res://art/player_propellor_placeholder_.png" id="2_lepj7"]
+[ext_resource type="Texture2D" uid="uid://bluv0ytravv8x" path="res://art/bubble_tiny.png" id="3_nl1xf"]
+[ext_resource type="Texture2D" uid="uid://ketdawoguj8g" path="res://art/large_rock_placeholder.png" id="5_80uf6"]
+[ext_resource type="Texture2D" uid="uid://beeh2eh2qs3io" path="res://art/JellyfishPink.png" id="5_273ys"]
+[ext_resource type="Texture2D" uid="uid://bjt4bqlaakvxb" path="res://art/player_crushed_placeholder_.png" id="6_cpjd7"]
+[ext_resource type="Texture2D" uid="uid://cvvjch0mp3ri1" path="res://art/KelpGreen4.png" id="6_jweeg"]
+[ext_resource type="Texture2D" uid="uid://cdjlc4spvk08p" path="res://art/KelpGreen2.png" id="7_icpbt"]
+[ext_resource type="Texture2D" uid="uid://ds7kkmhqjy8ar" path="res://art/Rock_Colossal2.png" id="8_iqo4g"]
+[ext_resource type="Texture2D" uid="uid://wlxbbo2gxjj1" path="res://art/rock_placeholder.png" id="9_4ts1t"]
+[ext_resource type="Texture2D" uid="uid://cbqrwutb65vdc" path="res://art/stalactite_placeholder.png" id="10_phnue"]
+[ext_resource type="Texture2D" uid="uid://63lb0xappwn4" path="res://art/rock2_placeholder.png" id="11_4ts1t"]
+[ext_resource type="Texture2D" uid="uid://d1idt4wndg0li" path="res://art/rock3_placeholder.png" id="12_phnue"]
+[ext_resource type="Texture2D" uid="uid://ckl1ygu6q43ua" path="res://art/KelpLong2.png" id="13_phnue"]
+[ext_resource type="Texture2D" uid="uid://jkbquxepl510" path="res://art/JellyfishPink2.png" id="14_qjv71"]
+[ext_resource type="Texture2D" uid="uid://b2r7rc1leger7" path="res://art/bubble_placeholder.png" id="17_cnme6"]
+[ext_resource type="AudioStream" uid="uid://d2f8ef26v1j54" path="res://sound/music01.ogg" id="17_ug42j"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_80uf6"]
+lifetime_randomness = 0.2
+particle_flag_disable_z = true
+angle_min = -90.0
+angle_max = 90.0
+initial_velocity_min = 50.0
+initial_velocity_max = 50.0
+gravity = Vector3(0, -90, 0)
+scale_min = 0.2
+scale_max = 0.4
+turbulence_enabled = true
+turbulence_noise_speed_random = 0.0
+
+[sub_resource type="Animation" id="Animation_yhksc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_rwuho"]
+resource_name = "propellor_anim"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_634ti"]
+_data = {
+&"RESET": SubResource("Animation_yhksc"),
+&"propellor_anim": SubResource("Animation_rwuho")
+}
+
+[sub_resource type="Animation" id="Animation_lepj7"]
+resource_name = "sub_ending"
+length = 30.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 29.2333, 29.3833, 29.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(572, 1700), Vector2(572, -1100), Vector2(572, -1091.24), Vector2(572, -1098)]
+}
+
+[sub_resource type="Animation" id="Animation_nl1xf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(572, 316)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_80uf6"]
+_data = {
+&"RESET": SubResource("Animation_nl1xf"),
+&"sub_ending": SubResource("Animation_lepj7")
+}
+
+[sub_resource type="Animation" id="Animation_cnme6"]
+resource_name = "sub_rocks"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-0.485202, -0.392699, -0.485202]
+}
+
+[sub_resource type="Animation" id="Animation_bi5hc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.450226]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bi5hc"]
+_data = {
+&"RESET": SubResource("Animation_bi5hc"),
+&"sub_rocks": SubResource("Animation_cnme6")
+}
+
+[sub_resource type="Animation" id="Animation_jweeg"]
+resource_name = "jly2anim"
+length = 41.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 40.2667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2411.95, 1230.01), Vector2(2411.61, 964.007)]
+}
+
+[sub_resource type="Animation" id="Animation_ug42j"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2411.95, 1230.01)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cnme6"]
+_data = {
+&"RESET": SubResource("Animation_ug42j"),
+&"jly2anim": SubResource("Animation_jweeg")
+}
+
+[sub_resource type="Animation" id="Animation_qjv71"]
+resource_name = "bg_jellyanim1"
+length = 20.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-39, 1201), Vector2(-319, 1163)]
+}
+
+[sub_resource type="Animation" id="Animation_273ys"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-68, 1198)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jweeg"]
+_data = {
+&"RESET": SubResource("Animation_273ys"),
+&"bg_jellyanim1": SubResource("Animation_qjv71")
+}
+
+[node name="EndingCutscene" type="Node2D"]
+script = ExtResource("1_lepj7")
+
+[node name="BubbleStreamGPUParticles2D2" type="GPUParticles2D" parent="."]
+position = Vector2(881, 523)
+amount = 18
+texture = ExtResource("3_nl1xf")
+process_material = SubResource("ParticleProcessMaterial_80uf6")
+
+[node name="BubbleStreamGPUParticles2D3" type="GPUParticles2D" parent="."]
+position = Vector2(829, 522)
+amount = 18
+texture = ExtResource("3_nl1xf")
+process_material = SubResource("ParticleProcessMaterial_80uf6")
+
+[node name="Submarine" type="Sprite2D" parent="."]
+position = Vector2(572, 316)
+texture = ExtResource("1_hgxys")
+
+[node name="PropSprite2D" type="Sprite2D" parent="Submarine"]
+position = Vector2(-60, -1)
+texture = ExtResource("2_lepj7")
+
+[node name="PropSpriteAnimationPlayer" type="AnimationPlayer" parent="Submarine/PropSprite2D"]
+libraries = {
+&"": SubResource("AnimationLibrary_634ti")
+}
+
+[node name="BubbleStreamGPUParticles2D" type="GPUParticles2D" parent="Submarine/PropSprite2D"]
+amount = 18
+texture = ExtResource("3_nl1xf")
+process_material = SubResource("ParticleProcessMaterial_80uf6")
+
+[node name="Camera2D" type="Camera2D" parent="Submarine"]
+
+[node name="SubAnimationPlayer" type="AnimationPlayer" parent="Submarine"]
+libraries = {
+&"": SubResource("AnimationLibrary_80uf6")
+}
+
+[node name="Submarine2" type="Sprite2D" parent="."]
+self_modulate = Color(0, 0, 0, 1)
+position = Vector2(770, -597)
+rotation = -0.450226
+texture = ExtResource("1_hgxys")
+
+[node name="PropSprite2D" type="Sprite2D" parent="Submarine2"]
+position = Vector2(-60, -1)
+texture = ExtResource("2_lepj7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Submarine2"]
+libraries = {
+&"": SubResource("AnimationLibrary_bi5hc")
+}
+
+[node name="Environment" type="Node2D" parent="."]
+position = Vector2(568, -300)
+
+[node name="ColorRect" type="ColorRect" parent="Environment"]
+z_index = -1
+offset_left = -2234.0
+offset_top = -793.0
+offset_right = 2055.0
+offset_bottom = 2339.0
+color = Color(0.0554515, 0.441783, 0.614248, 1)
+
+[node name="ColorRect" type="ColorRect" parent="Environment/ColorRect"]
+z_index = -3
+offset_left = 9.6611
+offset_top = -3076.99
+offset_right = 4298.66
+offset_bottom = 72.0142
+rotation = -0.00248979
+color = Color(0.34019, 0.751789, 0.974861, 1)
+
+[node name="JellyfishPink" type="Sprite2D" parent="Environment/ColorRect"]
+self_modulate = Color(0, 0, 0, 0.266667)
+position = Vector2(2411.95, 1230.01)
+scale = Vector2(0.63, 0.63)
+texture = ExtResource("5_273ys")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Environment/ColorRect/JellyfishPink"]
+libraries = {
+&"": SubResource("AnimationLibrary_cnme6")
+}
+
+[node name="KelpGreen4" type="Sprite2D" parent="Environment/ColorRect"]
+self_modulate = Color(0, 0, 0, 1)
+position = Vector2(1851.61, 2165.62)
+scale = Vector2(0.31, 0.31)
+texture = ExtResource("6_jweeg")
+
+[node name="wall" type="ColorRect" parent="Environment"]
+offset_left = -1380.0
+offset_top = -519.0
+offset_right = -387.0
+offset_bottom = 2381.0
+color = Color(0, 0, 0, 1)
+
+[node name="wall2" type="ColorRect" parent="Environment"]
+offset_left = 359.0
+offset_top = -513.0
+offset_right = 1352.0
+offset_bottom = 2387.0
+color = Color(0, 0, 0, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Environment"]
+offset_left = -326.0
+offset_top = 1340.0
+offset_right = -129.0
+offset_bottom = 1380.0
+bbcode_enabled = true
+text = "[center][wave]Radiela Yorgova[/wave]"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Environment"]
+offset_left = 96.0
+offset_top = 727.0
+offset_right = 293.0
+offset_bottom = 767.0
+bbcode_enabled = true
+text = "[center][shake]Jessie Snedden"
+
+[node name="RichTextLabel7" type="RichTextLabel" parent="Environment"]
+offset_left = -375.0
+offset_top = 235.0
+offset_right = -178.0
+offset_bottom = 275.0
+bbcode_enabled = true
+text = "[center][tornado]Edward Rowe"
+
+[node name="RichTextLabel8" type="RichTextLabel" parent="Environment"]
+offset_left = 94.0
+offset_top = -374.0
+offset_right = 291.0
+offset_bottom = -334.0
+bbcode_enabled = true
+text = "[center][pulse freq=5]Barnaby Hawkes"
+
+[node name="LargeRockPlaceholder" type="Sprite2D" parent="Environment"]
+position = Vector2(-511, 374.5)
+texture = ExtResource("5_80uf6")
+
+[node name="PlayerCrushedPlaceholder" type="Sprite2D" parent="Environment"]
+self_modulate = Color(0.288518, 0.288518, 0.288518, 1)
+position = Vector2(-304, 290)
+texture = ExtResource("6_cpjd7")
+
+[node name="LargeRockPlaceholder3" type="Sprite2D" parent="Environment"]
+position = Vector2(-356, 1093.44)
+rotation = -1.58731
+texture = ExtResource("5_80uf6")
+
+[node name="LargeRockPlaceholder7" type="Sprite2D" parent="Environment"]
+position = Vector2(-430, 1850)
+rotation = -1.58731
+texture = ExtResource("5_80uf6")
+
+[node name="LargeRockPlaceholder2" type="Sprite2D" parent="Environment"]
+position = Vector2(393, 902)
+texture = ExtResource("5_80uf6")
+
+[node name="KelpGreen2" type="Sprite2D" parent="Environment/LargeRockPlaceholder2"]
+self_modulate = Color(0, 0, 0, 1)
+z_index = -1
+z_as_relative = false
+position = Vector2(-81, -98)
+texture = ExtResource("7_icpbt")
+
+[node name="RockColossal2" type="Sprite2D" parent="Environment"]
+self_modulate = Color(0, 0, 0, 1)
+position = Vector2(-370, 1507.44)
+texture = ExtResource("8_iqo4g")
+
+[node name="RockColossal4" type="Sprite2D" parent="Environment"]
+self_modulate = Color(0, 0, 0, 1)
+position = Vector2(463, 1134)
+texture = ExtResource("8_iqo4g")
+
+[node name="RockPlaceholder" type="Sprite2D" parent="Environment"]
+position = Vector2(-328, 1427.44)
+texture = ExtResource("9_4ts1t")
+
+[node name="RockPlaceholder2" type="Sprite2D" parent="Environment"]
+position = Vector2(-396, 1387.44)
+texture = ExtResource("9_4ts1t")
+
+[node name="StalactitePlaceholder" type="Sprite2D" parent="Environment"]
+position = Vector2(310, 1004)
+texture = ExtResource("10_phnue")
+
+[node name="BubbleTiny" type="Sprite2D" parent="Environment"]
+visible = false
+position = Vector2(233, 815)
+texture = ExtResource("3_nl1xf")
+
+[node name="BubbleTiny2" type="Sprite2D" parent="Environment"]
+visible = false
+position = Vector2(214, 792)
+texture = ExtResource("3_nl1xf")
+
+[node name="BubbleTiny3" type="Sprite2D" parent="Environment"]
+visible = false
+position = Vector2(282, 789)
+texture = ExtResource("3_nl1xf")
+
+[node name="BubbleTiny4" type="Sprite2D" parent="Environment"]
+visible = false
+position = Vector2(307, 808)
+texture = ExtResource("3_nl1xf")
+
+[node name="LargeRockPlaceholder4" type="Sprite2D" parent="Environment"]
+position = Vector2(333, -112)
+rotation = 1.57687
+texture = ExtResource("5_80uf6")
+
+[node name="LargeRockPlaceholder5" type="Sprite2D" parent="Environment"]
+position = Vector2(385, 1620)
+rotation = 1.57687
+texture = ExtResource("5_80uf6")
+
+[node name="LargeRockPlaceholder6" type="Sprite2D" parent="Environment"]
+position = Vector2(414, 1352)
+rotation = 1.57687
+texture = ExtResource("5_80uf6")
+
+[node name="Rock2Placeholder" type="Sprite2D" parent="Environment"]
+position = Vector2(-401, -505)
+texture = ExtResource("11_4ts1t")
+
+[node name="Rock3Placeholder" type="Sprite2D" parent="Environment"]
+position = Vector2(-395, -460)
+texture = ExtResource("12_phnue")
+
+[node name="RockColossal3" type="Sprite2D" parent="Environment"]
+self_modulate = Color(0, 0, 0, 1)
+position = Vector2(417, -459)
+rotation = -0.723491
+texture = ExtResource("8_iqo4g")
+
+[node name="LargeRockPlaceholder8" type="Sprite2D" parent="Environment"]
+position = Vector2(483, -218)
+texture = ExtResource("5_80uf6")
+
+[node name="KelpLong2" type="Sprite2D" parent="Environment"]
+self_modulate = Color(0, 0, 0, 1)
+position = Vector2(271, -209)
+rotation = -2.37784
+texture = ExtResource("13_phnue")
+
+[node name="JellyfishPink2" type="Sprite2D" parent="Environment"]
+self_modulate = Color(0, 0, 0, 0.301961)
+position = Vector2(-68, 1198)
+rotation = -1.34324
+texture = ExtResource("14_qjv71")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Environment/JellyfishPink2"]
+libraries = {
+&"": SubResource("AnimationLibrary_jweeg")
+}
+
+[node name="BubblePlaceholder" type="Sprite2D" parent="Environment"]
+position = Vector2(-497, 1131)
+scale = Vector2(0.41, 0.41)
+texture = ExtResource("17_cnme6")
+
+[node name="Rock3Placeholder" type="Sprite2D" parent="."]
+position = Vector2(102, -818)
+texture = ExtResource("12_phnue")
+
+[node name="Rock3Placeholder4" type="Sprite2D" parent="."]
+position = Vector2(1039, -792)
+texture = ExtResource("12_phnue")
+
+[node name="Rock3Placeholder5" type="Sprite2D" parent="."]
+position = Vector2(1039, -792)
+texture = ExtResource("12_phnue")
+
+[node name="Rock3Placeholder6" type="Sprite2D" parent="."]
+position = Vector2(1082, -815)
+rotation = 2.43311
+texture = ExtResource("12_phnue")
+
+[node name="Rock3Placeholder7" type="Sprite2D" parent="."]
+position = Vector2(1143, -807)
+rotation = 4.62164
+texture = ExtResource("12_phnue")
+
+[node name="RockColossal2" type="Sprite2D" parent="."]
+self_modulate = Color(0, 0, 0, 1)
+position = Vector2(-11, -800)
+texture = ExtResource("8_iqo4g")
+
+[node name="RockColossal5" type="Sprite2D" parent="."]
+self_modulate = Color(0, 0, 0, 1)
+position = Vector2(1302, -766)
+texture = ExtResource("8_iqo4g")
+
+[node name="RockColossal6" type="Sprite2D" parent="."]
+self_modulate = Color(0, 0, 0, 1)
+position = Vector2(1302, -766)
+texture = ExtResource("8_iqo4g")
+
+[node name="RockColossal7" type="Sprite2D" parent="."]
+self_modulate = Color(0, 0, 0, 1)
+position = Vector2(968, -7)
+rotation = -1.60149
+texture = ExtResource("8_iqo4g")
+
+[node name="RockColossal8" type="Sprite2D" parent="."]
+self_modulate = Color(0, 0, 0, 1)
+position = Vector2(172, 392)
+rotation = -1.57005
+texture = ExtResource("8_iqo4g")
+
+[node name="RockColossal9" type="Sprite2D" parent="."]
+self_modulate = Color(0, 0, 0, 1)
+position = Vector2(212, 175)
+rotation = 0.146615
+texture = ExtResource("8_iqo4g")
+
+[node name="LargeRockPlaceholder" type="Sprite2D" parent="."]
+position = Vector2(177, -459)
+rotation = -1.58762
+texture = ExtResource("5_80uf6")
+
+[node name="Rock2Placeholder" type="Sprite2D" parent="."]
+position = Vector2(172, -704)
+texture = ExtResource("11_4ts1t")
+
+[node name="Rock3Placeholder2" type="Sprite2D" parent="."]
+position = Vector2(209, -552)
+texture = ExtResource("12_phnue")
+
+[node name="RockColossal3" type="Sprite2D" parent="."]
+self_modulate = Color(0, 0, 0, 1)
+position = Vector2(129, 1992)
+texture = ExtResource("8_iqo4g")
+
+[node name="RockColossal11" type="Sprite2D" parent="."]
+self_modulate = Color(0, 0, 0, 1)
+position = Vector2(1045, 1735)
+texture = ExtResource("8_iqo4g")
+
+[node name="RockColossal4" type="Sprite2D" parent="."]
+self_modulate = Color(0, 0, 0, 1)
+position = Vector2(936, 1543)
+rotation = -1.60435
+texture = ExtResource("8_iqo4g")
+
+[node name="RockColossal10" type="Sprite2D" parent="."]
+self_modulate = Color(0, 0, 0, 1)
+position = Vector2(169, 1286)
+rotation = -1.60435
+texture = ExtResource("8_iqo4g")
+
+[node name="Rock2Placeholder2" type="Sprite2D" parent="."]
+position = Vector2(942, 1455)
+texture = ExtResource("11_4ts1t")
+
+[node name="Rock3Placeholder3" type="Sprite2D" parent="."]
+position = Vector2(164, 1901)
+texture = ExtResource("12_phnue")
+
+[node name="StalactitePlaceholder" type="Sprite2D" parent="."]
+position = Vector2(741, 629)
+texture = ExtResource("10_phnue")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_ug42j")
+volume_db = -11.401
+autoplay = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 492.0
+offset_top = -1166.0
+offset_right = 683.0
+offset_bottom = -1126.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
+text = "[pulse]Press ESC to quit :)"
