@@ -1071,33 +1071,43 @@ position = Vector2(22720, 431)
 
 [node name="JellyfishTiny2Moving" parent="EnemiesNode2D" groups=["Jellyfish"] instance=ExtResource("31_4xp61")]
 position = Vector2(2898, 422)
+movement_animation_name = "jellyfish_tiny2_move"
 
 [node name="JellyfishTiny2Moving2" parent="EnemiesNode2D" groups=["Jellyfish"] instance=ExtResource("31_4xp61")]
 position = Vector2(3046, 339)
+movement_animation_name = "jellyfish_tiny2_move"
 
 [node name="JellyfishTinyMoving" parent="EnemiesNode2D" groups=["Jellyfish"] instance=ExtResource("32_4yoxl")]
 position = Vector2(4676, 641)
+movement_animation_name = "jellyfish_tiny_move"
 
 [node name="JellyfishTiny2Moving3" parent="EnemiesNode2D" groups=["Jellyfish"] instance=ExtResource("31_4xp61")]
 position = Vector2(5011, 507)
+movement_animation_name = "jellyfish_tiny2_move"
 
 [node name="JellyfishTiny2Moving4" parent="EnemiesNode2D" groups=["Jellyfish"] instance=ExtResource("31_4xp61")]
 position = Vector2(9160, 467)
+movement_animation_name = "jellyfish_tiny2_move"
 
 [node name="JellyfishTinyMoving2" parent="EnemiesNode2D" groups=["Jellyfish"] instance=ExtResource("32_4yoxl")]
 position = Vector2(9358, 646)
+movement_animation_name = "jellyfish_tiny_move"
 
 [node name="JellyfishTinyMoving3" parent="EnemiesNode2D" groups=["Jellyfish"] instance=ExtResource("32_4yoxl")]
 position = Vector2(13297, 523)
+movement_animation_name = "jellyfish_tiny_move"
 
 [node name="JellyfishTiny2Moving5" parent="EnemiesNode2D" groups=["Jellyfish"] instance=ExtResource("31_4xp61")]
 position = Vector2(13545, 644)
+movement_animation_name = "jellyfish_tiny2_move"
 
 [node name="JellyfishTinyMoving4" parent="EnemiesNode2D" groups=["Jellyfish"] instance=ExtResource("32_4yoxl")]
 position = Vector2(17583, 537)
+movement_animation_name = "jellyfish_tiny_move"
 
 [node name="JellyfishTiny2Moving6" parent="EnemiesNode2D" groups=["Jellyfish"] instance=ExtResource("31_4xp61")]
 position = Vector2(17785, 587)
+movement_animation_name = "jellyfish_tiny2_move"
 
 [node name="FinishLine" parent="." instance=ExtResource("33_4yoxl")]
 position = Vector2(24995, -90)
