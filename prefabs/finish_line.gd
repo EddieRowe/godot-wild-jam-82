@@ -1,5 +1,7 @@
 extends Area2D
 
+@export var level_to_load : String
+
 var player : PlayerMovement
 var health : UiHealth 
 var energy : UiEnergy
@@ -27,6 +29,7 @@ func _on_body_entered(body: Node2D) -> void:
 func _input(event: InputEvent) -> void:
 	if finished:
 		if event.is_action_pressed("ui_accept"):
-			get_tree().change_scene_to_file("res://levels/level_2.tscn")
+			get_tree().change_scene_to_file(level_to_load) 
+			#get_tree().change_scene_to_file("res://levels/level_2.tscn")
 		
 		

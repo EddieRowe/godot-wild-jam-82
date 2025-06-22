@@ -17,6 +17,7 @@ turbulence_enabled = true
 
 [node name="FinishLine" type="Area2D" groups=["LevelComplete"]]
 script = ExtResource("1_eldoa")
+level_to_load = "res://levels/level_2.tscn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1016, 998.625)
@@ -44,4 +45,3 @@ visibility_rect = Rect2(-10000, -10000, 20000, 20000)
 process_material = SubResource("ParticleProcessMaterial_eldoa")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="body_exited" from="." to="." method="_on_body_exited"]
