@@ -1,4 +1,5 @@
-[gd_scene load_steps=31 format=3 uid="uid://cnep5qop4e823"]
+
+[gd_scene load_steps=35 format=3 uid="uid://cnep5qop4e823"]
 
 [ext_resource type="PackedScene" uid="uid://crghl5mtabw4e" path="res://prefabs/main_audio.tscn" id="1_l53as"]
 [ext_resource type="PackedScene" uid="uid://boaipqmv57708" path="res://prefabs/in_game_timer_canvas_layer.tscn" id="1_pnpm1"]
@@ -20,11 +21,14 @@
 [ext_resource type="PackedScene" uid="uid://bck55k4gxutt3" path="res://prefabs/rock_large.tscn" id="12_aerfg"]
 [ext_resource type="PackedScene" uid="uid://cnkw37u6tf7mw" path="res://prefabs/rock_colossal.tscn" id="13_nmsli"]
 [ext_resource type="PackedScene" uid="uid://bvpj80d4ko5rs" path="res://prefabs/rock_ceiling.tscn" id="14_betor"]
+[ext_resource type="PackedScene" uid="uid://dp1p587bec3tf" path="res://prefabs/tutorial_lights.tscn" id="15_06ecp"]
 [ext_resource type="Texture2D" uid="uid://ucdpxadxaed8" path="res://art/KelpGreen3.png" id="15_ryfpa"]
 [ext_resource type="PackedScene" uid="uid://digqha4603pow" path="res://prefabs/finish_line.tscn" id="15_vjtdm"]
 [ext_resource type="PackedScene" uid="uid://dx71cipa1pnwn" path="res://prefabs/ui/game_overlay.tscn" id="16_bgw3c"]
 [ext_resource type="PackedScene" uid="uid://db8eqk6rbpg2d" path="res://prefabs/jellyfish_small.tscn" id="17_lrvbd"]
+[ext_resource type="PackedScene" uid="uid://clw32penwqos2" path="res://prefabs/tutorial_movement.tscn" id="17_ohjdc"]
 [ext_resource type="Texture2D" uid="uid://cp4d550wonmbg" path="res://art/KelpMulticolor.png" id="18_0fu15"]
+[ext_resource type="PackedScene" uid="uid://cwmpq5farutqm" path="res://prefabs/tutorial_bubbles.tscn" id="18_e5brb"]
 [ext_resource type="PackedScene" uid="uid://bva7uggeq5tcl" path="res://prefabs/jellyfish_tiny.tscn" id="18_oqlok"]
 [ext_resource type="PackedScene" uid="uid://bf15fqnxqxfc0" path="res://prefabs/jellyfish.tscn" id="25_ntdhj"]
 [ext_resource type="PackedScene" uid="uid://c6md5ixhopnoe" path="res://prefabs/jellyfish_pink.tscn" id="28_voubc"]
@@ -40,6 +44,7 @@ size = Vector2(26805.1, 118.5)
 [node name="Main Audio" parent="." instance=ExtResource("1_l53as")]
 
 [node name="ColorRect" type="ColorRect" parent="."]
+z_index = -1
 offset_left = -1189.0
 offset_top = -433.0
 offset_right = 25068.0
@@ -303,6 +308,17 @@ freeze = true
 
 [node name="FinishLine" parent="." instance=ExtResource("15_vjtdm")]
 position = Vector2(25062, -45)
+
+[node name="Tutorials" type="Node2D" parent="."]
+position = Vector2(204, 455)
+
+[node name="tutorial_movement" parent="Tutorials" instance=ExtResource("17_ohjdc")]
+
+[node name="tutorial_lights" parent="Tutorials" instance=ExtResource("15_06ecp")]
+position = Vector2(777, -138)
+
+[node name="tutorial_bubbles" parent="Tutorials" instance=ExtResource("18_e5brb")]
+position = Vector2(2010, 3)
 
 [node name="OxygenNode2D" type="Node2D" parent="."]
 

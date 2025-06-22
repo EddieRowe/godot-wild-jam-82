@@ -8,6 +8,7 @@ var move_speed = 300
 @export var sprite : Sprite2D
 @export var audio : SubmarineAudio
 @export var propellor : AnimationPlayer
+@export var bubble_stream : GPUParticles2D
 @export var restart_timer : Timer
 @export var rotation_speed : float = 0.1
 
@@ -35,6 +36,7 @@ func _physics_process(delta: float) -> void:
 			var fake_prop_instance = fake_prop.instantiate()
 			propellor.get_parent().get_parent().add_child(fake_prop_instance)
 			fake_prop_instance.position = propellor.get_parent().position
+			bubble_stream.emitting = false
 		return
 	
 	var horizontal_movement = Input.get_axis("ui_left", "ui_right")
@@ -56,10 +58,12 @@ func _physics_process(delta: float) -> void:
 	# also bad
 	if movement.length() > 0:
 		audio._start_sub_prop_audio()
+		bubble_stream.emitting = true
 		if !propellor.is_playing():
 			propellor.play(("propellor_anim"))
 	else:
 		audio._stop_sub_prop_audio()
+		bubble_stream.emitting = false
 		if propellor.is_playing():
 			propellor.stop()
 
