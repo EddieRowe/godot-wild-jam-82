@@ -9,7 +9,7 @@ var move_speed = 300
 @export var audio : SubmarineAudio
 @export var propellor : AnimationPlayer
 @export var restart_timer : Timer
-@export var rotation_speed = 15
+@export var rotation_speed : float = 0.1
 
 var can_move : bool = true
 var level : int 
@@ -37,9 +37,7 @@ func _physics_process(delta: float) -> void:
 	var movement = Vector2(horizontal_movement, vertical_movement)
 	
 	apply_central_force(movement * move_speed)
-	apply_torque((0 - rotation) * 5000)
 	
-	_handle_rotate_sprite(delta)
 	_handle_flip_sprite(movement)
 	
 	energy._handle_lighting(Input.is_action_pressed("ui_accept"))
@@ -56,9 +54,8 @@ func _physics_process(delta: float) -> void:
 
 func _handle_flip_sprite(movement : Vector2):
 	# Flip sprite based on rotation
-	
 	#Clamped to +2PI as rotation can be infinite
-	var rotation_clamped = fmod(sprite.rotation, 2*PI)
+	var rotation_clamped = fmod(rotation, 2*PI)
 	if (rotation_clamped < 0):
 		rotation_clamped = -rotation_clamped
 	
@@ -68,13 +65,23 @@ func _handle_flip_sprite(movement : Vector2):
 	else:
 		sprite.flip_v = false
 		propellor.get_parent().position.y = 7
+		
+func _look_follow(state: PhysicsDirectBodyState2D) -> void:
+	var forward_local_axis: Vector2 = Vector2(1, 0) # Right-facing direction
+	
+	var forward_dir: Vector2 = Vector2(cos(rotation), sin(rotation)).normalized()
+	var target_dir: Vector2 = linear_velocity.normalized()
+	var angle_diff: float = forward_dir.angle_to(target_dir)
+	var local_speed: float = clampf(rotation_speed, 0, abs(angle_diff))
+	
+	if abs(angle_diff) > 1e-4:
+		# Determine turning direction: positive for counterclockwise, negative for clockwise
+		var direction: float = sign(forward_dir.cross(target_dir))
+		angular_velocity = direction * local_speed / state.step
 
-func _handle_rotate_sprite(delta : float):
-	var target_angle = linear_velocity.angle()
-	var current_angle = sprite.rotation	
-	
-	sprite.rotation = lerp_angle(current_angle, target_angle, rotation_speed * delta)
-	
+func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
+	_look_follow(state)
+		
 func _on_body_entered(body: Node) -> void:
 	if body.is_in_group("Obstacle"):
 		health._take_damage(body.damage)
