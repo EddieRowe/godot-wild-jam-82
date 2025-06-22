@@ -1,10 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://df3nads3pasdn"]
+[gd_scene load_steps=4 format=3 uid="uid://df3nads3pasdn"]
 
 [ext_resource type="Script" uid="uid://cw7dvrdgwsrpi" path="res://scripts/stalactite_falling.gd" id="1_nvdhc"]
 [ext_resource type="PackedScene" uid="uid://df4eaxgeperka" path="res://prefabs/stalactite.tscn" id="2_nvdhc"]
 
-[node name="StalactiteFalling" type="Node2D" node_paths=PackedStringArray("fallingPart", "timer") groups=["Obstacle"]]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nvdhc"]
+size = Vector2(290.5, 118)
+
+[node name="StalactiteFalling" type="Node2D" node_paths=PackedStringArray("triggerZone", "fallingPart", "timer") groups=["Obstacle"]]
 script = ExtResource("1_nvdhc")
+triggerZone = NodePath("Area2D")
 fallingPart = NodePath("Stalactite")
 timer = NodePath("FallingTimer")
 
@@ -14,5 +18,11 @@ freeze = true
 
 [node name="FallingTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-212, 614)
+shape = SubResource("RectangleShape2D_nvdhc")
 
 [connection signal="timeout" from="FallingTimer" to="." method="_on_timer_fall"]

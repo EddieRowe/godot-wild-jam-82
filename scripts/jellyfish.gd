@@ -7,7 +7,6 @@ var ui_energy : UiEnergy
 @export var movement_animation_name : String
 @export var damage : int = 15
 
-
 func _ready() -> void:
 	player = get_parent().get_parent().get_node("Player/RigidBody2D")
 	animation_player.play(movement_animation_name)
@@ -21,10 +20,13 @@ func _ready() -> void:
 		push_error("Area2D not found or not an Area2D node.")
 
 
-
 func _physics_process(delta: float) -> void:
+	player = get_parent().get_parent().get_node("Player/RigidBody2D")
 	var move_direction =  player.global_position - global_position
 	apply_central_force(move_direction.normalized() * speed)
+
+
+
 
 #func _on_body_entered(body: Node) -> void:
 	#if body is PlayerMovement:

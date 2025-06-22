@@ -18,17 +18,15 @@ func _on_body_entered(body: Node2D) -> void:
 		player = get_parent().get_node("Player/RigidBody2D")
 		
 		player.health.current_health = player.health.max_health
-		player.energy.currentEnergy = player.energy.BATTERY_MAX
-		player.oxygen.currentOxygen = player.oxygen.LIMIT_MAX
-		
 		health = get_parent().get_node("CanvasLayer/GameOverlay/UiBox/UiHealth")
-		player.health.healthChanged.connect(health.update)
 		health.update(player.health.current_health)
 		
+		player.energy.currentEnergy = player.energy.BATTERY_MAX				
 		energy = get_parent().get_node("CanvasLayer/GameOverlay/UiBox/UiEnergy")
-		player.energy.energyChanged.connect(energy.update)
 		energy.update(player.energy.currentEnergy)
 		
+		player.oxygen.currentOxygen = player.oxygen.LIMIT_MAX
+				
 					
 func _on_body_exited(body: Node2D) -> void:
 	if body.is_in_group("Player"):
