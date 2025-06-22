@@ -1,7 +1,7 @@
 class_name OxygenSource
 extends RigidBody2D
 
-const OXYGEN_SCALE : int = 5
+const OXYGEN_SCALE : int = 15
 @export var bubbleSize : int = 1
 @export var isStatic : bool = false
 var oxygen : int
