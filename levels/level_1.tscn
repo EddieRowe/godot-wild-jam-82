@@ -1,3 +1,4 @@
+
 [gd_scene load_steps=36 format=3 uid="uid://cnep5qop4e823"]
 
 [ext_resource type="PackedScene" uid="uid://crghl5mtabw4e" path="res://prefabs/main_audio.tscn" id="1_l53as"]
@@ -318,6 +319,7 @@ position = Vector2(25062, -45)
 position = Vector2(204, 455)
 
 [node name="tutorial_movement" parent="Tutorials" instance=ExtResource("17_ohjdc")]
+position = Vector2(219, 122)
 
 [node name="tutorial_lights" parent="Tutorials" instance=ExtResource("15_06ecp")]
 position = Vector2(777, -138)
