@@ -12,7 +12,6 @@ var move_speed = 300
 @export var rotation_speed = 15
 
 var can_move : bool = true
-var level : int 
 
 func _ready() -> void:
 	gravity_scale = 0.1
@@ -82,7 +81,10 @@ func _on_body_entered(body: Node) -> void:
 		health._take_damage(body.damage)
 	if body is OxygenSource:
 		oxygen._collect_oxygen(body)
-	
+	#if body.is_in_group("LevelComplete"):
+		#print("Player is at finish line")
+		#if health.current_health < 100:
+			#health.current_health += 100	
 				
 
 
