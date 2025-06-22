@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cki0lwwtx0b8q"]
+
+[ext_resource type="Texture2D" uid="uid://cvvjch0mp3ri1" path="res://art/KelpGreen4.png" id="1_a0d1i"]
+
+[node name="KelpHuge" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 9.53674e-07)
+scale = Vector2(0.69, 1.39)
+texture = ExtResource("1_a0d1i")

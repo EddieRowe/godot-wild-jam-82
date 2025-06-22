@@ -28,6 +28,6 @@ func _on_body_exited(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		
 		# Restore oxygen for next level
-		player.oxygen.currentOxygen = player.oxygen.LIMIT_MAX
+		player.oxygen._refill_oxygen()
 		
 		get_tree().change_scene_to_file("res://levels/level_2.tscn")
