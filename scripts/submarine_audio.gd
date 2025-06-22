@@ -23,4 +23,5 @@ func _stop_sub_prop_audio() -> void:
 		#sub_prop_audio_stream_player.stop()
 
 func _take_damage() -> void:
+	submarine_take_damage.pitch_scale = randf_range(0.8, 1.1)
 	submarine_take_damage.play()
