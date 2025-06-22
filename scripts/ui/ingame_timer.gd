@@ -2,7 +2,7 @@ extends CanvasLayer
 
 var current_run_time : float = 0.0
 @onready var timer_rich_text_label: RichTextLabel = $PanelContainer/TimerRichTextLabel
-var running = true
+var running = false
 @onready var animation_player: AnimationPlayer = $PanelContainer/TimerRichTextLabel/AnimationPlayer
 var finish_line : Area2D 
 
@@ -12,6 +12,7 @@ func _ready() -> void:
 	animation_player.play("timer_run")
 	finish_line = get_parent().get_node("FinishLine")
 	finish_line.finished_level.connect(_finished_level)
+	player.game_started_signal.connect(_game_started)
 
 func _player_health_update(newHealth : int) -> void:
 	if newHealth <= 0 and running:
@@ -21,9 +22,13 @@ func _player_health_update(newHealth : int) -> void:
 func _finished_level():
 	running = false
 
+func _game_started():
+	running = true
+
 func _process(delta: float) -> void:
-	current_run_time += delta
-	_update_ui()
+	if running:
+		current_run_time += delta
+		_update_ui()
 	
 func _update_ui() -> void:
 	if (!running):

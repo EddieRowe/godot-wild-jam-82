@@ -15,6 +15,8 @@ var can_move : bool = true
 var game_started: bool = false
 var level : int 
 
+signal game_started_signal()
+
 func _ready() -> void:
 	gravity_scale = 0.1
 	
@@ -40,6 +42,7 @@ func _physics_process(delta: float) -> void:
 	if !game_started and movement:
 		freeze = false
 		game_started = true
+		game_started_signal.emit()
 	
 	if game_started:
 		apply_central_force(movement * move_speed)
