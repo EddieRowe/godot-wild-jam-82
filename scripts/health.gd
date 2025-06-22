@@ -51,3 +51,9 @@ func _on_repair_timer_timeout() -> void:
 
 func is_alive() -> bool:
 	return current_health > 0
+
+func _full_repair() -> void:
+	pass
+	current_health = max_health
+	print("Full health repair")
+	healthChanged.emit(current_health)

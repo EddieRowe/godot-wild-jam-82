@@ -7,7 +7,7 @@ var oxygen : Oxygen
 
 var can_move : bool = true
 signal finished_level()
-
+var finished = false
 
 func _ready() -> void:
 	var particles : GPUParticles2D = get_node("GPUParticles2D")
@@ -16,24 +16,17 @@ func _ready() -> void:
 	
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
+		player = body
+		player.health._full_repair()
+		player.energy._recharge(player.energy.BATTERY_MAX)
+		player.oxygen._refill_oxygen()	
+		
 		finished_level.emit()
+		finished = true					
 
-		player = body		
-		player.health.current_health = player.health.max_health
-		health = get_parent().get_node("CanvasLayer/GameOverlay/UiBox/UiHealth")
-		health.update(player.health.current_health)
+func _input(event: InputEvent) -> void:
+	if finished:
+		if event.is_action_pressed("ui_accept"):
+			get_tree().change_scene_to_file("res://levels/level_2.tscn")
 		
-		player.energy.currentEnergy = player.energy.BATTERY_MAX				
-		energy = get_parent().get_node("CanvasLayer/GameOverlay/UiBox/UiEnergy")
-		energy.update(player.energy.currentEnergy)
 		
-		player.oxygen.currentOxygen = player.oxygen.LIMIT_MAX
-				
-					
-func _on_body_exited(body: Node2D) -> void:
-	if body.is_in_group("Player"):
-		
-		# Restore oxygen for next level
-		player.oxygen.currentOxygen = player.oxygen.LIMIT_MAX
-		
-		get_tree().change_scene_to_file("res://levels/level_2.tscn")

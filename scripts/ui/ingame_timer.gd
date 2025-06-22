@@ -5,6 +5,7 @@ var current_run_time : float = 0.0
 var running = false
 @onready var animation_player: AnimationPlayer = $PanelContainer/TimerRichTextLabel/AnimationPlayer
 var finish_line : Area2D 
+@onready var finished_level_panel: PanelContainer = $Finished_Level_Panel
 
 func _ready() -> void:
 	var player : PlayerMovement = get_parent().get_node("Player/RigidBody2D")
@@ -21,6 +22,7 @@ func _player_health_update(newHealth : int) -> void:
 
 func _finished_level():
 	running = false
+	finished_level_panel.visible = true
 
 func _game_started():
 	running = true
