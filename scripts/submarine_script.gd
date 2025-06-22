@@ -96,8 +96,17 @@ func _look_follow(state: PhysicsDirectBodyState2D) -> void:
 		angular_velocity = direction * local_speed / state.step
 
 func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
-	if not free_floating:
+	if not free_floating and _eligible_velocity():
 		_look_follow(state)
+
+func _eligible_velocity() -> bool:
+	var rnd : float = 0.01
+	var above_limit = linear_velocity.length() > 100
+	# Snapped will round to the nearest step (decimal place)
+	var is_left = snappedf(linear_velocity.angle(),rnd) == snappedf(Vector2.LEFT.angle(),rnd)
+	var is_right = snappedf(linear_velocity.angle(),rnd) == Vector2.RIGHT.angle()
+	# This is to stop weird jumps when scraping across the floor
+	return above_limit and not (is_left or is_right)
 
 func _on_body_entered(body: Node) -> void:
 	if body.is_in_group("Obstacle") and body is not Jellyfish:
