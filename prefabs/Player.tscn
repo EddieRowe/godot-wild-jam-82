@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cphyt7srqwafr"]
+[gd_scene load_steps=19 format=3 uid="uid://cphyt7srqwafr"]
 
 [ext_resource type="Script" uid="uid://4a7nsts8luh7" path="res://scripts/submarine_script.gd" id="1_glu7e"]
 [ext_resource type="Texture2D" uid="uid://dcl8d3ja31fie" path="res://art/player_placeholder_.png" id="2_ay6yh"]
@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://cdj3fn4u6ytsb" path="res://scripts/oxygen.gd" id="4_p3xyx"]
 [ext_resource type="Texture2D" uid="uid://bluv0ytravv8x" path="res://art/bubble_tiny.png" id="4_yhksc"]
 [ext_resource type="Texture2D" uid="uid://bygay2a087fb5" path="res://art/lightmask1.png" id="5_wuy1y"]
-[ext_resource type="Script" path="res://scripts/light_mask.gd" id="6_1nynx"]
+[ext_resource type="Script" uid="uid://cbqex3ko6h1np" path="res://scripts/light_mask.gd" id="6_1nynx"]
 [ext_resource type="AudioStream" uid="uid://dsrqj1kls06y6" path="res://sound/bubble_pickup.ogg" id="6_634ti"]
 [ext_resource type="Script" uid="uid://bfv8nph13ijuc" path="res://scripts/energy.gd" id="7_64pgi"]
 [ext_resource type="AudioStream" uid="uid://c1s5cepn2ucm1" path="res://sound/submarine_prop.ogg" id="8_0ep8a"]
@@ -73,6 +73,7 @@ turbulence_noise_speed_random = 0.0
 position = Vector2(-25, -15)
 
 [node name="RigidBody2D" type="RigidBody2D" parent="." node_paths=PackedStringArray("health", "oxygen", "energy", "sprite", "audio", "propellor", "bubble_stream", "restart_timer") groups=["Player"]]
+position = Vector2(25, 6)
 freeze = true
 continuous_cd = 1
 contact_monitor = true
@@ -93,10 +94,11 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_0e48y")
 
 [node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+position = Vector2(0, 8)
 texture = ExtResource("2_ay6yh")
 
 [node name="PropSprite2D" type="Sprite2D" parent="RigidBody2D/Sprite2D"]
-position = Vector2(-60, 7)
+position = Vector2(-60, -1)
 texture = ExtResource("3_rwuho")
 
 [node name="PropSpriteAnimationPlayer" type="AnimationPlayer" parent="RigidBody2D/Sprite2D/PropSprite2D"]
@@ -111,6 +113,7 @@ texture = ExtResource("4_yhksc")
 process_material = SubResource("ParticleProcessMaterial_yhksc")
 
 [node name="Camera2D" type="Camera2D" parent="RigidBody2D"]
+position = Vector2(0, 9)
 
 [node name="Health" type="Node2D" parent="." node_paths=PackedStringArray("player_movement")]
 script = ExtResource("3_ay6yh")
@@ -130,6 +133,7 @@ autostart = true
 stream = ExtResource("6_634ti")
 
 [node name="PointLight2D" type="PointLight2D" parent="." node_paths=PackedStringArray("player_rigidbody")]
+position = Vector2(25, 14)
 color = Color(1, 1, 1, 0.921569)
 blend_mode = 1
 shadow_filter = 1
