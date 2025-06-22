@@ -1,18 +1,21 @@
 extends RigidBody2D
 class_name PlayerMovement
 
-var move_speed = 300
+const MOVE_SPEED : int = 300
+const MIN_IMPACT_SPEED : int = 35
+
 @export var health : Health
 @export var oxygen : Oxygen
 @export var energy : Energy
 @export var sprite : Sprite2D
 @export var audio : SubmarineAudio
 @export var propellor : AnimationPlayer
+@export var bubble_stream : GPUParticles2D
 @export var restart_timer : Timer
 @export var rotation_speed : float = 0.1
 
 var can_move : bool = true
-
+var free_floating : bool = true
 var game_started: bool = false
 var level : int 
 
@@ -35,19 +38,22 @@ func _physics_process(delta: float) -> void:
 			var fake_prop_instance = fake_prop.instantiate()
 			propellor.get_parent().get_parent().add_child(fake_prop_instance)
 			fake_prop_instance.position = propellor.get_parent().position
+			bubble_stream.emitting = false
 		return
 	
 	var horizontal_movement = Input.get_axis("ui_left", "ui_right")
 	var vertical_movement = Input.get_axis("ui_up", "ui_down")
 	var movement = Vector2(horizontal_movement, vertical_movement)
 	
-	if !game_started and movement:
-		freeze = false
-		game_started = true
-		game_started_signal.emit()
+	if movement:
+		free_floating = false
+		if !game_started:
+			freeze = false
+			game_started = true
+			game_started_signal.emit()
 	
 	if game_started:
-		apply_central_force(movement * move_speed)
+		apply_central_force(movement * MOVE_SPEED)
 		_handle_flip_sprite(movement)
 	
 	
@@ -56,21 +62,21 @@ func _physics_process(delta: float) -> void:
 	# also bad
 	if movement.length() > 0:
 		audio._start_sub_prop_audio()
+		bubble_stream.emitting = true
 		if !propellor.is_playing():
 			propellor.play(("propellor_anim"))
 	else:
 		audio._stop_sub_prop_audio()
+		bubble_stream.emitting = false
 		if propellor.is_playing():
 			propellor.stop()
 
 func _handle_flip_sprite(movement : Vector2):
 	# Flip sprite based on rotation
 	#Clamped to +2PI as rotation can be infinite
-	var rotation_clamped = fmod(rotation, 2*PI)
-	if (rotation_clamped < 0):
-		rotation_clamped = -rotation_clamped
+	var rotation_clamped = abs(fmod(rotation, 2*PI))
 	
-	if  rotation_clamped > PI/2 and rotation_clamped < 3*PI/2:
+	if rotation_clamped > PI/2 and rotation_clamped < 3*PI/2:
 		sprite.flip_v = true
 		propellor.get_parent().position.y = -7
 	else:
@@ -91,21 +97,23 @@ func _look_follow(state: PhysicsDirectBodyState2D) -> void:
 		angular_velocity = direction * local_speed / state.step
 
 func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
-	_look_follow(state)
-		
+	if not free_floating:
+		_look_follow(state)
+
 func _on_body_entered(body: Node) -> void:
 	if body.is_in_group("Obstacle") and body is not Jellyfish:
-		health._take_damage(body.damage, "collision")
+		free_floating = true
+		if linear_velocity.length() > MIN_IMPACT_SPEED:
+			health._take_damage(body.damage, "collision")
+	
 	if body is OxygenSource:
 		oxygen._collect_oxygen(body)
-
+	
 	if body is EnergySource:
 		energy.collect_energy(body)
-
+	
 	if body is Jellyfish:
 		health._take_damage(body.damage, "jellyfish")
-
-				
 	
 	#if body.is_in_group("LevelComplete"):
 		#print("Player is at finish line")

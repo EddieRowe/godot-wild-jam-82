@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dhfctohjt0l46"]
 
-[ext_resource type="Script" uid="uid://c88utyqcnercn" path="res://scripts/intro_spash.gd" id="1_rcr0i"]
+[ext_resource type="Script" path="res://scripts/intro_spash.gd" id="1_rcr0i"]
 [ext_resource type="AudioStream" uid="uid://csq7vk2quhmkx" path="res://sound/godot-wild-jam-82.ogg" id="2_noup0"]
 
 [node name="Splash" type="CanvasLayer"]

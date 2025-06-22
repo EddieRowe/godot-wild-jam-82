@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=3 uid="uid://clw32penwqos2"]
+
+[ext_resource type="Texture2D" uid="uid://c3getjuswihi" path="res://art/Icon_W.png" id="1_5ii4n"]
+[ext_resource type="Texture2D" uid="uid://cntqaipomihoc" path="res://art/Icon_A.png" id="2_704nt"]
+[ext_resource type="Texture2D" uid="uid://c55ds4w3652te" path="res://art/Icon_S.png" id="3_fv4hp"]
+[ext_resource type="Texture2D" uid="uid://c0a8u4tlv8uh0" path="res://art/Icon_D.png" id="4_gm2io"]
+
+[node name="tutorial_movement" type="Node2D"]
+z_index = -1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_top = -1.0
+offset_right = 125.0
+offset_bottom = 28.0
+bbcode_enabled = true
+text = "To move"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SpacebarTextureRect" type="TextureRect" parent="."]
+offset_left = 52.0
+offset_top = -44.0
+offset_right = 120.0
+offset_bottom = 24.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_5ii4n")
+
+[node name="SpacebarTextureRect2" type="TextureRect" parent="."]
+offset_left = 29.0
+offset_top = -22.0
+offset_right = 97.0
+offset_bottom = 46.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_704nt")
+
+[node name="SpacebarTextureRect3" type="TextureRect" parent="."]
+offset_left = 52.0
+offset_top = -22.0
+offset_right = 120.0
+offset_bottom = 46.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_fv4hp")
+
+[node name="SpacebarTextureRect4" type="TextureRect" parent="."]
+offset_left = 75.0
+offset_top = -22.0
+offset_right = 143.0
+offset_bottom = 46.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("4_gm2io")

@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://cwmpq5farutqm"]
+
+[node name="tutorial_bubbles" type="Node2D"]
+z_index = -1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_top = -1.0
+offset_right = 125.0
+offset_bottom = 86.0
+bbcode_enabled = true
+text = "Collect bubbles to refill your oxygen meter!"
+horizontal_alignment = 1
+vertical_alignment = 1
