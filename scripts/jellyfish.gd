@@ -1,4 +1,5 @@
 extends RigidBody2D
+class_name Jellyfish
 
 @export var speed : int = 10
 var player : PlayerMovement
@@ -27,7 +28,6 @@ func _physics_process(delta: float) -> void:
 
 
 
-
 #func _on_body_entered(body: Node) -> void:
 	#if body is PlayerMovement:
 		#body.health._take_damage(damage)		
@@ -46,7 +46,7 @@ func _physics_process(delta: float) -> void:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is PlayerMovement:
-		body.health._take_damage(damage)		
+		#body.health._take_damage(damage)		
 		
 		print("Energy Fully Charged")
 		player = get_parent().get_parent().get_node("Player/RigidBody2D")
@@ -57,3 +57,4 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		ui_energy.update(player.energy.currentEnergy)
 				
 		#propellor.get_parent().get_parent().texture = load("res://art/player_crushed_placeholder_.png")
+

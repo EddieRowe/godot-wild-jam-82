@@ -45,12 +45,14 @@ _data = {
 &"jellyfish_tiny2_move": SubResource("Animation_8r6fa")
 }
 
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gk2ab"]
 radius = 80.0
 height = 354.021
 
 [node name="JellyfishPink" type="RigidBody2D" node_paths=PackedStringArray("animation_player")]
 gravity_scale = 0.0
+
 continuous_cd = 1
 contact_monitor = true
 max_contacts_reported = 3
