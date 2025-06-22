@@ -78,10 +78,8 @@ func _handle_flip_sprite(movement : Vector2):
 	
 	if rotation_clamped > PI/2 and rotation_clamped < 3*PI/2:
 		sprite.flip_v = true
-		propellor.get_parent().position.y = -7
 	else:
 		sprite.flip_v = false
-		propellor.get_parent().position.y = 7
 		
 func _look_follow(state: PhysicsDirectBodyState2D) -> void:
 	var forward_local_axis: Vector2 = Vector2(1, 0) # Right-facing direction
