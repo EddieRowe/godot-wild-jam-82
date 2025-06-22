@@ -46,3 +46,8 @@ func _on_breath_timer_timeout() -> void:
 func _collect_oxygen(source: OxygenSource) -> void:
 	_consume_oxygen(source.oxygen)
 	source.pop()
+	
+func _refill_oxygen() -> void:
+	print("Oxygen Refill")
+	currentOxygen = LIMIT_MAX
+	

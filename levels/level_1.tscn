@@ -62,7 +62,7 @@ offset_bottom = 2947.0
 color = Color(0.00566116, 0.00566115, 0.00566115, 1)
 
 [node name="Player" parent="." instance=ExtResource("1_vn7o3")]
-position = Vector2(489, 457)
+position = Vector2(22599, 457)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

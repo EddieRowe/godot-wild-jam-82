@@ -19,16 +19,10 @@ func _on_body_entered(body: Node2D) -> void:
 		finished_level.emit()
 
 		player = body		
-		player.health.current_health = player.health.max_health
-		health = get_parent().get_node("CanvasLayer/GameOverlay/UiBox/UiHealth")
-		health.update(player.health.current_health)
-		
-		player.energy.currentEnergy = player.energy.BATTERY_MAX				
-		energy = get_parent().get_node("CanvasLayer/GameOverlay/UiBox/UiEnergy")
-		energy.update(player.energy.currentEnergy)
-		
-		player.oxygen.currentOxygen = player.oxygen.LIMIT_MAX
-				
+		player.health._full_repair()
+		player.energy._recharge(player.energy.BATTERY_MAX)
+		player.oxygen._refill_oxygen()		
+						
 					
 func _on_body_exited(body: Node2D) -> void:
 	if body.is_in_group("Player"):
