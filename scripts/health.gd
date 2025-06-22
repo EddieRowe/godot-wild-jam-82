@@ -1,7 +1,8 @@
 class_name Health
 extends Node2D
 
-const MIN_IMPACT_SPEED : int = 35
+const MIN_IMPACT_SPEED : int = 25
+const AVG_IMPACT_SPEED : int = 160
 
 signal healthChanged(newAmount : int)
 signal tookDamage()
@@ -28,7 +29,7 @@ func _take_damage(amount: int, source: String) -> void:
 		if player_movement.linear_velocity.length() < MIN_IMPACT_SPEED:
 			amount = 0
 		else:
-			amount = amount * player_movement.linear_velocity.length()/90
+			amount = amount * player_movement.linear_velocity.length() / AVG_IMPACT_SPEED
 	
 	print("Took damage: " + str(amount))
 	current_health -= amount
