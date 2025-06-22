@@ -10,10 +10,10 @@ config_version=5
 
 [application]
 
-config/name="Submarines"
+config/name="Pressure Run"
 run/main_scene="uid://dhfctohjt0l46"
 config/features=PackedStringArray("4.4", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://bjt4bqlaakvxb"
 
 [display]
 
