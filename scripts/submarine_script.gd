@@ -12,6 +12,7 @@ var move_speed = 300
 @export var rotation_speed : float = 0.1
 
 var can_move : bool = true
+var free_floating : bool = true
 var game_started: bool = false
 var level : int 
 
@@ -39,10 +40,12 @@ func _physics_process(delta: float) -> void:
 	var vertical_movement = Input.get_axis("ui_up", "ui_down")
 	var movement = Vector2(horizontal_movement, vertical_movement)
 	
-	if !game_started and movement:
-		freeze = false
-		game_started = true
-		game_started_signal.emit()
+	if movement:
+		free_floating = false
+		if !game_started:
+			freeze = false
+			game_started = true
+			game_started_signal.emit()
 	
 	if game_started:
 		apply_central_force(movement * move_speed)
@@ -87,11 +90,14 @@ func _look_follow(state: PhysicsDirectBodyState2D) -> void:
 		angular_velocity = direction * local_speed / state.step
 
 func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
-	_look_follow(state)
-		
+	if not free_floating:
+		_look_follow(state)
+
 func _on_body_entered(body: Node) -> void:
 	if body.is_in_group("Obstacle"):
-		health._take_damage(body.damage)
+		free_floating = true
+		if linear_velocity.length() > 40:
+			health._take_damage(body.damage)
 	if body is OxygenSource:
 		oxygen._collect_oxygen(body)
 	if body is EnergySource:
