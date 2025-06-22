@@ -1080,7 +1080,7 @@ position = Vector2(24077, 612)
 
 [node name="FinishLine" parent="." instance=ExtResource("27_8nkwk")]
 position = Vector2(25056, -843)
-level_to_load = "res://levels/splash.tscn"
+level_to_load = "res://levels/ending_cutscene.tscn"
 
 [node name="SideWall2" parent="." instance=ExtResource("27_e28pm")]
 position = Vector2(27946, -759)
