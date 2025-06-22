@@ -2,7 +2,6 @@ extends RigidBody2D
 class_name PlayerMovement
 
 const MOVE_SPEED : int = 300
-const MIN_IMPACT_SPEED : int = 35
 
 @export var health : Health
 @export var oxygen : Oxygen
@@ -79,10 +78,8 @@ func _handle_flip_sprite(movement : Vector2):
 	
 	if rotation_clamped > PI/2 and rotation_clamped < 3*PI/2:
 		sprite.flip_v = true
-		propellor.get_parent().position.y = -7
 	else:
 		sprite.flip_v = false
-		propellor.get_parent().position.y = 7
 		
 func _look_follow(state: PhysicsDirectBodyState2D) -> void:
 	var forward_local_axis: Vector2 = Vector2(1, 0) # Right-facing direction
@@ -98,14 +95,22 @@ func _look_follow(state: PhysicsDirectBodyState2D) -> void:
 		angular_velocity = direction * local_speed / state.step
 
 func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
-	if not free_floating:
+	if not free_floating and _eligible_velocity():
 		_look_follow(state)
+
+func _eligible_velocity() -> bool:
+	var rnd : float = 0.01
+	var above_limit = linear_velocity.length() > 100
+	# Snapped will round to the nearest step (decimal place)
+	var is_left = snappedf(linear_velocity.angle(),rnd) == snappedf(Vector2.LEFT.angle(),rnd)
+	var is_right = snappedf(linear_velocity.angle(),rnd) == Vector2.RIGHT.angle()
+	# This is to stop weird jumps when scraping across the floor
+	return above_limit and not (is_left or is_right)
 
 func _on_body_entered(body: Node) -> void:
 	if body.is_in_group("Obstacle") and body is not Jellyfish:
 		free_floating = true
-		if linear_velocity.length() > MIN_IMPACT_SPEED:
-			health._take_damage(body.damage, "collision")
+		health._take_damage(body.damage, "collision")
 	
 	if body is OxygenSource:
 		oxygen._collect_oxygen(body)
