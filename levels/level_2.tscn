@@ -67,7 +67,7 @@ offset_bottom = 2474.0
 color = Color(0.568627, 0, 0.266667, 0.407843)
 
 [node name="Player" parent="." instance=ExtResource("2_pqqg8")]
-position = Vector2(247, 458)
+position = Vector2(467, 456)
 
 [node name="Boundaries" type="Node2D" parent="."]
 
@@ -1110,4 +1110,4 @@ position = Vector2(17785, 587)
 movement_animation_name = "jellyfish_tiny2_move"
 
 [node name="FinishLine" parent="." instance=ExtResource("34_6dcgf")]
-position = Vector2(25015, -96)
+position = Vector2(24998, -83)

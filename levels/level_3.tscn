@@ -1,9 +1,10 @@
-[gd_scene load_steps=31 format=3 uid="uid://bjtioua5gwk3t"]
+[gd_scene load_steps=34 format=3 uid="uid://bjtioua5gwk3t"]
 
 [ext_resource type="PackedScene" uid="uid://crghl5mtabw4e" path="res://prefabs/main_audio.tscn" id="2_20opy"]
 [ext_resource type="PackedScene" uid="uid://cphyt7srqwafr" path="res://prefabs/Player.tscn" id="3_8l0e1"]
 [ext_resource type="PackedScene" uid="uid://dx71cipa1pnwn" path="res://prefabs/ui/game_overlay.tscn" id="4_lfnxh"]
 [ext_resource type="Script" uid="uid://dgvltd8eyaevh" path="res://scripts/obstacle.gd" id="5_8l0e1"]
+[ext_resource type="PackedScene" uid="uid://db8eqk6rbpg2d" path="res://prefabs/jellyfish_small.tscn" id="5_mb3d3"]
 [ext_resource type="PackedScene" uid="uid://cbasaylk3eohx" path="res://prefabs/rock_1.tscn" id="6_lfnxh"]
 [ext_resource type="PackedScene" uid="uid://wyj4yseicfyb" path="res://prefabs/stalactite_large.tscn" id="7_lfnxh"]
 [ext_resource type="PackedScene" uid="uid://bwwhwabnwtcwa" path="res://prefabs/kelp_huge_multicolor.tscn" id="7_xe1ru"]
@@ -29,6 +30,8 @@
 [ext_resource type="PackedScene" uid="uid://dltgktwbvtmmv" path="res://prefabs/jellyfish_tiny2_moving.tscn" id="26_tv8m3"]
 [ext_resource type="PackedScene" uid="uid://digqha4603pow" path="res://prefabs/finish_line.tscn" id="27_8nkwk"]
 [ext_resource type="PackedScene" uid="uid://cgnhs05fry7sc" path="res://prefabs/side_wall.tscn" id="27_e28pm"]
+[ext_resource type="PackedScene" uid="uid://cq20n71woytq6" path="res://prefabs/jellyfish_tiny_moving.tscn" id="30_4gw27"]
+[ext_resource type="PackedScene" uid="uid://btoe4pxxtf8si" path="res://prefabs/jellyfish_tiny2.tscn" id="31_mb3d3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ofchu"]
 size = Vector2(29447.9, 118.5)
@@ -831,16 +834,6 @@ freeze = true
 position = Vector2(23601, 783)
 freeze = true
 
-[node name="JellyfishPink" parent="ObstaclesNode2D" instance=ExtResource("25_e28pm")]
-position = Vector2(1670, 343)
-
-[node name="JellyfishTiny2Moving" parent="ObstaclesNode2D" instance=ExtResource("26_tv8m3")]
-position = Vector2(1375, 500)
-
-[node name="FinishLine" parent="ObstaclesNode2D" instance=ExtResource("27_8nkwk")]
-position = Vector2(25046, -1204)
-level_to_load = "res://levels/splash.tscn"
-
 [node name="OxygenNode2D" type="Node2D" parent="."]
 
 [node name="OxygenBubble" parent="OxygenNode2D" instance=ExtResource("22_67vg4")]
@@ -911,5 +904,142 @@ freeze = true
 position = Vector2(20098, -199)
 freeze = true
 
+[node name="FinishLine" parent="." instance=ExtResource("27_8nkwk")]
+position = Vector2(25046, -1204)
+level_to_load = "res://levels/splash.tscn"
+
 [node name="SideWall2" parent="." instance=ExtResource("27_e28pm")]
 position = Vector2(27946, -759)
+
+[node name="EnemiesNode2D" type="Node2D" parent="."]
+
+[node name="JellyfishPink" parent="EnemiesNode2D" instance=ExtResource("25_e28pm")]
+position = Vector2(1670, 343)
+
+[node name="JellyfishTiny2Moving" parent="EnemiesNode2D" instance=ExtResource("26_tv8m3")]
+position = Vector2(1375, 500)
+movement_animation_name = "jellyfish_tiny2_move"
+
+[node name="JellyfishTinyMoving" parent="EnemiesNode2D" instance=ExtResource("30_4gw27")]
+position = Vector2(2918, 740)
+movement_animation_name = "jellyfish_tiny_move"
+
+[node name="JellyfishTinyMoving2" parent="EnemiesNode2D" instance=ExtResource("30_4gw27")]
+position = Vector2(1305, 72)
+movement_animation_name = "jellyfish_tiny_move"
+
+[node name="JellyfishTiny2Moving2" parent="EnemiesNode2D" instance=ExtResource("26_tv8m3")]
+position = Vector2(1922, 190)
+movement_animation_name = "jellyfish_tiny2_move"
+
+[node name="JellyfishPink2" parent="EnemiesNode2D" instance=ExtResource("25_e28pm")]
+position = Vector2(2889, 166)
+
+[node name="JellyfishPink3" parent="EnemiesNode2D" instance=ExtResource("25_e28pm")]
+position = Vector2(5791, 445)
+
+[node name="JellyfishTiny2" parent="EnemiesNode2D" instance=ExtResource("31_mb3d3")]
+position = Vector2(4569, 149)
+
+[node name="JellyfishTiny3" parent="EnemiesNode2D" instance=ExtResource("31_mb3d3")]
+position = Vector2(4500, 577)
+
+[node name="JellyfishTiny2Moving3" parent="EnemiesNode2D" instance=ExtResource("26_tv8m3")]
+position = Vector2(3862, 201)
+movement_animation_name = "jellyfish_tiny2_move"
+
+[node name="JellyfishTiny2Moving4" parent="EnemiesNode2D" instance=ExtResource("26_tv8m3")]
+position = Vector2(3245, 166)
+movement_animation_name = "jellyfish_tiny2_move"
+
+[node name="JellyfishTiny2Moving5" parent="EnemiesNode2D" instance=ExtResource("26_tv8m3")]
+position = Vector2(2460, 671)
+movement_animation_name = "jellyfish_tiny2_move"
+
+[node name="JellyfishTiny2Moving6" parent="EnemiesNode2D" instance=ExtResource("26_tv8m3")]
+position = Vector2(5609, 8)
+movement_animation_name = "jellyfish_tiny2_move"
+
+[node name="JellyfishSmall" parent="EnemiesNode2D" instance=ExtResource("5_mb3d3")]
+position = Vector2(13211, 141)
+
+[node name="JellyfishTiny2Moving7" parent="EnemiesNode2D" instance=ExtResource("26_tv8m3")]
+position = Vector2(7462, 552)
+movement_animation_name = "jellyfish_tiny2_move"
+
+[node name="JellyfishTiny2Moving8" parent="EnemiesNode2D" instance=ExtResource("26_tv8m3")]
+position = Vector2(7980, 128)
+movement_animation_name = "jellyfish_tiny2_move"
+
+[node name="JellyfishPink4" parent="EnemiesNode2D" instance=ExtResource("25_e28pm")]
+position = Vector2(8511, 710)
+
+[node name="JellyfishTinyMoving3" parent="EnemiesNode2D" instance=ExtResource("30_4gw27")]
+position = Vector2(9019, 587)
+movement_animation_name = "jellyfish_tiny_move"
+
+[node name="JellyfishTinyMoving4" parent="EnemiesNode2D" instance=ExtResource("30_4gw27")]
+position = Vector2(9340, 138)
+movement_animation_name = "jellyfish_tiny_move"
+
+[node name="JellyfishTiny2Moving9" parent="EnemiesNode2D" instance=ExtResource("26_tv8m3")]
+position = Vector2(10117, 531)
+movement_animation_name = "jellyfish_tiny2_move"
+
+[node name="JellyfishTiny2Moving10" parent="EnemiesNode2D" instance=ExtResource("26_tv8m3")]
+position = Vector2(10749, 145)
+movement_animation_name = "jellyfish_tiny2_move"
+
+[node name="JellyfishTiny4" parent="EnemiesNode2D" instance=ExtResource("31_mb3d3")]
+position = Vector2(11180, 552)
+
+[node name="JellyfishPink5" parent="EnemiesNode2D" instance=ExtResource("25_e28pm")]
+position = Vector2(11949, 151)
+
+[node name="JellyfishTiny2Moving11" parent="EnemiesNode2D" instance=ExtResource("26_tv8m3")]
+position = Vector2(12883, 430)
+movement_animation_name = "jellyfish_tiny2_move"
+
+[node name="JellyfishTinyMoving5" parent="EnemiesNode2D" instance=ExtResource("30_4gw27")]
+position = Vector2(14064, 220)
+movement_animation_name = "jellyfish_tiny_move"
+
+[node name="JellyfishTinyMoving6" parent="EnemiesNode2D" instance=ExtResource("30_4gw27")]
+position = Vector2(14913, 589)
+movement_animation_name = "jellyfish_tiny_move"
+
+[node name="JellyfishTiny2Moving12" parent="EnemiesNode2D" instance=ExtResource("26_tv8m3")]
+position = Vector2(15528, 109)
+movement_animation_name = "jellyfish_tiny2_move"
+
+[node name="JellyfishTiny2Moving13" parent="EnemiesNode2D" instance=ExtResource("26_tv8m3")]
+position = Vector2(16680, 634)
+movement_animation_name = "jellyfish_tiny2_move"
+
+[node name="JellyfishTiny2Moving14" parent="EnemiesNode2D" instance=ExtResource("26_tv8m3")]
+position = Vector2(17087, 151)
+movement_animation_name = "jellyfish_tiny2_move"
+
+[node name="JellyfishTiny5" parent="EnemiesNode2D" instance=ExtResource("31_mb3d3")]
+position = Vector2(17512, 596)
+
+[node name="JellyfishTiny6" parent="EnemiesNode2D" instance=ExtResource("31_mb3d3")]
+position = Vector2(18706, 114)
+
+[node name="JellyfishSmall2" parent="EnemiesNode2D" instance=ExtResource("5_mb3d3")]
+position = Vector2(18204, 669)
+
+[node name="JellyfishPink6" parent="EnemiesNode2D" instance=ExtResource("25_e28pm")]
+position = Vector2(19811, 315)
+
+[node name="JellyfishTiny2Moving15" parent="EnemiesNode2D" instance=ExtResource("26_tv8m3")]
+position = Vector2(21224, 562)
+movement_animation_name = "jellyfish_tiny2_move"
+
+[node name="JellyfishTinyMoving7" parent="EnemiesNode2D" instance=ExtResource("30_4gw27")]
+position = Vector2(22618, 61)
+movement_animation_name = "jellyfish_tiny_move"
+
+[node name="JellyfishTiny2Moving16" parent="EnemiesNode2D" instance=ExtResource("26_tv8m3")]
+position = Vector2(23738, 626)
+movement_animation_name = "jellyfish_tiny2_move"
