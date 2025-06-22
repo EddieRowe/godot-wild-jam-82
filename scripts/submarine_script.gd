@@ -12,6 +12,7 @@ var move_speed = 300
 @export var rotation_speed : float = 0.1
 
 var can_move : bool = true
+var game_started: bool = false
 var level : int 
 
 func _ready() -> void:
@@ -36,9 +37,14 @@ func _physics_process(delta: float) -> void:
 	var vertical_movement = Input.get_axis("ui_up", "ui_down")
 	var movement = Vector2(horizontal_movement, vertical_movement)
 	
-	apply_central_force(movement * move_speed)
+	if !game_started and movement:
+		freeze = false
+		game_started = true
 	
-	_handle_flip_sprite(movement)
+	if game_started:
+		apply_central_force(movement * move_speed)
+		_handle_flip_sprite(movement)
+	
 	
 	energy._handle_lighting(Input.is_action_pressed("ui_accept"))
 	
