@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://cnep5qop4e823"]
+[gd_scene load_steps=34 format=3 uid="uid://cnep5qop4e823"]
 
 [ext_resource type="PackedScene" uid="uid://crghl5mtabw4e" path="res://prefabs/main_audio.tscn" id="1_l53as"]
 [ext_resource type="PackedScene" uid="uid://boaipqmv57708" path="res://prefabs/in_game_timer_canvas_layer.tscn" id="1_pnpm1"]
@@ -31,8 +31,14 @@
 [ext_resource type="PackedScene" uid="uid://glvtqalegb67" path="res://prefabs/OxygenBubble.tscn" id="29_0x1rk"]
 [ext_resource type="PackedScene" uid="uid://ddmscuyoh7haw" path="res://prefabs/OxygenBubble_Big.tscn" id="30_06ecp"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pnpm1"]
+size = Vector2(27214, 191)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_06ecp"]
+size = Vector2(3308, 96.9948)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bt44k"]
-size = Vector2(26805.1, 118.5)
+size = Vector2(25212, 118.5)
 
 [node name="Level1" type="Node2D"]
 
@@ -57,64 +63,64 @@ position = Vector2(268, 353)
 
 [node name="Boundaries" type="Node2D" parent="."]
 
-[node name="BOUNDARYRigidBody2D" type="RigidBody2D" parent="Boundaries" groups=["Obstacle"]]
+[node name="Ceiling" type="RigidBody2D" parent="Boundaries" groups=["Obstacle"]]
 position = Vector2(489, -96)
 freeze = true
 script = ExtResource("2_bt44k")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/BOUNDARYRigidBody2D"]
-position = Vector2(11060.4, 10)
-shape = SubResource("RectangleShape2D_bt44k")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/Ceiling"]
+position = Vector2(12995, -27.5)
+shape = SubResource("RectangleShape2D_pnpm1")
 
-[node name="ColorRect" type="ColorRect" parent="Boundaries/BOUNDARYRigidBody2D"]
+[node name="ColorRect" type="ColorRect" parent="Boundaries/Ceiling"]
 offset_left = -567.0
 offset_top = -663.0
 offset_right = 26553.0
 offset_bottom = 68.0
 color = Color(0, 0, 0, 1)
 
-[node name="BOUNDARYRigidBody2D3" type="RigidBody2D" parent="Boundaries" groups=["Obstacle"]]
+[node name="StartWall" type="RigidBody2D" parent="Boundaries" groups=["Obstacle"]]
 position = Vector2(-96, 138)
 rotation = -1.57079
 freeze = true
 script = ExtResource("2_bt44k")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/BOUNDARYRigidBody2D3"]
-position = Vector2(618, -10)
-shape = SubResource("RectangleShape2D_bt44k")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/StartWall"]
+position = Vector2(173, -2.49859)
+shape = SubResource("RectangleShape2D_06ecp")
 
-[node name="ColorRect" type="ColorRect" parent="Boundaries/BOUNDARYRigidBody2D3"]
+[node name="ColorRect" type="ColorRect" parent="Boundaries/StartWall"]
 offset_left = -1473.0
 offset_top = -1181.0
 offset_right = 1802.0
 offset_bottom = 46.0
 color = Color(0, 0, 0, 1)
 
-[node name="BOUNDARYRigidBody2D2" type="RigidBody2D" parent="Boundaries" groups=["Obstacle"]]
+[node name="Floor" type="RigidBody2D" parent="Boundaries" groups=["Obstacle"]]
 position = Vector2(489, 561)
 freeze = true
 script = ExtResource("2_bt44k")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/BOUNDARYRigidBody2D2"]
-position = Vector2(11118, 240)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/Floor"]
+position = Vector2(12015, 223)
 shape = SubResource("RectangleShape2D_bt44k")
 
-[node name="ColorRect2" type="ColorRect" parent="Boundaries/BOUNDARYRigidBody2D2"]
+[node name="ColorRect2" type="ColorRect" parent="Boundaries/Floor"]
 offset_left = -554.0
 offset_top = 164.0
 offset_right = 24577.0
 offset_bottom = 985.0
 color = Color(0, 0, 0, 1)
 
-[node name="Rock3" parent="Boundaries/BOUNDARYRigidBody2D2" instance=ExtResource("5_n46q3")]
-position = Vector2(2236, 127)
-freeze = true
-
-[node name="Rock4" parent="Boundaries/BOUNDARYRigidBody2D2" instance=ExtResource("5_n46q3")]
-position = Vector2(14198, 124)
-freeze = true
-
 [node name="Obstacles" type="Node2D" parent="."]
+
+[node name="Rock13" parent="Obstacles" instance=ExtResource("5_n46q3")]
+position = Vector2(2725, 688)
+freeze = true
+
+[node name="Rock14" parent="Obstacles" instance=ExtResource("5_n46q3")]
+position = Vector2(14687, 685)
+freeze = true
 
 [node name="Rock2" parent="Obstacles" instance=ExtResource("5_n46q3")]
 position = Vector2(468, 725)
