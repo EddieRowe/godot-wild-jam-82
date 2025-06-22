@@ -49,6 +49,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		body.health._take_damage(damage)		
 		
 		print("Energy Fully Charged")
+		player = get_parent().get_parent().get_node("Player/RigidBody2D")
 		player.energy.currentEnergy = player.energy.BATTERY_MAX
 		
 		ui_energy = get_parent().get_parent().get_node("CanvasLayer/GameOverlay/UiBox/UiEnergy")

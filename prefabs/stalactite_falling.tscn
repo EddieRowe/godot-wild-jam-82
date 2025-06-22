@@ -22,7 +22,7 @@ one_shot = true
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-212, 614)
+position = Vector2(-236, 614)
 shape = SubResource("RectangleShape2D_nvdhc")
 
 [connection signal="timeout" from="FallingTimer" to="." method="_on_timer_fall"]

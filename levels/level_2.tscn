@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cdgp02o6rqnh5"]
+[gd_scene load_steps=29 format=3 uid="uid://cdgp02o6rqnh5"]
 
 [ext_resource type="PackedScene" uid="uid://crghl5mtabw4e" path="res://prefabs/main_audio.tscn" id="1_mi4ay"]
 [ext_resource type="PackedScene" uid="uid://cphyt7srqwafr" path="res://prefabs/Player.tscn" id="2_pqqg8"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cbasaylk3eohx" path="res://prefabs/rock_1.tscn" id="5_ilhis"]
 [ext_resource type="PackedScene" uid="uid://df3nads3pasdn" path="res://prefabs/stalactite_falling.tscn" id="6_wcjpl"]
 [ext_resource type="PackedScene" uid="uid://wyj4yseicfyb" path="res://prefabs/stalactite_large.tscn" id="7_5orea"]
+[ext_resource type="PackedScene" uid="uid://glvtqalegb67" path="res://prefabs/OxygenBubble.tscn" id="8_dpc8t"]
 [ext_resource type="PackedScene" uid="uid://ortbhodpm47m" path="res://prefabs/stalactite_med.tscn" id="11_uo0vl"]
 [ext_resource type="PackedScene" uid="uid://bck55k4gxutt3" path="res://prefabs/rock_large.tscn" id="12_k2aru"]
 [ext_resource type="Texture2D" uid="uid://cp4d550wonmbg" path="res://art/KelpMulticolor.png" id="13_h351q"]
@@ -20,7 +21,12 @@
 [ext_resource type="Texture2D" uid="uid://ketdawoguj8g" path="res://art/large_rock_placeholder.png" id="20_00pa0"]
 [ext_resource type="PackedScene" uid="uid://psx14rlat6ij" path="res://prefabs/kelp_black.tscn" id="20_h351q"]
 [ext_resource type="PackedScene" uid="uid://cnkw37u6tf7mw" path="res://prefabs/rock_colossal.tscn" id="21_dpc8t"]
-[ext_resource type="PackedScene" uid="uid://c6md5ixhopnoe" path="res://prefabs/jellyfish_pink.tscn" id="21_ngvhw"]
+[ext_resource type="PackedScene" uid="uid://vv3icacjpd3r" path="res://prefabs/rock_2.tscn" id="22_ngvhw"]
+[ext_resource type="PackedScene" uid="uid://dhh22p6ic0tqq" path="res://prefabs/rock_3.tscn" id="23_itbe0"]
+[ext_resource type="Texture2D" uid="uid://b1sg4x08bgbvw" path="res://art/KelpGreen4_Move.png" id="24_xrja0"]
+[ext_resource type="PackedScene" uid="uid://bvpj80d4ko5rs" path="res://prefabs/rock_ceiling.tscn" id="25_he6wg"]
+[ext_resource type="PackedScene" uid="uid://ddmscuyoh7haw" path="res://prefabs/OxygenBubble_Big.tscn" id="26_jqt73"]
+[ext_resource type="PackedScene" uid="uid://dwx1hxf8wu11" path="res://prefabs/rock_colossal2.tscn" id="27_00pa0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ep78u"]
 size = Vector2(26805.1, 118.5)
@@ -119,6 +125,31 @@ freeze = true
 
 [node name="StalactiteFalling3" parent="Boundaries/BOUNDARYRigidBody2D2" instance=ExtResource("6_wcjpl")]
 position = Vector2(1508, -647)
+
+[node name="OxygenBubble" parent="Boundaries/BOUNDARYRigidBody2D2" instance=ExtResource("8_dpc8t")]
+position = Vector2(4051, 155)
+
+[node name="OxygenBubble2" parent="Boundaries/BOUNDARYRigidBody2D2" instance=ExtResource("8_dpc8t")]
+position = Vector2(4163, 274)
+
+[node name="OxygenBubble3" parent="Boundaries/BOUNDARYRigidBody2D2" instance=ExtResource("8_dpc8t")]
+position = Vector2(4289, 296)
+
+[node name="Rock5" parent="Boundaries/BOUNDARYRigidBody2D2" instance=ExtResource("5_ilhis")]
+position = Vector2(4320, 422)
+freeze = true
+
+[node name="KelpLong2" type="Sprite2D" parent="Boundaries/BOUNDARYRigidBody2D2"]
+position = Vector2(4529, 387)
+texture = ExtResource("18_he6wg")
+
+[node name="KelpGreen3" type="Sprite2D" parent="Boundaries/BOUNDARYRigidBody2D2"]
+position = Vector2(4551, 409)
+texture = ExtResource("16_itbe0")
+
+[node name="Kelp" parent="Boundaries/BOUNDARYRigidBody2D2" instance=ExtResource("20_h351q")]
+position = Vector2(8744, -624)
+rotation = -3.13024
 
 [node name="KelpNode2D" type="Node2D" parent="."]
 
@@ -224,5 +255,505 @@ freeze = true
 position = Vector2(2732, -130)
 freeze = true
 
-[node name="JellyfishPink" parent="." instance=ExtResource("21_ngvhw")]
-position = Vector2(3673, 124)
+[node name="KelpGreen4" type="Sprite2D" parent="Obstacles"]
+position = Vector2(9715, 926)
+texture = ExtResource("15_ngvhw")
+
+[node name="KelpGreen5" type="Sprite2D" parent="Obstacles"]
+position = Vector2(9812, 995)
+texture = ExtResource("15_ngvhw")
+
+[node name="OxygenBubble" parent="Obstacles" instance=ExtResource("8_dpc8t")]
+position = Vector2(9683, 829)
+
+[node name="OxygenBubble2" parent="Obstacles" instance=ExtResource("8_dpc8t")]
+position = Vector2(9790, 898)
+
+[node name="Rock1" parent="Obstacles" instance=ExtResource("22_ngvhw")]
+position = Vector2(9548, 543)
+
+[node name="KelpMulticolor" type="Sprite2D" parent="Obstacles"]
+position = Vector2(10581, 876)
+texture = ExtResource("13_h351q")
+
+[node name="Rock3" parent="Obstacles" instance=ExtResource("5_ilhis")]
+position = Vector2(10594, 964)
+freeze = true
+
+[node name="OxygenBubble3" parent="Obstacles" instance=ExtResource("8_dpc8t")]
+position = Vector2(10433, 741)
+
+[node name="OxygenBubble4" parent="Obstacles" instance=ExtResource("8_dpc8t")]
+position = Vector2(10572, 823)
+
+[node name="RockLarge" parent="Obstacles" instance=ExtResource("23_itbe0")]
+position = Vector2(10568, 581)
+freeze = true
+
+[node name="KelpGreen2" type="Sprite2D" parent="Obstacles"]
+position = Vector2(10983, 885)
+texture = ExtResource("14_dpc8t")
+
+[node name="OxygenBubble5" parent="Obstacles" instance=ExtResource("8_dpc8t")]
+position = Vector2(10961, 801)
+
+[node name="StalactiteFalling2" parent="." instance=ExtResource("6_wcjpl")]
+position = Vector2(4351, -81)
+
+[node name="StalactiteFalling3" parent="." instance=ExtResource("6_wcjpl")]
+position = Vector2(4521, -135)
+
+[node name="Stalactite" parent="." instance=ExtResource("5_hbb88")]
+position = Vector2(4565, -72)
+freeze = true
+
+[node name="KelpMulticolor" type="Sprite2D" parent="."]
+position = Vector2(4684, 917)
+texture = ExtResource("13_h351q")
+
+[node name="KelpGreen4" type="Sprite2D" parent="."]
+position = Vector2(4753, 970)
+texture = ExtResource("15_ngvhw")
+
+[node name="KelpGreen5" type="Sprite2D" parent="."]
+position = Vector2(5159, 945)
+texture = ExtResource("15_ngvhw")
+
+[node name="KelpGreen2" type="Sprite2D" parent="."]
+position = Vector2(5256, 992)
+texture = ExtResource("14_dpc8t")
+
+[node name="Rock3" parent="." instance=ExtResource("5_ilhis")]
+position = Vector2(5099, 1027)
+freeze = true
+
+[node name="KelpGreen3" type="Sprite2D" parent="."]
+position = Vector2(5319, 1102)
+texture = ExtResource("14_dpc8t")
+
+[node name="Rock1" parent="." instance=ExtResource("22_ngvhw")]
+position = Vector2(5024, 562)
+
+[node name="KelpGreen6" type="Sprite2D" parent="."]
+position = Vector2(5972, 932)
+texture = ExtResource("15_ngvhw")
+
+[node name="KelpGreen7" type="Sprite2D" parent="."]
+position = Vector2(6057, 1030)
+texture = ExtResource("14_dpc8t")
+
+[node name="RockLarge" parent="." instance=ExtResource("23_itbe0")]
+position = Vector2(5985, 543)
+freeze = true
+
+[node name="KelpGreen8" type="Sprite2D" parent="."]
+position = Vector2(7042, 898)
+texture = ExtResource("16_itbe0")
+
+[node name="KelpGreen4Move" type="Sprite2D" parent="."]
+position = Vector2(6600, 750)
+texture = ExtResource("24_xrja0")
+
+[node name="KelpMulticolor2" type="Sprite2D" parent="."]
+position = Vector2(7196, 879)
+texture = ExtResource("13_h351q")
+
+[node name="KelpGreen" type="Sprite2D" parent="."]
+position = Vector2(7256, 973)
+texture = ExtResource("19_jqt73")
+
+[node name="Rock4" parent="." instance=ExtResource("5_ilhis")]
+position = Vector2(7249, 948)
+freeze = true
+
+[node name="StalectiteLarge" parent="." instance=ExtResource("7_5orea")]
+position = Vector2(4742, -91)
+freeze = true
+
+[node name="StalectiteLarge2" parent="." instance=ExtResource("7_5orea")]
+position = Vector2(4858, -144)
+freeze = true
+
+[node name="StalectiteMed" parent="." instance=ExtResource("11_uo0vl")]
+position = Vector2(4949, -63)
+freeze = true
+
+[node name="StalactiteFalling4" parent="." instance=ExtResource("6_wcjpl")]
+position = Vector2(5156, -110)
+
+[node name="StalactiteFalling5" parent="." instance=ExtResource("6_wcjpl")]
+position = Vector2(5256, -97)
+
+[node name="StalactiteFalling6" parent="." instance=ExtResource("6_wcjpl")]
+position = Vector2(5332, -166)
+
+[node name="RockCollosal" parent="." instance=ExtResource("21_dpc8t")]
+position = Vector2(7654, 543)
+freeze = true
+
+[node name="KelpGreen9" type="Sprite2D" parent="."]
+position = Vector2(7479, 936)
+texture = ExtResource("15_ngvhw")
+
+[node name="KelpGreen10" type="Sprite2D" parent="."]
+position = Vector2(7990, 622)
+texture = ExtResource("19_jqt73")
+
+[node name="KelpGreen4Move2" type="Sprite2D" parent="."]
+position = Vector2(8398, 427)
+texture = ExtResource("24_xrja0")
+
+[node name="OxygenBubble" parent="." instance=ExtResource("8_dpc8t")]
+position = Vector2(4993, 823)
+
+[node name="OxygenBubble2" parent="." instance=ExtResource("8_dpc8t")]
+position = Vector2(5100, 870)
+
+[node name="OxygenBubble3" parent="." instance=ExtResource("8_dpc8t")]
+position = Vector2(5241, 885)
+
+[node name="OxygenBubble4" parent="." instance=ExtResource("8_dpc8t")]
+position = Vector2(5903, 838)
+
+[node name="OxygenBubble5" parent="." instance=ExtResource("8_dpc8t")]
+position = Vector2(6010, 870)
+
+[node name="OxygenBubble6" parent="." instance=ExtResource("8_dpc8t")]
+position = Vector2(6076, 932)
+
+[node name="OxygenBubble7" parent="." instance=ExtResource("8_dpc8t")]
+position = Vector2(6521, 732)
+
+[node name="OxygenBubble8" parent="." instance=ExtResource("8_dpc8t")]
+position = Vector2(7033, 810)
+
+[node name="OxygenBubble9" parent="." instance=ExtResource("8_dpc8t")]
+position = Vector2(7102, 716)
+
+[node name="OxygenBubble10" parent="." instance=ExtResource("8_dpc8t")]
+position = Vector2(7206, 791)
+
+[node name="OxygenBubble11" parent="." instance=ExtResource("8_dpc8t")]
+position = Vector2(7425, 838)
+
+[node name="OxygenBubble12" parent="." instance=ExtResource("8_dpc8t")]
+position = Vector2(7968, 556)
+
+[node name="OxygenBubble13" parent="." instance=ExtResource("8_dpc8t")]
+position = Vector2(8335, 402)
+
+[node name="LargeRockPlaceholder" type="Sprite2D" parent="." groups=["Obstacle"]]
+position = Vector2(6095, -63)
+texture = ExtResource("20_00pa0")
+
+[node name="Stalactite2" parent="." instance=ExtResource("5_hbb88")]
+position = Vector2(5515, -59)
+freeze = true
+
+[node name="Stalactite3" parent="." instance=ExtResource("5_hbb88")]
+position = Vector2(6685, -75)
+freeze = true
+
+[node name="StalactiteFalling7" parent="." instance=ExtResource("6_wcjpl")]
+position = Vector2(7071, -106)
+
+[node name="StalectiteLarge3" parent="." instance=ExtResource("7_5orea")]
+position = Vector2(6986, -63)
+freeze = true
+
+[node name="StalectiteMed2" parent="." instance=ExtResource("11_uo0vl")]
+position = Vector2(7561, -113)
+freeze = true
+
+[node name="StalactiteFalling8" parent="." instance=ExtResource("6_wcjpl")]
+position = Vector2(7659, -94)
+
+[node name="StalactiteFalling9" parent="." instance=ExtResource("6_wcjpl")]
+position = Vector2(7696, -157)
+
+[node name="StalactiteFalling10" parent="." instance=ExtResource("6_wcjpl")]
+position = Vector2(7596, -144)
+
+[node name="Stalactite4" parent="." instance=ExtResource("5_hbb88")]
+position = Vector2(7426, -84)
+freeze = true
+
+[node name="Kelp" parent="." instance=ExtResource("20_h351q")]
+position = Vector2(7266, -44)
+rotation = 3.13753
+
+[node name="Kelp2" parent="." instance=ExtResource("20_h351q")]
+position = Vector2(7941, -63)
+rotation = 3.11805
+
+[node name="StalectiteLarge4" parent="." instance=ExtResource("7_5orea")]
+position = Vector2(8158, -157)
+freeze = true
+
+[node name="StalectiteMed3" parent="." instance=ExtResource("11_uo0vl")]
+position = Vector2(8242, -135)
+freeze = true
+
+[node name="StalactiteFalling11" parent="." instance=ExtResource("6_wcjpl")]
+position = Vector2(8729, -103)
+
+[node name="Stalactite5" parent="." instance=ExtResource("5_hbb88")]
+position = Vector2(8773, -103)
+freeze = true
+
+[node name="KelpMulticolor3" type="Sprite2D" parent="."]
+position = Vector2(9482, 873)
+texture = ExtResource("13_h351q")
+
+[node name="KelpGreen11" type="Sprite2D" parent="."]
+position = Vector2(9363, 1008)
+texture = ExtResource("14_dpc8t")
+
+[node name="OxygenBubble14" parent="." instance=ExtResource("8_dpc8t")]
+position = Vector2(9294, 835)
+
+[node name="OxygenBubble15" parent="." instance=ExtResource("8_dpc8t")]
+position = Vector2(9372, 722)
+
+[node name="OxygenBubble16" parent="." instance=ExtResource("8_dpc8t")]
+position = Vector2(9476, 794)
+
+[node name="Rock5" parent="." instance=ExtResource("5_ilhis")]
+position = Vector2(9488, 973)
+freeze = true
+
+[node name="LargeRockPlaceholder2" type="Sprite2D" parent="." groups=["Obstacle"]]
+position = Vector2(9557, -28)
+texture = ExtResource("20_00pa0")
+
+[node name="StalactiteFalling12" parent="." instance=ExtResource("6_wcjpl")]
+position = Vector2(9968, -84)
+
+[node name="StalectiteLarge5" parent="." instance=ExtResource("7_5orea")]
+position = Vector2(10099, -50)
+freeze = true
+
+[node name="StalactiteFalling13" parent="." instance=ExtResource("6_wcjpl")]
+position = Vector2(10190, -106)
+
+[node name="StalactiteFalling14" parent="." instance=ExtResource("6_wcjpl")]
+position = Vector2(10259, -169)
+
+[node name="StalectiteMed4" parent="." instance=ExtResource("11_uo0vl")]
+position = Vector2(10347, -72)
+freeze = true
+
+[node name="Stalactite6" parent="." instance=ExtResource("5_hbb88")]
+position = Vector2(10438, -78)
+freeze = true
+
+[node name="Stalactite7" parent="." instance=ExtResource("5_hbb88")]
+position = Vector2(10859, -81)
+freeze = true
+
+[node name="StalactiteFalling15" parent="." instance=ExtResource("6_wcjpl")]
+position = Vector2(11028, -106)
+
+[node name="StalactiteFalling16" parent="." instance=ExtResource("6_wcjpl")]
+position = Vector2(11135, -163)
+
+[node name="StalectiteLarge6" parent="." instance=ExtResource("7_5orea")]
+position = Vector2(11279, -69)
+freeze = true
+
+[node name="StalactiteFalling17" parent="." instance=ExtResource("6_wcjpl")]
+position = Vector2(11405, -119)
+
+[node name="Kelp3" parent="." instance=ExtResource("20_h351q")]
+position = Vector2(10864, -56)
+rotation = 3.09934
+
+[node name="KelpMulticolor4" type="Sprite2D" parent="."]
+position = Vector2(11602, 885)
+texture = ExtResource("13_h351q")
+
+[node name="KelpGreen12" type="Sprite2D" parent="."]
+position = Vector2(11683, 979)
+texture = ExtResource("14_dpc8t")
+
+[node name="RockCeiling" parent="." instance=ExtResource("25_he6wg")]
+position = Vector2(11803, -106)
+freeze = true
+
+[node name="Kelp4" parent="." instance=ExtResource("20_h351q")]
+position = Vector2(11866, -19)
+rotation = -3.10573
+
+[node name="RockCollosal2" parent="." instance=ExtResource("21_dpc8t")]
+position = Vector2(11880, 766)
+freeze = true
+
+[node name="RockLarge3" parent="." instance=ExtResource("12_k2aru")]
+position = Vector2(13158, 754)
+freeze = true
+
+[node name="KelpLong2" type="Sprite2D" parent="."]
+position = Vector2(13100, 703)
+texture = ExtResource("18_he6wg")
+
+[node name="OxygenBubble17" parent="." instance=ExtResource("8_dpc8t")]
+position = Vector2(11483, 732)
+
+[node name="OxygenBubble18" parent="." instance=ExtResource("8_dpc8t")]
+position = Vector2(11575, 812)
+
+[node name="OxygenBubble19" parent="." instance=ExtResource("8_dpc8t")]
+position = Vector2(11700, 845)
+
+[node name="OxygenBubble20" parent="." instance=ExtResource("8_dpc8t")]
+position = Vector2(13058, 661)
+
+[node name="Stalactite8" parent="." instance=ExtResource("5_hbb88")]
+position = Vector2(13463, -69)
+freeze = true
+
+[node name="StalectiteLarge7" parent="." instance=ExtResource("7_5orea")]
+position = Vector2(13849, -93)
+freeze = true
+
+[node name="StalactiteFalling18" parent="." instance=ExtResource("6_wcjpl")]
+position = Vector2(13977, -93)
+
+[node name="StalactiteFalling19" parent="." instance=ExtResource("6_wcjpl")]
+position = Vector2(14087, -106)
+
+[node name="StalectiteLarge8" parent="." instance=ExtResource("7_5orea")]
+position = Vector2(14460, -63)
+freeze = true
+
+[node name="Stalactite9" parent="." instance=ExtResource("5_hbb88")]
+position = Vector2(14552, -100)
+freeze = true
+
+[node name="StalectiteMed5" parent="." instance=ExtResource("11_uo0vl")]
+position = Vector2(15011, -87)
+freeze = true
+
+[node name="StalectiteLarge9" parent="." instance=ExtResource("7_5orea")]
+position = Vector2(15115, -87)
+freeze = true
+
+[node name="StalactiteFalling20" parent="." instance=ExtResource("6_wcjpl")]
+position = Vector2(15194, -87)
+
+[node name="StalactiteFalling21" parent="." instance=ExtResource("6_wcjpl")]
+position = Vector2(15365, -106)
+
+[node name="StalactiteFalling22" parent="." instance=ExtResource("6_wcjpl")]
+position = Vector2(15427, -167)
+
+[node name="KelpMulticolor5" type="Sprite2D" parent="."]
+position = Vector2(14014, 879)
+texture = ExtResource("13_h351q")
+
+[node name="KelpGreen13" type="Sprite2D" parent="."]
+position = Vector2(14167, 928)
+texture = ExtResource("16_itbe0")
+
+[node name="KelpGreen14" type="Sprite2D" parent="."]
+position = Vector2(14632, 934)
+texture = ExtResource("15_ngvhw")
+
+[node name="KelpGreen15" type="Sprite2D" parent="."]
+position = Vector2(14277, 934)
+texture = ExtResource("19_jqt73")
+
+[node name="KelpMulticolor6" type="Sprite2D" parent="."]
+position = Vector2(14509, 934)
+texture = ExtResource("13_h351q")
+
+[node name="Rock6" parent="." instance=ExtResource("5_ilhis")]
+position = Vector2(14214, 1057)
+freeze = true
+
+[node name="OxygenBubble21" parent="." instance=ExtResource("8_dpc8t")]
+position = Vector2(13838, 783)
+
+[node name="OxygenBubble22" parent="." instance=ExtResource("8_dpc8t")]
+position = Vector2(13968, 719)
+
+[node name="OxygenBubble23" parent="." instance=ExtResource("8_dpc8t")]
+position = Vector2(14070, 802)
+
+[node name="OxygenBubble24" parent="." instance=ExtResource("8_dpc8t")]
+position = Vector2(14146, 837)
+
+[node name="OxygenBubble25" parent="." instance=ExtResource("8_dpc8t")]
+position = Vector2(14241, 791)
+
+[node name="OxygenBubbleBig" parent="." instance=ExtResource("26_jqt73")]
+position = Vector2(14891, 783)
+
+[node name="OxygenBubble26" parent="." instance=ExtResource("8_dpc8t")]
+position = Vector2(14408, 818)
+
+[node name="OxygenBubble27" parent="." instance=ExtResource("8_dpc8t")]
+position = Vector2(14556, 837)
+
+[node name="Rock7" parent="." instance=ExtResource("5_ilhis")]
+position = Vector2(7738, 604)
+freeze = true
+
+[node name="RockColossal2" parent="." instance=ExtResource("27_00pa0")]
+position = Vector2(15916, 961)
+freeze = true
+
+[node name="KelpMulticolor7" type="Sprite2D" parent="."]
+position = Vector2(16604, 900)
+texture = ExtResource("13_h351q")
+
+[node name="OxygenBubble28" parent="." instance=ExtResource("8_dpc8t")]
+position = Vector2(16471, 694)
+
+[node name="Stalactite10" parent="." instance=ExtResource("5_hbb88")]
+position = Vector2(15820, -78)
+freeze = true
+
+[node name="StalectiteMed6" parent="." instance=ExtResource("11_uo0vl")]
+position = Vector2(15959, -89)
+freeze = true
+
+[node name="StalactiteFalling23" parent="." instance=ExtResource("6_wcjpl")]
+position = Vector2(16449, -95)
+
+[node name="StalactiteFalling24" parent="." instance=ExtResource("6_wcjpl")]
+position = Vector2(16549, -106)
+
+[node name="Rock2" parent="." instance=ExtResource("22_ngvhw")]
+position = Vector2(16378, 528)
+
+[node name="KelpGreen16" type="Sprite2D" parent="."]
+position = Vector2(17362, 911)
+texture = ExtResource("15_ngvhw")
+
+[node name="KelpGreen17" type="Sprite2D" parent="."]
+position = Vector2(17479, 1011)
+texture = ExtResource("14_dpc8t")
+
+[node name="Rock8" parent="." instance=ExtResource("5_ilhis")]
+position = Vector2(17523, 939)
+freeze = true
+
+[node name="OxygenBubble29" parent="." instance=ExtResource("8_dpc8t")]
+position = Vector2(17312, 811)
+
+[node name="OxygenBubble30" parent="." instance=ExtResource("8_dpc8t")]
+position = Vector2(17485, 828)
+
+[node name="StalectiteLarge10" parent="." instance=ExtResource("7_5orea")]
+position = Vector2(17096, -84)
+freeze = true
+
+[node name="StalactiteFalling25" parent="." instance=ExtResource("6_wcjpl")]
+position = Vector2(17312, -95)
+
+[node name="StalactiteFalling26" parent="." instance=ExtResource("6_wcjpl")]
+position = Vector2(17385, -145)
+
+[node name="StalactiteFalling27" parent="." instance=ExtResource("6_wcjpl")]
+position = Vector2(17490, -117)
