@@ -1,23 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://vv3icacjpd3r"]
+[gd_scene load_steps=3 format=3 uid="uid://vv3icacjpd3r"]
 
 [ext_resource type="Script" uid="uid://dgvltd8eyaevh" path="res://scripts/obstacle.gd" id="1_vclnr"]
 [ext_resource type="Texture2D" uid="uid://63lb0xappwn4" path="res://art/rock2_placeholder.png" id="2_vclnr"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jwdrt"]
-radius = 166.926
-height = 559.55
-
 [node name="Rock1" type="RigidBody2D" groups=["Obstacle"]]
 freeze = true
 script = ExtResource("1_vclnr")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(589, 383)
-rotation = 1.80824
-shape = SubResource("CapsuleShape2D_jwdrt")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(572.148, 365.997)
 rotation = 3.12306
 scale = Vector2(7.79737, 4.89666)
 texture = ExtResource("2_vclnr")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(415, 219, 527, 211, 648, 239, 807, 314, 871, 367, 895, 402, 891, 463, 846, 503, 464, 525, 299, 399, 299, 330, 347, 268)
