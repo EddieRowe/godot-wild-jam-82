@@ -1,6 +1,8 @@
-[gd_scene load_steps=30 format=3 uid="uid://cnep5qop4e823"]
+
+[gd_scene load_steps=32 format=3 uid="uid://cnep5qop4e823"]
 
 [ext_resource type="PackedScene" uid="uid://crghl5mtabw4e" path="res://prefabs/main_audio.tscn" id="1_l53as"]
+[ext_resource type="PackedScene" uid="uid://boaipqmv57708" path="res://prefabs/in_game_timer_canvas_layer.tscn" id="1_pnpm1"]
 [ext_resource type="PackedScene" uid="uid://cphyt7srqwafr" path="res://prefabs/Player.tscn" id="1_vn7o3"]
 [ext_resource type="Script" uid="uid://dgvltd8eyaevh" path="res://scripts/obstacle.gd" id="2_bt44k"]
 [ext_resource type="PackedScene" uid="uid://psx14rlat6ij" path="res://prefabs/kelp_black.tscn" id="4_kx6l7"]
@@ -33,6 +35,8 @@
 size = Vector2(26805.1, 118.5)
 
 [node name="Level1" type="Node2D"]
+
+[node name="InGameTimerCanvasLayer" parent="." instance=ExtResource("1_pnpm1")]
 
 [node name="Main Audio" parent="." instance=ExtResource("1_l53as")]
 

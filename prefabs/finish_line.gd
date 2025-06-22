@@ -6,6 +6,7 @@ var energy : UiEnergy
 var oxygen : Oxygen
 
 var can_move : bool = true
+signal finished_level()
 
 
 func _ready() -> void:
@@ -15,6 +16,8 @@ func _ready() -> void:
 	
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
+		finished_level.emit()
+
 		player = get_parent().get_node("Player/RigidBody2D")
 		
 		player.health.current_health = player.health.max_health
@@ -35,3 +38,4 @@ func _on_body_exited(body: Node2D) -> void:
 		player.oxygen.currentOxygen = player.oxygen.LIMIT_MAX
 		
 		get_tree().change_scene_to_file("res://levels/level_2.tscn")
+

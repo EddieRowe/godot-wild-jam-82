@@ -9,9 +9,15 @@ var move_speed = 300
 @export var audio : SubmarineAudio
 @export var propellor : AnimationPlayer
 @export var restart_timer : Timer
-@export var rotation_speed = 15
+@export var rotation_speed : float = 0.1
 
 var can_move : bool = true
+
+var game_started: bool = false
+var level : int 
+
+
+signal game_started_signal()
 
 func _ready() -> void:
 	gravity_scale = 0.1
@@ -35,11 +41,15 @@ func _physics_process(delta: float) -> void:
 	var vertical_movement = Input.get_axis("ui_up", "ui_down")
 	var movement = Vector2(horizontal_movement, vertical_movement)
 	
-	apply_central_force(movement * move_speed)
-	apply_torque((0 - rotation) * 10000)
+	if !game_started and movement:
+		freeze = false
+		game_started = true
+		game_started_signal.emit()
 	
-	_handle_rotate_sprite(delta)
-	_handle_flip_sprite(movement)
+	if game_started:
+		apply_central_force(movement * move_speed)
+		_handle_flip_sprite(movement)
+	
 	
 	energy._handle_lighting(Input.is_action_pressed("ui_accept"))
 	
@@ -55,37 +65,47 @@ func _physics_process(delta: float) -> void:
 
 func _handle_flip_sprite(movement : Vector2):
 	# Flip sprite based on rotation
-	#var clamped_rotation = sprite.rotation % (2*PI)
+	#Clamped to +2PI as rotation can be infinite
+	var rotation_clamped = fmod(rotation, 2*PI)
+	if (rotation_clamped < 0):
+		rotation_clamped = -rotation_clamped
 	
-	if sprite.rotation > PI/2 or sprite.rotation < -PI/2:
+	if  rotation_clamped > PI/2 and rotation_clamped < 3*PI/2:
 		sprite.flip_v = true
 		propellor.get_parent().position.y = -7
 	else:
 		sprite.flip_v = false
 		propellor.get_parent().position.y = 7
+		
+func _look_follow(state: PhysicsDirectBodyState2D) -> void:
+	var forward_local_axis: Vector2 = Vector2(1, 0) # Right-facing direction
+	
+	var forward_dir: Vector2 = Vector2(cos(rotation), sin(rotation)).normalized()
+	var target_dir: Vector2 = linear_velocity.normalized()
+	var angle_diff: float = forward_dir.angle_to(target_dir)
+	var local_speed: float = clampf(rotation_speed, 0, abs(angle_diff))
+	
+	if abs(angle_diff) > 1e-4:
+		# Determine turning direction: positive for counterclockwise, negative for clockwise
+		var direction: float = sign(forward_dir.cross(target_dir))
+		angular_velocity = direction * local_speed / state.step
 
-func _handle_rotate_sprite(delta : float):
-	var target_angle = linear_velocity.angle()
-	var current_angle = sprite.rotation	
-	var angle_diff = target_angle - current_angle
-	
-	if angle_diff > PI:
-		angle_diff -= 2 * PI
-	elif angle_diff < -PI:
-		angle_diff += 2 * PI
-	
-	#sprite.rotation = lerp_angle(current_angle, target_angle, rotation_speed * delta)
-	
+func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
+	_look_follow(state)
+		
 func _on_body_entered(body: Node) -> void:
 	if body.is_in_group("Obstacle"):
 		health._take_damage(body.damage)
 	if body is OxygenSource:
 		oxygen._collect_oxygen(body)
+
+	if body is EnergySource:
+		energy.collect_energy(body)
+
 	#if body.is_in_group("LevelComplete"):
 		#print("Player is at finish line")
 		#if health.current_health < 100:
 			#health.current_health += 100	
-				
 
 
 func _on_restart_level_timer_timeout() -> void:
