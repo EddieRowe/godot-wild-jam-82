@@ -11,13 +11,14 @@ const MOVE_SPEED : int = 300
 @export var propellor : AnimationPlayer
 @export var bubble_stream : GPUParticles2D
 @export var restart_timer : Timer
+@export var electrocuted_timer : Timer
 @export var rotation_speed : float = 0.1
 
 var can_move : bool = true
 var free_floating : bool = true
 var game_started: bool = false
 var level : int 
-
+var my_texture : Texture
 
 signal game_started_signal()
 
@@ -119,11 +120,17 @@ func _on_body_entered(body: Node) -> void:
 	
 	if body is Jellyfish:
 		health._take_damage(body.damage, "jellyfish")
-	
-	#if body.is_in_group("LevelComplete"):
-		#print("Player is at finish line")
-		#if health.current_health < 100:
-			#health.current_health += 100	
-
+		
+		#Make the submarine get electrocuted
+		my_texture = load("res://art/submarine_electrocuted.png")
+		sprite.texture = my_texture
+		electrocuted_timer.start()
+				
+		
 func _on_restart_level_timer_timeout() -> void:
 	get_tree().reload_current_scene()
+
+
+func _on_sub_electrocuted_timer_timeout() -> void:
+	my_texture = load("res://art/player_placeholder_.png")
+	sprite.texture = my_texture

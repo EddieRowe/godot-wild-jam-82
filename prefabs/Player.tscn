@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://cdj3fn4u6ytsb" path="res://scripts/oxygen.gd" id="4_p3xyx"]
 [ext_resource type="Texture2D" uid="uid://bluv0ytravv8x" path="res://art/bubble_tiny.png" id="4_yhksc"]
 [ext_resource type="Texture2D" uid="uid://bygay2a087fb5" path="res://art/lightmask1.png" id="5_wuy1y"]
-[ext_resource type="Script" uid="uid://cbqex3ko6h1np" path="res://scripts/light_mask.gd" id="6_1nynx"]
+[ext_resource type="Script" path="res://scripts/light_mask.gd" id="6_1nynx"]
 [ext_resource type="AudioStream" uid="uid://dsrqj1kls06y6" path="res://sound/bubble_pickup.ogg" id="6_634ti"]
 [ext_resource type="Script" uid="uid://bfv8nph13ijuc" path="res://scripts/energy.gd" id="7_64pgi"]
 [ext_resource type="AudioStream" uid="uid://c1s5cepn2ucm1" path="res://sound/submarine_prop.ogg" id="8_0ep8a"]
@@ -72,7 +72,7 @@ turbulence_noise_speed_random = 0.0
 [node name="Player" type="Node2D" groups=["Player"]]
 position = Vector2(-25, -15)
 
-[node name="RigidBody2D" type="RigidBody2D" parent="." node_paths=PackedStringArray("health", "oxygen", "energy", "sprite", "audio", "propellor", "bubble_stream", "restart_timer") groups=["Player"]]
+[node name="RigidBody2D" type="RigidBody2D" parent="." node_paths=PackedStringArray("health", "oxygen", "energy", "sprite", "audio", "propellor", "bubble_stream", "restart_timer", "electrocuted_timer") groups=["Player"]]
 position = Vector2(25, 6)
 freeze = true
 continuous_cd = 1
@@ -87,6 +87,7 @@ audio = NodePath("../Submarine Audio")
 propellor = NodePath("Sprite2D/PropSprite2D/PropSpriteAnimationPlayer")
 bubble_stream = NodePath("Sprite2D/PropSprite2D/BubbleStreamGPUParticles2D")
 restart_timer = NodePath("../RestartLevelTimer")
+electrocuted_timer = NodePath("SubElectrocutedTimer")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
 position = Vector2(1, 8)
@@ -113,7 +114,9 @@ texture = ExtResource("4_yhksc")
 process_material = SubResource("ParticleProcessMaterial_yhksc")
 
 [node name="Camera2D" type="Camera2D" parent="RigidBody2D"]
-position = Vector2(0, 9)
+
+[node name="SubElectrocutedTimer" type="Timer" parent="RigidBody2D"]
+wait_time = 0.1
 
 [node name="Health" type="Node2D" parent="." node_paths=PackedStringArray("player_movement")]
 script = ExtResource("3_ay6yh")
@@ -133,7 +136,6 @@ autostart = true
 stream = ExtResource("6_634ti")
 
 [node name="PointLight2D" type="PointLight2D" parent="." node_paths=PackedStringArray("player_rigidbody")]
-position = Vector2(25, 14)
 color = Color(1, 1, 1, 0.921569)
 blend_mode = 1
 shadow_filter = 1
@@ -163,6 +165,7 @@ wait_time = 3.0
 one_shot = true
 
 [connection signal="body_entered" from="RigidBody2D" to="RigidBody2D" method="_on_body_entered"]
+[connection signal="timeout" from="RigidBody2D/SubElectrocutedTimer" to="RigidBody2D" method="_on_sub_electrocuted_timer_timeout"]
 [connection signal="timeout" from="Health/Repair Timer" to="Health" method="_on_repair_timer_timeout"]
 [connection signal="timeout" from="Oxygen/Breath Timer" to="Oxygen" method="_on_breath_timer_timeout"]
 [connection signal="timeout" from="RestartLevelTimer" to="RigidBody2D" method="_on_restart_level_timer_timeout"]
