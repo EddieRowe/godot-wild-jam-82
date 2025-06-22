@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cphyt7srqwafr"]
+[gd_scene load_steps=17 format=3 uid="uid://cphyt7srqwafr"]
 
 [ext_resource type="Script" uid="uid://4a7nsts8luh7" path="res://scripts/submarine_script.gd" id="1_glu7e"]
 [ext_resource type="Texture2D" uid="uid://dcl8d3ja31fie" path="res://art/player_placeholder_.png" id="2_ay6yh"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://cdj3fn4u6ytsb" path="res://scripts/oxygen.gd" id="4_p3xyx"]
 [ext_resource type="Texture2D" uid="uid://bygay2a087fb5" path="res://art/lightmask1.png" id="5_wuy1y"]
 [ext_resource type="Script" uid="uid://cbqex3ko6h1np" path="res://scripts/light_mask.gd" id="6_1nynx"]
+[ext_resource type="AudioStream" uid="uid://dsrqj1kls06y6" path="res://sound/bubble_pickup.ogg" id="6_634ti"]
 [ext_resource type="Script" uid="uid://bfv8nph13ijuc" path="res://scripts/energy.gd" id="7_64pgi"]
 [ext_resource type="AudioStream" uid="uid://c1s5cepn2ucm1" path="res://sound/submarine_prop.ogg" id="8_0ep8a"]
 [ext_resource type="Script" uid="uid://b5xr11v4w61vc" path="res://scripts/submarine_audio.gd" id="8_70wo7"]
@@ -103,6 +104,9 @@ health = NodePath("../Health")
 
 [node name="Breath Timer" type="Timer" parent="Oxygen"]
 autostart = true
+
+[node name="OxygenAudioStreamPlayer" type="AudioStreamPlayer" parent="Oxygen"]
+stream = ExtResource("6_634ti")
 
 [node name="PointLight2D" type="PointLight2D" parent="." node_paths=PackedStringArray("player_rigidbody")]
 color = Color(1, 1, 1, 0.921569)
