@@ -1,20 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://wyj4yseicfyb"]
+[gd_scene load_steps=3 format=3 uid="uid://wyj4yseicfyb"]
 
 [ext_resource type="Script" uid="uid://dgvltd8eyaevh" path="res://scripts/obstacle.gd" id="1_hdgnw"]
 [ext_resource type="Texture2D" uid="uid://cbqrwutb65vdc" path="res://art/stalactite_placeholder.png" id="2_0r4p7"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hdgnw"]
-height = 412.0
-
 [node name="StalectiteLarge" type="RigidBody2D" groups=["Obstacle"]]
 script = ExtResource("1_hdgnw")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(5, 202)
-shape = SubResource("CapsuleShape2D_hdgnw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-7.99997, 179)
 rotation = 0.0615666
 scale = Vector2(2.846, 2.92375)
 texture = ExtResource("2_0r4p7")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-42, -39, 2, 406, 39, -34)
