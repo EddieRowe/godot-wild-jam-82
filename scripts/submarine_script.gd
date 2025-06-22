@@ -28,6 +28,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if !can_move:
 		audio._stop_sub_prop_audio() # bad
+		electrocuted_timer.stop()
 		if propellor.is_playing():
 			propellor.stop()
 		if restart_timer.is_stopped():
@@ -108,6 +109,7 @@ func _eligible_velocity() -> bool:
 	return above_limit and not (is_left or is_right)
 
 func _on_body_entered(body: Node) -> void:
+	if !can_move : return
 	if body.is_in_group("Obstacle") and body is not Jellyfish:
 		free_floating = true
 		health._take_damage(body.damage, "collision")

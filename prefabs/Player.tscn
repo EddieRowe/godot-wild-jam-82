@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://cdj3fn4u6ytsb" path="res://scripts/oxygen.gd" id="4_p3xyx"]
 [ext_resource type="Texture2D" uid="uid://bluv0ytravv8x" path="res://art/bubble_tiny.png" id="4_yhksc"]
 [ext_resource type="Texture2D" uid="uid://bygay2a087fb5" path="res://art/lightmask1.png" id="5_wuy1y"]
-[ext_resource type="Script" path="res://scripts/light_mask.gd" id="6_1nynx"]
+[ext_resource type="Script" uid="uid://cbqex3ko6h1np" path="res://scripts/light_mask.gd" id="6_1nynx"]
 [ext_resource type="AudioStream" uid="uid://dsrqj1kls06y6" path="res://sound/bubble_pickup.ogg" id="6_634ti"]
 [ext_resource type="Script" uid="uid://bfv8nph13ijuc" path="res://scripts/energy.gd" id="7_64pgi"]
 [ext_resource type="AudioStream" uid="uid://c1s5cepn2ucm1" path="res://sound/submarine_prop.ogg" id="8_0ep8a"]
@@ -117,6 +117,7 @@ process_material = SubResource("ParticleProcessMaterial_yhksc")
 
 [node name="SubElectrocutedTimer" type="Timer" parent="RigidBody2D"]
 wait_time = 0.1
+one_shot = true
 
 [node name="Health" type="Node2D" parent="." node_paths=PackedStringArray("player_movement")]
 script = ExtResource("3_ay6yh")
