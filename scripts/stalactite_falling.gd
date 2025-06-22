@@ -2,7 +2,7 @@ class_name StalactiteFalling
 extends Node2D
 
 @export var triggerZone : Area2D
-@export var delay : float = 0.5
+@export var delay : float = 0.05
 
 @export var fallingPart : Obstacle
 @export var timer : Timer
