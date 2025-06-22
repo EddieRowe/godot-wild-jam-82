@@ -52,9 +52,5 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		player = get_parent().get_parent().get_node("Player/RigidBody2D")
 		player.energy.currentEnergy = player.energy.BATTERY_MAX
 		
-		ui_energy = get_parent().get_parent().get_node("CanvasLayer/GameOverlay/UiBox/UiEnergy")
-		player.energy.energyChanged.connect(ui_energy.update)
-		ui_energy.update(player.energy.currentEnergy)
-				
-		#propellor.get_parent().get_parent().texture = load("res://art/player_crushed_placeholder_.png")
-
+		player.energy._recharge(player.energy.BATTERY_MAX)
+		
