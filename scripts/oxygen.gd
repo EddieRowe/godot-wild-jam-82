@@ -25,6 +25,8 @@ func _consume_oxygen(amount: int) -> void:
 	if currentOxygen >= LIMIT_MAX:
 		currentOxygen = LIMIT_MAX
 	oxygenChanged.emit(currentOxygen)
+	get_node("OxygenAudioStreamPlayer").pitch_scale = randf_range(0.8, 1.1)
+	get_node("OxygenAudioStreamPlayer").play()
 
 func _game_started():
 	running = true 
@@ -39,7 +41,7 @@ func _on_breath_timer_timeout() -> void:
 			oxygenChanged.emit(currentOxygen)
 		else:
 			print("Drowning...")
-			health._take_damage(DROWN_RATE)
+			health._take_damage(DROWN_RATE, "drowning")
 
 func _collect_oxygen(source: OxygenSource) -> void:
 	_consume_oxygen(source.oxygen)

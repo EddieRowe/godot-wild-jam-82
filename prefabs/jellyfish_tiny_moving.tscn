@@ -1,0 +1,75 @@
+[gd_scene load_steps=9 format=3 uid="uid://cq20n71woytq6"]
+
+[ext_resource type="Script" uid="uid://cpty8c7tvj4qf" path="res://scripts/jellyfish.gd" id="1_edtl5"]
+[ext_resource type="Texture2D" uid="uid://jkbquxepl510" path="res://art/JellyfishPink2.png" id="2_mqfgr"]
+[ext_resource type="Texture2D" uid="uid://4ous33tyst1e" path="res://art/JellyfishPink_Squeeze.png" id="3_mqfgr"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q1aiv"]
+radius = 31.0
+height = 128.0
+
+[sub_resource type="Animation" id="Animation_va8at"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_mqfgr")]
+}
+
+[sub_resource type="Animation" id="Animation_q1aiv"]
+resource_name = "jellyfish_tiny_move"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0666667, 0.533333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("3_mqfgr"), ExtResource("2_mqfgr")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1upqr"]
+_data = {
+&"RESET": SubResource("Animation_va8at"),
+&"jellyfish_tiny_move": SubResource("Animation_q1aiv")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mqfgr"]
+radius = 28.0
+height = 122.0
+
+[node name="JellyfishTinyMoving" type="RigidBody2D" node_paths=PackedStringArray("animation_player")]
+gravity_scale = 0.0
+script = ExtResource("1_edtl5")
+animation_player = NodePath("AnimationPlayer")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_q1aiv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(12, -15)
+scale = Vector2(0.315, 0.4)
+texture = ExtResource("2_mqfgr")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_1upqr")
+}
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_mqfgr")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -2,6 +2,7 @@ class_name Health
 extends Node2D
 
 signal healthChanged(newAmount : int)
+signal tookDamage()
 
 var max_health : int = 100
 var current_health : int = 100
@@ -18,8 +19,12 @@ func _ready() -> void:
 func _game_started():
 	running = true 
 	
-func _take_damage(amount: int) -> void:
+func _take_damage(amount: int, source: String) -> void:
 	if !running: return
+	
+	if source == "collision":
+		amount = amount * player_movement.linear_velocity.length()/90
+	
 	print("took damage" + str(amount))
 	current_health -= amount
 	if current_health <= 0:
@@ -27,6 +32,8 @@ func _take_damage(amount: int) -> void:
 		player_movement.can_move = false
 		#queue_free()
 	healthChanged.emit(current_health)
+	if current_health > 0:
+		tookDamage.emit()
 
 
 func _on_repair_timer_timeout() -> void:

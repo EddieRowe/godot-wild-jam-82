@@ -18,6 +18,7 @@ var free_floating : bool = true
 var game_started: bool = false
 var level : int 
 
+
 signal game_started_signal()
 
 func _ready() -> void:
@@ -96,14 +97,25 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 		_look_follow(state)
 
 func _on_body_entered(body: Node) -> void:
-	if body.is_in_group("Obstacle"):
+	if body.is_in_group("Obstacle") and body is not Jellyfish:
 		free_floating = true
 		if linear_velocity.length() > MIN_COLLISION_SPEED:
 			health._take_damage(body.damage)
 	if body is OxygenSource:
 		oxygen._collect_oxygen(body)
+
 	if body is EnergySource:
 		energy.collect_energy(body)
+
+	if body is Jellyfish:
+		health._take_damage(body.damage, "jellyfish")
+
+				
+	
+	#if body.is_in_group("LevelComplete"):
+		#print("Player is at finish line")
+		#if health.current_health < 100:
+			#health.current_health += 100	
 
 func _on_restart_level_timer_timeout() -> void:
 	get_tree().reload_current_scene()
