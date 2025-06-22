@@ -50,11 +50,12 @@ radius = 80.0
 height = 354.021
 
 [node name="JellyfishPink" type="RigidBody2D" node_paths=PackedStringArray("animation_player")]
-freeze = true
+gravity_scale = 0.0
 continuous_cd = 1
 contact_monitor = true
 max_contacts_reported = 3
 script = ExtResource("1_gk2ab")
+speed = 25
 animation_player = NodePath("Sprite2D/AnimationPlayer")
 movement_animation_name = "jellyfish_tiny2_move"
 

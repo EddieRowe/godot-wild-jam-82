@@ -101,7 +101,8 @@ func _on_body_entered(body: Node) -> void:
 
 	if body is EnergySource:
 		energy.collect_energy(body)
-
+				
+	
 	#if body.is_in_group("LevelComplete"):
 		#print("Player is at finish line")
 		#if health.current_health < 100:

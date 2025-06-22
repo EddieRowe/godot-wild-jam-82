@@ -3,6 +3,21 @@
 [ext_resource type="Script" uid="uid://2xdvvd854rqn" path="res://scripts/oxygen_source.gd" id="1_lmndt"]
 [ext_resource type="Texture2D" uid="uid://b2r7rc1leger7" path="res://art/bubble_placeholder.png" id="2_lmndt"]
 
+[sub_resource type="Animation" id="Animation_rnh4p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.572549, 0.819608, 1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_lmndt"]
 resource_name = "bubble_animation"
 loop_mode = 1
@@ -19,21 +34,6 @@ tracks/0/keys = {
 "values": [Color(0, 0.52549, 0.780392, 1), Color(0.842093, 0.931445, 1, 1), Color(0, 0.52549, 0.780392, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_rnh4p"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:self_modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0.572549, 0.819608, 1, 1)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dkv14"]
 _data = {
 &"RESET": SubResource("Animation_rnh4p"),
@@ -47,6 +47,7 @@ radius = 24.0416
 self_modulate = Color(0.572549, 0.819608, 1, 1)
 mass = 0.1
 gravity_scale = 0.0
+freeze = true
 script = ExtResource("1_lmndt")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

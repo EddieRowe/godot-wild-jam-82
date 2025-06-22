@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-var speed : int = 10
+@export var speed : int = 10
 var player : PlayerMovement
 var ui_energy : UiEnergy 
 @export var animation_player : AnimationPlayer
@@ -55,4 +55,5 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		ui_energy = get_parent().get_parent().get_node("CanvasLayer/GameOverlay/UiBox/UiEnergy")
 		player.energy.energyChanged.connect(ui_energy.update)
 		ui_energy.update(player.energy.currentEnergy)
-		
+				
+		#propellor.get_parent().get_parent().texture = load("res://art/player_crushed_placeholder_.png")

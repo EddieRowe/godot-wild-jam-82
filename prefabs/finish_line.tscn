@@ -30,7 +30,7 @@ offset_left = -4.0
 offset_top = 11.0
 offset_right = 1997.0
 offset_bottom = 2026.0
-color = Color(0.231373, 0.717647, 1, 0.541176)
+color = Color(0.834485, 0.577869, 0.770224, 0.541176)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 z_index = 100

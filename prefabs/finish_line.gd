@@ -18,8 +18,7 @@ func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		finished_level.emit()
 
-		player = get_parent().get_node("Player/RigidBody2D")
-		
+		player = body		
 		player.health.current_health = player.health.max_health
 		health = get_parent().get_node("CanvasLayer/GameOverlay/UiBox/UiHealth")
 		health.update(player.health.current_health)
@@ -38,4 +37,3 @@ func _on_body_exited(body: Node2D) -> void:
 		player.oxygen.currentOxygen = player.oxygen.LIMIT_MAX
 		
 		get_tree().change_scene_to_file("res://levels/level_2.tscn")
-
