@@ -27,6 +27,7 @@ Obstacle=""
 "Oxygen Source"="A source of Oxygen"
 LevelComplete=""
 Player=""
+Jellyfish=""
 
 [input]
 
