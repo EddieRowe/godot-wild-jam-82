@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://cdgp02o6rqnh5"]
+[gd_scene load_steps=30 format=3 uid="uid://cdgp02o6rqnh5"]
 
 [ext_resource type="PackedScene" uid="uid://crghl5mtabw4e" path="res://prefabs/main_audio.tscn" id="1_mi4ay"]
 [ext_resource type="PackedScene" uid="uid://cphyt7srqwafr" path="res://prefabs/Player.tscn" id="2_pqqg8"]
@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://ketdawoguj8g" path="res://art/large_rock_placeholder.png" id="20_00pa0"]
 [ext_resource type="PackedScene" uid="uid://psx14rlat6ij" path="res://prefabs/kelp_black.tscn" id="20_h351q"]
 [ext_resource type="PackedScene" uid="uid://cnkw37u6tf7mw" path="res://prefabs/rock_colossal.tscn" id="21_dpc8t"]
+[ext_resource type="PackedScene" uid="uid://c6md5ixhopnoe" path="res://prefabs/jellyfish_pink.tscn" id="21_ngvhw"]
 [ext_resource type="PackedScene" uid="uid://vv3icacjpd3r" path="res://prefabs/rock_2.tscn" id="22_ngvhw"]
 [ext_resource type="PackedScene" uid="uid://dhh22p6ic0tqq" path="res://prefabs/rock_3.tscn" id="23_itbe0"]
 [ext_resource type="Texture2D" uid="uid://b1sg4x08bgbvw" path="res://art/KelpGreen4_Move.png" id="24_xrja0"]
@@ -97,14 +98,6 @@ offset_right = 23443.0
 offset_bottom = 1232.0
 color = Color(0, 0, 0, 1)
 
-[node name="Rock3" parent="Boundaries/BOUNDARYRigidBody2D2" instance=ExtResource("5_ilhis")]
-position = Vector2(2030, 411)
-freeze = true
-
-[node name="Rock4" parent="Boundaries/BOUNDARYRigidBody2D2" instance=ExtResource("5_ilhis")]
-position = Vector2(14176, 411)
-freeze = true
-
 [node name="Stalactite" parent="Boundaries/BOUNDARYRigidBody2D2" instance=ExtResource("5_hbb88")]
 position = Vector2(1222, -612)
 freeze = true
@@ -134,10 +127,6 @@ position = Vector2(4163, 274)
 
 [node name="OxygenBubble3" parent="Boundaries/BOUNDARYRigidBody2D2" instance=ExtResource("8_dpc8t")]
 position = Vector2(4289, 296)
-
-[node name="Rock5" parent="Boundaries/BOUNDARYRigidBody2D2" instance=ExtResource("5_ilhis")]
-position = Vector2(4320, 422)
-freeze = true
 
 [node name="KelpLong2" type="Sprite2D" parent="Boundaries/BOUNDARYRigidBody2D2"]
 position = Vector2(4529, 387)
@@ -206,41 +195,70 @@ scale = Vector2(1, 1.50595)
 position = Vector2(4067, -58)
 rotation = 2.99579
 
+[node name="KelpMulticolor2" type="Sprite2D" parent="KelpNode2D"]
+position = Vector2(4684, 917)
+texture = ExtResource("13_h351q")
+
+[node name="KelpGreen9" type="Sprite2D" parent="KelpNode2D"]
+position = Vector2(4753, 970)
+texture = ExtResource("15_ngvhw")
+
+[node name="KelpGreen10" type="Sprite2D" parent="KelpNode2D"]
+position = Vector2(5159, 945)
+texture = ExtResource("15_ngvhw")
+
+[node name="KelpGreen11" type="Sprite2D" parent="KelpNode2D"]
+position = Vector2(5256, 992)
+texture = ExtResource("14_dpc8t")
+
+[node name="KelpGreen12" type="Sprite2D" parent="KelpNode2D"]
+position = Vector2(5319, 1102)
+texture = ExtResource("14_dpc8t")
+
+[node name="KelpGreen13" type="Sprite2D" parent="KelpNode2D"]
+position = Vector2(5972, 932)
+texture = ExtResource("15_ngvhw")
+
+[node name="KelpGreen14" type="Sprite2D" parent="KelpNode2D"]
+position = Vector2(6057, 1030)
+texture = ExtResource("14_dpc8t")
+
+[node name="KelpGreen15" type="Sprite2D" parent="KelpNode2D"]
+position = Vector2(7042, 898)
+texture = ExtResource("16_itbe0")
+
+[node name="KelpGreen4Move" type="Sprite2D" parent="KelpNode2D"]
+position = Vector2(6600, 750)
+texture = ExtResource("24_xrja0")
+
+[node name="KelpMulticolor3" type="Sprite2D" parent="KelpNode2D"]
+position = Vector2(7196, 879)
+texture = ExtResource("13_h351q")
+
+[node name="KelpGreen16" type="Sprite2D" parent="KelpNode2D"]
+position = Vector2(7256, 973)
+texture = ExtResource("19_jqt73")
+
+[node name="KelpGreen17" type="Sprite2D" parent="KelpNode2D"]
+position = Vector2(7479, 936)
+texture = ExtResource("15_ngvhw")
+
+[node name="KelpGreen18" type="Sprite2D" parent="KelpNode2D"]
+position = Vector2(7990, 622)
+texture = ExtResource("19_jqt73")
+
+[node name="KelpGreen4Move2" type="Sprite2D" parent="KelpNode2D"]
+position = Vector2(8398, 427)
+texture = ExtResource("24_xrja0")
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="GameOverlay" parent="CanvasLayer" instance=ExtResource("3_0srwa")]
-
-[node name="StalactiteFalling" parent="." instance=ExtResource("6_wcjpl")]
-position = Vector2(2170, -124)
 
 [node name="Obstacles" type="Node2D" parent="."]
 
 [node name="StalectiteMed" parent="Obstacles" instance=ExtResource("11_uo0vl")]
 position = Vector2(2084, -92)
-freeze = true
-
-[node name="RockLarge3" parent="Obstacles" instance=ExtResource("12_k2aru")]
-position = Vector2(433, 757)
-freeze = true
-
-[node name="RockPlaceholder" type="Sprite2D" parent="Obstacles" groups=["Obstacle"]]
-position = Vector2(1618, 957)
-texture = ExtResource("17_xrja0")
-
-[node name="RockPlaceholder2" type="Sprite2D" parent="Obstacles" groups=["Obstacle"]]
-position = Vector2(2101, 978)
-texture = ExtResource("17_xrja0")
-
-[node name="RockPlaceholder3" type="Sprite2D" parent="Obstacles" groups=["Obstacle"]]
-position = Vector2(2391, 988)
-texture = ExtResource("17_xrja0")
-
-[node name="LargeRockPlaceholder" type="Sprite2D" parent="Obstacles" groups=["Obstacle"]]
-position = Vector2(3202, -54)
-texture = ExtResource("20_00pa0")
-
-[node name="RockCollosal" parent="Obstacles" instance=ExtResource("21_dpc8t")]
-position = Vector2(2971, 633)
 freeze = true
 
 [node name="Stalactite" parent="Obstacles" instance=ExtResource("5_hbb88")]
@@ -269,26 +287,15 @@ position = Vector2(9683, 829)
 [node name="OxygenBubble2" parent="Obstacles" instance=ExtResource("8_dpc8t")]
 position = Vector2(9790, 898)
 
-[node name="Rock1" parent="Obstacles" instance=ExtResource("22_ngvhw")]
-position = Vector2(9548, 543)
-
 [node name="KelpMulticolor" type="Sprite2D" parent="Obstacles"]
 position = Vector2(10581, 876)
 texture = ExtResource("13_h351q")
-
-[node name="Rock3" parent="Obstacles" instance=ExtResource("5_ilhis")]
-position = Vector2(10594, 964)
-freeze = true
 
 [node name="OxygenBubble3" parent="Obstacles" instance=ExtResource("8_dpc8t")]
 position = Vector2(10433, 741)
 
 [node name="OxygenBubble4" parent="Obstacles" instance=ExtResource("8_dpc8t")]
 position = Vector2(10572, 823)
-
-[node name="RockLarge" parent="Obstacles" instance=ExtResource("23_itbe0")]
-position = Vector2(10568, 581)
-freeze = true
 
 [node name="KelpGreen2" type="Sprite2D" parent="Obstacles"]
 position = Vector2(10983, 885)
@@ -297,111 +304,148 @@ texture = ExtResource("14_dpc8t")
 [node name="OxygenBubble5" parent="Obstacles" instance=ExtResource("8_dpc8t")]
 position = Vector2(10961, 801)
 
-[node name="StalactiteFalling2" parent="." instance=ExtResource("6_wcjpl")]
-position = Vector2(4351, -81)
-
-[node name="StalactiteFalling3" parent="." instance=ExtResource("6_wcjpl")]
-position = Vector2(4521, -135)
-
-[node name="Stalactite" parent="." instance=ExtResource("5_hbb88")]
-position = Vector2(4565, -72)
+[node name="Rock4" parent="Obstacles" instance=ExtResource("5_ilhis")]
+position = Vector2(2519, 972)
 freeze = true
 
-[node name="KelpMulticolor" type="Sprite2D" parent="."]
-position = Vector2(4684, 917)
-texture = ExtResource("13_h351q")
+[node name="Rock5" parent="Obstacles" instance=ExtResource("5_ilhis")]
+position = Vector2(14665, 972)
+freeze = true
 
-[node name="KelpGreen4" type="Sprite2D" parent="."]
-position = Vector2(4753, 970)
-texture = ExtResource("15_ngvhw")
+[node name="Rock6" parent="Obstacles" instance=ExtResource("5_ilhis")]
+position = Vector2(4809, 983)
+freeze = true
 
-[node name="KelpGreen5" type="Sprite2D" parent="."]
-position = Vector2(5159, 945)
-texture = ExtResource("15_ngvhw")
+[node name="RockLarge3" parent="Obstacles" instance=ExtResource("12_k2aru")]
+position = Vector2(433, 757)
+freeze = true
 
-[node name="KelpGreen2" type="Sprite2D" parent="."]
-position = Vector2(5256, 992)
-texture = ExtResource("14_dpc8t")
+[node name="RockPlaceholder" type="Sprite2D" parent="Obstacles" groups=["Obstacle"]]
+position = Vector2(1618, 957)
+texture = ExtResource("17_xrja0")
 
-[node name="Rock3" parent="." instance=ExtResource("5_ilhis")]
+[node name="RockPlaceholder2" type="Sprite2D" parent="Obstacles" groups=["Obstacle"]]
+position = Vector2(2101, 978)
+texture = ExtResource("17_xrja0")
+
+[node name="RockPlaceholder3" type="Sprite2D" parent="Obstacles" groups=["Obstacle"]]
+position = Vector2(2391, 988)
+texture = ExtResource("17_xrja0")
+
+[node name="LargeRockPlaceholder" type="Sprite2D" parent="Obstacles" groups=["Obstacle"]]
+position = Vector2(3202, -54)
+texture = ExtResource("20_00pa0")
+
+[node name="RockCollosal" parent="Obstacles" instance=ExtResource("21_dpc8t")]
+position = Vector2(2971, 633)
+freeze = true
+
+[node name="Rock1" parent="Obstacles" instance=ExtResource("22_ngvhw")]
+position = Vector2(9548, 543)
+
+[node name="Rock3" parent="Obstacles" instance=ExtResource("5_ilhis")]
+position = Vector2(10594, 964)
+freeze = true
+
+[node name="RockLarge" parent="Obstacles" instance=ExtResource("23_itbe0")]
+position = Vector2(10568, 581)
+freeze = true
+
+[node name="Rock7" parent="Obstacles" instance=ExtResource("5_ilhis")]
 position = Vector2(5099, 1027)
 freeze = true
 
-[node name="KelpGreen3" type="Sprite2D" parent="."]
-position = Vector2(5319, 1102)
-texture = ExtResource("14_dpc8t")
-
-[node name="Rock1" parent="." instance=ExtResource("22_ngvhw")]
+[node name="Rock2" parent="Obstacles" instance=ExtResource("22_ngvhw")]
 position = Vector2(5024, 562)
 
-[node name="KelpGreen6" type="Sprite2D" parent="."]
-position = Vector2(5972, 932)
-texture = ExtResource("15_ngvhw")
-
-[node name="KelpGreen7" type="Sprite2D" parent="."]
-position = Vector2(6057, 1030)
-texture = ExtResource("14_dpc8t")
-
-[node name="RockLarge" parent="." instance=ExtResource("23_itbe0")]
+[node name="RockLarge2" parent="Obstacles" instance=ExtResource("23_itbe0")]
 position = Vector2(5985, 543)
 freeze = true
 
-[node name="KelpGreen8" type="Sprite2D" parent="."]
-position = Vector2(7042, 898)
-texture = ExtResource("16_itbe0")
-
-[node name="KelpGreen4Move" type="Sprite2D" parent="."]
-position = Vector2(6600, 750)
-texture = ExtResource("24_xrja0")
-
-[node name="KelpMulticolor2" type="Sprite2D" parent="."]
-position = Vector2(7196, 879)
-texture = ExtResource("13_h351q")
-
-[node name="KelpGreen" type="Sprite2D" parent="."]
-position = Vector2(7256, 973)
-texture = ExtResource("19_jqt73")
-
-[node name="Rock4" parent="." instance=ExtResource("5_ilhis")]
+[node name="Rock8" parent="Obstacles" instance=ExtResource("5_ilhis")]
 position = Vector2(7249, 948)
 freeze = true
 
-[node name="StalectiteLarge" parent="." instance=ExtResource("7_5orea")]
-position = Vector2(4742, -91)
-freeze = true
-
-[node name="StalectiteLarge2" parent="." instance=ExtResource("7_5orea")]
-position = Vector2(4858, -144)
-freeze = true
-
-[node name="StalectiteMed" parent="." instance=ExtResource("11_uo0vl")]
-position = Vector2(4949, -63)
-freeze = true
-
-[node name="StalactiteFalling4" parent="." instance=ExtResource("6_wcjpl")]
-position = Vector2(5156, -110)
-
-[node name="StalactiteFalling5" parent="." instance=ExtResource("6_wcjpl")]
-position = Vector2(5256, -97)
-
-[node name="StalactiteFalling6" parent="." instance=ExtResource("6_wcjpl")]
-position = Vector2(5332, -166)
-
-[node name="RockCollosal" parent="." instance=ExtResource("21_dpc8t")]
+[node name="RockCollosal2" parent="Obstacles" instance=ExtResource("21_dpc8t")]
 position = Vector2(7654, 543)
 freeze = true
 
-[node name="KelpGreen9" type="Sprite2D" parent="."]
-position = Vector2(7479, 936)
-texture = ExtResource("15_ngvhw")
+[node name="LargeRockPlaceholder2" type="Sprite2D" parent="Obstacles" groups=["Obstacle"]]
+position = Vector2(6095, -63)
+texture = ExtResource("20_00pa0")
 
-[node name="KelpGreen10" type="Sprite2D" parent="."]
-position = Vector2(7990, 622)
-texture = ExtResource("19_jqt73")
+[node name="Rock9" parent="Obstacles" instance=ExtResource("5_ilhis")]
+position = Vector2(9488, 973)
+freeze = true
 
-[node name="KelpGreen4Move2" type="Sprite2D" parent="."]
-position = Vector2(8398, 427)
-texture = ExtResource("24_xrja0")
+[node name="LargeRockPlaceholder3" type="Sprite2D" parent="Obstacles" groups=["Obstacle"]]
+position = Vector2(9557, -28)
+texture = ExtResource("20_00pa0")
+
+[node name="RockCeiling" parent="Obstacles" instance=ExtResource("25_he6wg")]
+position = Vector2(11803, -106)
+freeze = true
+
+[node name="RockCollosal3" parent="Obstacles" instance=ExtResource("21_dpc8t")]
+position = Vector2(11880, 766)
+freeze = true
+
+[node name="RockLarge4" parent="Obstacles" instance=ExtResource("12_k2aru")]
+position = Vector2(13158, 754)
+freeze = true
+
+[node name="Rock10" parent="Obstacles" instance=ExtResource("5_ilhis")]
+position = Vector2(14214, 1057)
+freeze = true
+
+[node name="Rock11" parent="Obstacles" instance=ExtResource("5_ilhis")]
+position = Vector2(7738, 604)
+freeze = true
+
+[node name="RockColossal2" parent="Obstacles" instance=ExtResource("27_00pa0")]
+position = Vector2(15916, 961)
+freeze = true
+
+[node name="Rock12" parent="Obstacles" instance=ExtResource("22_ngvhw")]
+position = Vector2(16378, 528)
+
+[node name="Rock13" parent="Obstacles" instance=ExtResource("5_ilhis")]
+position = Vector2(17523, 939)
+freeze = true
+
+[node name="Stalactite4" parent="Obstacles" instance=ExtResource("5_hbb88")]
+position = Vector2(4565, -72)
+freeze = true
+
+[node name="StalectiteLarge" parent="Obstacles" instance=ExtResource("7_5orea")]
+position = Vector2(4742, -91)
+freeze = true
+
+[node name="StalectiteLarge2" parent="Obstacles" instance=ExtResource("7_5orea")]
+position = Vector2(4858, -144)
+freeze = true
+
+[node name="StalectiteMed2" parent="Obstacles" instance=ExtResource("11_uo0vl")]
+position = Vector2(4949, -63)
+freeze = true
+
+[node name="StalactiteFalling4" parent="Obstacles" instance=ExtResource("6_wcjpl")]
+position = Vector2(5156, -110)
+
+[node name="StalactiteFalling5" parent="Obstacles" instance=ExtResource("6_wcjpl")]
+position = Vector2(5256, -97)
+
+[node name="StalactiteFalling6" parent="Obstacles" instance=ExtResource("6_wcjpl")]
+position = Vector2(5332, -166)
+
+[node name="StalactiteFalling" parent="Obstacles" instance=ExtResource("6_wcjpl")]
+position = Vector2(2170, -124)
+
+[node name="StalactiteFalling2" parent="Obstacles" instance=ExtResource("6_wcjpl")]
+position = Vector2(4351, -81)
+
+[node name="StalactiteFalling3" parent="Obstacles" instance=ExtResource("6_wcjpl")]
+position = Vector2(4521, -135)
 
 [node name="OxygenBubble" parent="." instance=ExtResource("8_dpc8t")]
 position = Vector2(4993, 823)
@@ -441,10 +485,6 @@ position = Vector2(7968, 556)
 
 [node name="OxygenBubble13" parent="." instance=ExtResource("8_dpc8t")]
 position = Vector2(8335, 402)
-
-[node name="LargeRockPlaceholder" type="Sprite2D" parent="." groups=["Obstacle"]]
-position = Vector2(6095, -63)
-texture = ExtResource("20_00pa0")
 
 [node name="Stalactite2" parent="." instance=ExtResource("5_hbb88")]
 position = Vector2(5515, -59)
@@ -518,14 +558,6 @@ position = Vector2(9372, 722)
 [node name="OxygenBubble16" parent="." instance=ExtResource("8_dpc8t")]
 position = Vector2(9476, 794)
 
-[node name="Rock5" parent="." instance=ExtResource("5_ilhis")]
-position = Vector2(9488, 973)
-freeze = true
-
-[node name="LargeRockPlaceholder2" type="Sprite2D" parent="." groups=["Obstacle"]]
-position = Vector2(9557, -28)
-texture = ExtResource("20_00pa0")
-
 [node name="StalactiteFalling12" parent="." instance=ExtResource("6_wcjpl")]
 position = Vector2(9968, -84)
 
@@ -576,21 +608,9 @@ texture = ExtResource("13_h351q")
 position = Vector2(11683, 979)
 texture = ExtResource("14_dpc8t")
 
-[node name="RockCeiling" parent="." instance=ExtResource("25_he6wg")]
-position = Vector2(11803, -106)
-freeze = true
-
 [node name="Kelp4" parent="." instance=ExtResource("20_h351q")]
 position = Vector2(11866, -19)
 rotation = -3.10573
-
-[node name="RockCollosal2" parent="." instance=ExtResource("21_dpc8t")]
-position = Vector2(11880, 766)
-freeze = true
-
-[node name="RockLarge3" parent="." instance=ExtResource("12_k2aru")]
-position = Vector2(13158, 754)
-freeze = true
 
 [node name="KelpLong2" type="Sprite2D" parent="."]
 position = Vector2(13100, 703)
@@ -667,10 +687,6 @@ texture = ExtResource("19_jqt73")
 position = Vector2(14509, 934)
 texture = ExtResource("13_h351q")
 
-[node name="Rock6" parent="." instance=ExtResource("5_ilhis")]
-position = Vector2(14214, 1057)
-freeze = true
-
 [node name="OxygenBubble21" parent="." instance=ExtResource("8_dpc8t")]
 position = Vector2(13838, 783)
 
@@ -695,14 +711,6 @@ position = Vector2(14408, 818)
 [node name="OxygenBubble27" parent="." instance=ExtResource("8_dpc8t")]
 position = Vector2(14556, 837)
 
-[node name="Rock7" parent="." instance=ExtResource("5_ilhis")]
-position = Vector2(7738, 604)
-freeze = true
-
-[node name="RockColossal2" parent="." instance=ExtResource("27_00pa0")]
-position = Vector2(15916, 961)
-freeze = true
-
 [node name="KelpMulticolor7" type="Sprite2D" parent="."]
 position = Vector2(16604, 900)
 texture = ExtResource("13_h351q")
@@ -724,9 +732,6 @@ position = Vector2(16449, -95)
 [node name="StalactiteFalling24" parent="." instance=ExtResource("6_wcjpl")]
 position = Vector2(16549, -106)
 
-[node name="Rock2" parent="." instance=ExtResource("22_ngvhw")]
-position = Vector2(16378, 528)
-
 [node name="KelpGreen16" type="Sprite2D" parent="."]
 position = Vector2(17362, 911)
 texture = ExtResource("15_ngvhw")
@@ -734,10 +739,6 @@ texture = ExtResource("15_ngvhw")
 [node name="KelpGreen17" type="Sprite2D" parent="."]
 position = Vector2(17479, 1011)
 texture = ExtResource("14_dpc8t")
-
-[node name="Rock8" parent="." instance=ExtResource("5_ilhis")]
-position = Vector2(17523, 939)
-freeze = true
 
 [node name="OxygenBubble29" parent="." instance=ExtResource("8_dpc8t")]
 position = Vector2(17312, 811)
@@ -757,3 +758,6 @@ position = Vector2(17385, -145)
 
 [node name="StalactiteFalling27" parent="." instance=ExtResource("6_wcjpl")]
 position = Vector2(17490, -117)
+
+[node name="JellyfishPink" parent="." instance=ExtResource("21_ngvhw")]
+position = Vector2(2516, 526)
