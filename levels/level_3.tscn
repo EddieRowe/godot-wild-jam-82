@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://bjtioua5gwk3t"]
+[gd_scene load_steps=35 format=3 uid="uid://bjtioua5gwk3t"]
 
 [ext_resource type="PackedScene" uid="uid://crghl5mtabw4e" path="res://prefabs/main_audio.tscn" id="2_20opy"]
 [ext_resource type="PackedScene" uid="uid://cphyt7srqwafr" path="res://prefabs/Player.tscn" id="3_8l0e1"]
@@ -32,6 +32,7 @@
 [ext_resource type="PackedScene" uid="uid://cgnhs05fry7sc" path="res://prefabs/side_wall.tscn" id="27_e28pm"]
 [ext_resource type="PackedScene" uid="uid://cq20n71woytq6" path="res://prefabs/jellyfish_tiny_moving.tscn" id="30_4gw27"]
 [ext_resource type="PackedScene" uid="uid://btoe4pxxtf8si" path="res://prefabs/jellyfish_tiny2.tscn" id="31_mb3d3"]
+[ext_resource type="PackedScene" uid="uid://boaipqmv57708" path="res://prefabs/in_game_timer_canvas_layer.tscn" id="33_q26s8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ofchu"]
 size = Vector2(29447.9, 118.5)
@@ -1217,3 +1218,5 @@ movement_animation_name = "jellyfish_tiny_move"
 [node name="JellyfishTiny2Moving16" parent="EnemiesNode2D" instance=ExtResource("26_tv8m3")]
 position = Vector2(23738, 626)
 movement_animation_name = "jellyfish_tiny2_move"
+
+[node name="InGameTimerCanvasLayer" parent="." instance=ExtResource("33_q26s8")]
