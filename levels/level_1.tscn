@@ -1,3 +1,4 @@
+
 [gd_scene load_steps=35 format=3 uid="uid://cnep5qop4e823"]
 
 [ext_resource type="PackedScene" uid="uid://crghl5mtabw4e" path="res://prefabs/main_audio.tscn" id="1_l53as"]
@@ -32,7 +33,6 @@
 [ext_resource type="PackedScene" uid="uid://bf15fqnxqxfc0" path="res://prefabs/jellyfish.tscn" id="25_ntdhj"]
 [ext_resource type="PackedScene" uid="uid://c6md5ixhopnoe" path="res://prefabs/jellyfish_pink.tscn" id="28_voubc"]
 [ext_resource type="PackedScene" uid="uid://glvtqalegb67" path="res://prefabs/OxygenBubble.tscn" id="29_0x1rk"]
-[ext_resource type="PackedScene" uid="uid://ddmscuyoh7haw" path="res://prefabs/OxygenBubble_Big.tscn" id="30_06ecp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bt44k"]
 size = Vector2(26805.1, 118.5)
@@ -52,8 +52,22 @@ offset_bottom = 1390.0
 rotation = -0.00248979
 color = Color(0.0554515, 0.441783, 0.614248, 1)
 
+[node name="NextLevelView" type="ColorRect" parent="."]
+offset_left = 25058.0
+offset_top = 1981.0
+offset_right = 27073.0
+offset_bottom = 2947.0
+color = Color(0.00596516, 0, 0.264718, 0.407843)
+
+[node name="SideWall" type="ColorRect" parent="."]
+offset_left = 27063.0
+offset_top = -759.0
+offset_right = 27946.0
+offset_bottom = 2947.0
+color = Color(0.00566116, 0.00566115, 0.00566115, 1)
+
 [node name="Player" parent="." instance=ExtResource("1_vn7o3")]
-position = Vector2(268, 353)
+position = Vector2(489, 457)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -88,10 +102,10 @@ position = Vector2(618, -10)
 shape = SubResource("RectangleShape2D_bt44k")
 
 [node name="ColorRect" type="ColorRect" parent="Boundaries/BOUNDARYRigidBody2D3"]
-offset_left = -1473.0
-offset_top = -1181.0
-offset_right = 1802.0
-offset_bottom = 46.0
+offset_left = -2318.01
+offset_top = -1180.99
+offset_right = 956.993
+offset_bottom = 46.0145
 color = Color(0, 0, 0, 1)
 
 [node name="BOUNDARYRigidBody2D2" type="RigidBody2D" parent="Boundaries" groups=["Obstacle"]]
@@ -107,7 +121,7 @@ shape = SubResource("RectangleShape2D_bt44k")
 offset_left = -554.0
 offset_top = 164.0
 offset_right = 24577.0
-offset_bottom = 985.0
+offset_bottom = 2386.0
 color = Color(0, 0, 0, 1)
 
 [node name="Rock3" parent="Boundaries/BOUNDARYRigidBody2D2" instance=ExtResource("5_n46q3")]
@@ -293,7 +307,7 @@ position = Vector2(23328, 697)
 freeze = true
 
 [node name="FinishLine" parent="." instance=ExtResource("15_vjtdm")]
-position = Vector2(25066, 0)
+position = Vector2(25062, -45)
 
 [node name="Tutorials" type="Node2D" parent="."]
 position = Vector2(204, 455)
@@ -310,344 +324,207 @@ position = Vector2(2010, 3)
 
 [node name="OxygenBubble" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
 position = Vector2(1538, 522)
-freeze = true
 
 [node name="OxygenBubble2" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
 position = Vector2(1628, 405)
-freeze = true
 
 [node name="OxygenBubble3" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
 position = Vector2(2430, 672)
-freeze = true
 
 [node name="OxygenBubble4" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
 position = Vector2(2464, 573)
-freeze = true
 
 [node name="OxygenBubble5" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
 position = Vector2(2635, 509)
-freeze = true
 
 [node name="OxygenBubble6" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
 position = Vector2(2780, 563)
-freeze = true
 
 [node name="OxygenBubble7" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
 position = Vector2(2990, 498)
-freeze = true
 
 [node name="OxygenBubble8" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
 position = Vector2(3937, 418)
-freeze = true
 
 [node name="OxygenBubble9" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
 position = Vector2(4877, 485)
-freeze = true
 
 [node name="OxygenBubble10" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
 position = Vector2(4786, 620)
-freeze = true
 
 [node name="OxygenBubble11" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
 position = Vector2(5572, 675)
-freeze = true
 
 [node name="OxygenBubble12" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
 position = Vector2(5868, 532)
-freeze = true
 
 [node name="OxygenBubble13" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
 position = Vector2(7390, 579)
-freeze = true
 
 [node name="OxygenBubble43" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
 position = Vector2(21221, 615)
-freeze = true
 
 [node name="OxygenBubble44" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
 position = Vector2(21652, 625)
-freeze = true
 
 [node name="OxygenBubble45" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
 position = Vector2(21727, 571)
-freeze = true
 
 [node name="OxygenBubble46" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
 position = Vector2(21854, 607)
-freeze = true
 
 [node name="OxygenBubble47" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
 position = Vector2(21908, 553)
-freeze = true
 
 [node name="OxygenBubble48" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
 position = Vector2(22080, 571)
-freeze = true
 
 [node name="OxygenBubble49" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
 position = Vector2(22269, 558)
-freeze = true
 
 [node name="OxygenBubble50" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
 position = Vector2(22342, 449)
-freeze = true
 
 [node name="OxygenBubble51" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
 position = Vector2(22479, 498)
-freeze = true
 
 [node name="OxygenBubble52" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
 position = Vector2(22575, 566)
-freeze = true
 
 [node name="OxygenBubble53" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
 position = Vector2(22866, 573)
-freeze = true
 
 [node name="OxygenBubble54" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
 position = Vector2(22951, 522)
-freeze = true
 
 [node name="OxygenBubble55" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
 position = Vector2(23050, 475)
-freeze = true
 
 [node name="OxygenBubble56" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
 position = Vector2(23153, 584)
-freeze = true
 
 [node name="OxygenBubble57" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
 position = Vector2(24792, 594)
-freeze = true
 
 [node name="OxygenBubble58" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
 position = Vector2(24787, 407)
-freeze = true
 
 [node name="OxygenBubble59" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
 position = Vector2(24751, 462)
-freeze = true
 
 [node name="OxygenBubble60" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
 position = Vector2(24872, 324)
-freeze = true
 
 [node name="OxygenBubble61" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
 position = Vector2(24797, 254)
-freeze = true
 
 [node name="OxygenBubble62" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
 position = Vector2(24792, 125)
-freeze = true
 
 [node name="OxygenBubble63" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
 position = Vector2(24870, 177)
-freeze = true
 
 [node name="OxygenBubble64" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
 position = Vector2(24735, 47)
-freeze = true
 
 [node name="OxygenBubble65" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
 position = Vector2(21678, 171)
-freeze = true
 
 [node name="OxygenBubble66" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
 position = Vector2(21800, 143)
-freeze = true
 
 [node name="OxygenBubble67" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
 position = Vector2(22342, 179)
-freeze = true
 
 [node name="OxygenBubble68" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
 position = Vector2(22599, 114)
-freeze = true
 
 [node name="OxygenBubble14" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
 position = Vector2(7471, 509)
-freeze = true
 
 [node name="OxygenBubble15" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
 position = Vector2(7593, 503)
-freeze = true
 
 [node name="OxygenBubble16" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
 position = Vector2(9386, 586)
-freeze = true
 
 [node name="OxygenBubble17" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
 position = Vector2(9492, 477)
-freeze = true
 
 [node name="OxygenBubble18" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
 position = Vector2(9669, 524)
-freeze = true
 
 [node name="OxygenBubble19" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
 position = Vector2(9757, 553)
-freeze = true
 
 [node name="OxygenBubble20" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
 position = Vector2(10719, 514)
-freeze = true
 
 [node name="OxygenBubble21" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
 position = Vector2(11373, 496)
-freeze = true
 
 [node name="OxygenBubble22" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
 position = Vector2(11466, 537)
-freeze = true
 
 [node name="OxygenBubble23" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
 position = Vector2(11562, 628)
-freeze = true
 
 [node name="OxygenBubble24" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
 position = Vector2(13163, 602)
-freeze = true
 
 [node name="OxygenBubble25" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
 position = Vector2(14252, 532)
-freeze = true
 
 [node name="OxygenBubble26" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
 position = Vector2(14914, 428)
-freeze = true
 
 [node name="OxygenBubble27" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
 position = Vector2(15056, 532)
-freeze = true
 
 [node name="OxygenBubble28" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
 position = Vector2(15095, 615)
-freeze = true
 
 [node name="OxygenBubble29" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
 position = Vector2(15525, 498)
-freeze = true
 
 [node name="OxygenBubble30" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
 position = Vector2(15647, 547)
-freeze = true
 
 [node name="OxygenBubble31" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
 position = Vector2(17163, 519)
-freeze = true
 
 [node name="OxygenBubble32" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
 position = Vector2(17267, 387)
-freeze = true
 
 [node name="OxygenBubble33" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
 position = Vector2(17329, 511)
-freeze = true
 
 [node name="OxygenBubble34" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
 position = Vector2(17557, 597)
-freeze = true
 
 [node name="OxygenBubble35" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
 position = Vector2(17656, 501)
-freeze = true
 
 [node name="OxygenBubble36" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
 position = Vector2(17762, 592)
-freeze = true
 
 [node name="OxygenBubble37" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
 position = Vector2(19618, 410)
-freeze = true
 
 [node name="OxygenBubble38" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
 position = Vector2(19743, 397)
-freeze = true
 
 [node name="OxygenBubble39" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
 position = Vector2(20726, 628)
-freeze = true
 
 [node name="OxygenBubble40" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
 position = Vector2(20951, 514)
-freeze = true
 
 [node name="OxygenBubble41" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
 position = Vector2(21073, 451)
-freeze = true
 
 [node name="OxygenBubble42" parent="OxygenNode2D" instance=ExtResource("29_0x1rk")]
 position = Vector2(21169, 560)
-freeze = true
-
-[node name="OxygenBubbleBig" parent="OxygenNode2D" instance=ExtResource("30_06ecp")]
-position = Vector2(25699, 1514)
-
-[node name="OxygenBubbleBig2" parent="OxygenNode2D" instance=ExtResource("30_06ecp")]
-position = Vector2(25639, 2121)
-
-[node name="OxygenBubbleBig3" parent="OxygenNode2D" instance=ExtResource("30_06ecp")]
-position = Vector2(25780, 2965)
-
-[node name="OxygenBubbleBig4" parent="OxygenNode2D" instance=ExtResource("30_06ecp")]
-position = Vector2(26231, 1862)
-
-[node name="OxygenBubbleBig5" parent="OxygenNode2D" instance=ExtResource("30_06ecp")]
-position = Vector2(26128, 2565)
-
-[node name="OxygenBubbleBig6" parent="OxygenNode2D" instance=ExtResource("30_06ecp")]
-position = Vector2(26602, 3808)
-
-[node name="OxygenBubbleBig7" parent="OxygenNode2D" instance=ExtResource("30_06ecp")]
-position = Vector2(26387, 3275)
-
-[node name="OxygenBubbleBig8" parent="OxygenNode2D" instance=ExtResource("30_06ecp")]
-position = Vector2(25728, 4356)
-
-[node name="OxygenBubbleBig9" parent="OxygenNode2D" instance=ExtResource("30_06ecp")]
-position = Vector2(26246, 4881)
-
-[node name="OxygenBubbleBig10" parent="OxygenNode2D" instance=ExtResource("30_06ecp")]
-position = Vector2(26217, 4519)
-
-[node name="OxygenBubbleBig11" parent="OxygenNode2D" instance=ExtResource("30_06ecp")]
-position = Vector2(25869, 5288)
-
-[node name="OxygenBubbleBig12" parent="OxygenNode2D" instance=ExtResource("30_06ecp")]
-position = Vector2(25625, 6021)
-
-[node name="OxygenBubbleBig13" parent="OxygenNode2D" instance=ExtResource("30_06ecp")]
-position = Vector2(26291, 6376)
-
-[node name="OxygenBubbleBig14" parent="OxygenNode2D" instance=ExtResource("30_06ecp")]
-position = Vector2(26509, 7985)
-
-[node name="OxygenBubbleBig15" parent="OxygenNode2D" instance=ExtResource("30_06ecp")]
-position = Vector2(25891, 6916)
-
-[node name="OxygenBubbleBig16" parent="OxygenNode2D" instance=ExtResource("30_06ecp")]
-position = Vector2(26328, 7131)
-
-[node name="OxygenBubbleBig17" parent="OxygenNode2D" instance=ExtResource("30_06ecp")]
-position = Vector2(25761, 8689)
-
-[node name="OxygenBubbleBig18" parent="OxygenNode2D" instance=ExtResource("30_06ecp")]
-position = Vector2(25836, 7876)
-
-[node name="OxygenBubbleBig19" parent="OxygenNode2D" instance=ExtResource("30_06ecp")]
-position = Vector2(26354, 8798)
-
-[node name="OxygenBubbleBig20" parent="OxygenNode2D" instance=ExtResource("30_06ecp")]
-position = Vector2(25606, 9565)
-
-[node name="OxygenBubbleBig21" parent="OxygenNode2D" instance=ExtResource("30_06ecp")]
-position = Vector2(26220, 10237)
-
-[node name="OxygenBubbleBig22" parent="OxygenNode2D" instance=ExtResource("30_06ecp")]
-position = Vector2(25721, 10583)
-
-[node name="OxygenBubbleBig23" parent="OxygenNode2D" instance=ExtResource("30_06ecp")]
-position = Vector2(26239, 9431)
 
 [node name="KelpNode2D" type="Node2D" parent="."]
 
@@ -1118,53 +995,56 @@ position = Vector2(24578, 713)
 
 [node name="EnemiesNode2D" type="Node2D" parent="."]
 
-[node name="JellyfishPink3" parent="EnemiesNode2D" instance=ExtResource("28_voubc")]
-position = Vector2(23523, 70)
+[node name="JellyfishPink3" parent="EnemiesNode2D" groups=["Jellyfish"] instance=ExtResource("28_voubc")]
+position = Vector2(23649, 301)
 
-[node name="JellyfishSmall" parent="EnemiesNode2D" instance=ExtResource("17_lrvbd")]
+[node name="JellyfishSmall" parent="EnemiesNode2D" groups=["Jellyfish"] instance=ExtResource("17_lrvbd")]
 position = Vector2(2450, 296)
 
-[node name="JellyRigidbody2D" parent="EnemiesNode2D" instance=ExtResource("25_ntdhj")]
+[node name="JellyRigidbody2D" parent="EnemiesNode2D" groups=["Jellyfish"] instance=ExtResource("25_ntdhj")]
 position = Vector2(1593, 152)
+damage = 25
 
-[node name="JellyfishTiny2" parent="EnemiesNode2D" instance=ExtResource("8_4knja")]
+[node name="JellyfishTiny2" parent="EnemiesNode2D" groups=["Jellyfish"] instance=ExtResource("8_4knja")]
 position = Vector2(1989, 359)
 rotation = -0.0349668
 
-[node name="JellyfishTiny" parent="EnemiesNode2D" instance=ExtResource("18_oqlok")]
+[node name="JellyfishTiny" parent="EnemiesNode2D" groups=["Jellyfish"] instance=ExtResource("18_oqlok")]
 position = Vector2(1408, 520)
 freeze = true
 
-[node name="JellyfishTiny3" parent="EnemiesNode2D" instance=ExtResource("18_oqlok")]
+[node name="JellyfishTiny3" parent="EnemiesNode2D" groups=["Jellyfish"] instance=ExtResource("18_oqlok")]
 position = Vector2(3828, 330)
 freeze = true
 
-[node name="JellyfishTiny4" parent="EnemiesNode2D" instance=ExtResource("18_oqlok")]
+[node name="JellyfishTiny4" parent="EnemiesNode2D" groups=["Jellyfish"] instance=ExtResource("18_oqlok")]
 position = Vector2(4408, 128)
 freeze = true
 
-[node name="JellyfishTiny5" parent="EnemiesNode2D" instance=ExtResource("8_4knja")]
+[node name="JellyfishTiny5" parent="EnemiesNode2D" groups=["Jellyfish"] instance=ExtResource("8_4knja")]
 position = Vector2(4886, 382)
 
-[node name="JellyfishTiny6" parent="EnemiesNode2D" instance=ExtResource("8_4knja")]
+[node name="JellyfishTiny6" parent="EnemiesNode2D" groups=["Jellyfish"] instance=ExtResource("8_4knja")]
 position = Vector2(3159, 99)
 
-[node name="JellyfishSmall2" parent="EnemiesNode2D" instance=ExtResource("17_lrvbd")]
+[node name="JellyfishSmall2" parent="EnemiesNode2D" groups=["Jellyfish"] instance=ExtResource("17_lrvbd")]
 position = Vector2(6341, 205)
 
-[node name="JellyfishPink" parent="EnemiesNode2D" instance=ExtResource("28_voubc")]
-position = Vector2(8307, -8)
+[node name="JellyfishPink" parent="EnemiesNode2D" groups=["Jellyfish"] instance=ExtResource("28_voubc")]
+position = Vector2(8358, 202)
 
-[node name="JellyfishPink2" parent="EnemiesNode2D" instance=ExtResource("28_voubc")]
-position = Vector2(11285, -39)
+[node name="JellyfishPink2" parent="EnemiesNode2D" groups=["Jellyfish"] instance=ExtResource("28_voubc")]
+position = Vector2(11298, 191)
 
-[node name="JellyfishTiny7" parent="EnemiesNode2D" instance=ExtResource("18_oqlok")]
+[node name="JellyfishTiny7" parent="EnemiesNode2D" groups=["Jellyfish"] instance=ExtResource("18_oqlok")]
 position = Vector2(13792, 218)
 freeze = true
 
-[node name="JellyfishTiny8" parent="EnemiesNode2D" instance=ExtResource("18_oqlok")]
+[node name="JellyfishTiny8" parent="EnemiesNode2D" groups=["Jellyfish"] instance=ExtResource("18_oqlok")]
 position = Vector2(21719, 436)
 freeze = true
 
-[node name="JellyfishTiny9" parent="EnemiesNode2D" instance=ExtResource("8_4knja")]
+[node name="JellyfishTiny9" parent="EnemiesNode2D" groups=["Jellyfish"] instance=ExtResource("8_4knja")]
 position = Vector2(21880, 301)
+
+[connection signal="body_entered" from="EnemiesNode2D/JellyfishTiny" to="EnemiesNode2D/JellyRigidbody2D" method="_on_jellyfish_tiny_body_entered"]

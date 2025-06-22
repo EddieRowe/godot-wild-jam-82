@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dwx1hxf8wu11"]
+
+[ext_resource type="Script" uid="uid://dgvltd8eyaevh" path="res://scripts/obstacle.gd" id="1_bj6ik"]
+[ext_resource type="Texture2D" uid="uid://ds7kkmhqjy8ar" path="res://art/Rock_Colossal2.png" id="2_4cuov"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bj6ik"]
+radius = 278.068
+height = 1364.16
+
+[node name="RockColossal2" type="RigidBody2D" groups=["Obstacle"]]
+position = Vector2(140, 72)
+script = ExtResource("1_bj6ik")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-131, -70)
+rotation = -1.57692
+shape = SubResource("CapsuleShape2D_bj6ik")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(20, 32)
+scale = Vector2(6.00938, 5.07562)
+texture = ExtResource("2_4cuov")
