@@ -19,15 +19,14 @@ func _on_body_entered(body: Node2D) -> void:
 		player = body
 		player.health._full_repair()
 		player.energy._recharge(player.energy.BATTERY_MAX)
-		player.oxygen._refill_oxygen()		
-    
-    finished_level.emit()
-		finished = true
-				
+		player.oxygen._refill_oxygen()	
+		
+		finished_level.emit()
+		finished = true					
 
 func _input(event: InputEvent) -> void:
 	if finished:
 		if event.is_action_pressed("ui_accept"):
 			get_tree().change_scene_to_file("res://levels/level_2.tscn")
 		
-
+		

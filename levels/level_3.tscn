@@ -107,7 +107,7 @@ freeze = true
 script = ExtResource("5_8l0e1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/BOUNDARYRigidBody2D2"]
-position = Vector2(10226, 296)
+position = Vector2(10226, 304)
 shape = SubResource("RectangleShape2D_ofchu")
 
 [node name="ColorRect2" type="ColorRect" parent="Boundaries/BOUNDARYRigidBody2D2"]
