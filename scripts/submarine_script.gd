@@ -1,8 +1,8 @@
 extends RigidBody2D
 class_name PlayerMovement
 
-const MIN_COLLISION_SPEED : int = 30
 const MOVE_SPEED : int = 300
+const MIN_IMPACT_SPEED : int = 35
 
 @export var health : Health
 @export var oxygen : Oxygen
@@ -103,7 +103,7 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 func _on_body_entered(body: Node) -> void:
 	if body.is_in_group("Obstacle") and body is not Jellyfish:
 		free_floating = true
-		if linear_velocity.length() > MIN_COLLISION_SPEED:
+		if linear_velocity.length() > MIN_IMPACT_SPEED:
 			health._take_damage(body.damage, "collision")
 	if body is OxygenSource:
 		oxygen._collect_oxygen(body)
