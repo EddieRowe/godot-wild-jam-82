@@ -113,20 +113,22 @@ text = "[center]$2022-07-17-jrf-mono-boat-pier-tamsui.wav by ilmari_freesound --
 [node name="roles" type="RichTextLabel" parent="."]
 offset_left = 628.0
 offset_top = 181.0
-offset_right = 745.0
+offset_right = 850.0
 offset_bottom = 221.0
-rotation = -0.279616
+rotation = -0.155946
+theme_override_colors/default_color = Color(0.344076, 0.344076, 0.344076, 1)
 bbcode_enabled = true
-text = "[center][i]code / art"
+text = "[center][i]code / art / level design"
 
 [node name="roles2" type="RichTextLabel" parent="."]
-offset_left = 439.0
-offset_top = 181.0
-offset_right = 556.0
-offset_bottom = 221.0
-rotation = 0.499606
+offset_left = 408.0
+offset_top = 203.0
+offset_right = 525.0
+offset_bottom = 243.0
+rotation = 0.155334
+theme_override_colors/default_color = Color(0.345098, 0.345098, 0.345098, 1)
 bbcode_enabled = true
-text = "[center][i]code"
+text = "[center][i]code / art"
 
 [node name="esc to skip" type="RichTextLabel" parent="."]
 anchors_preset = 8
@@ -146,20 +148,22 @@ bbcode_enabled = true
 text = "[center][pulse]Press ESC to begin"
 
 [node name="roles4" type="RichTextLabel" parent="."]
-offset_left = 422.0
-offset_top = 283.0
-offset_right = 539.0
-offset_bottom = 323.0
-rotation = 0.37302
+offset_left = 426.0
+offset_top = 294.0
+offset_right = 543.0
+offset_bottom = 334.0
+rotation = 0.155334
+theme_override_colors/default_color = Color(0.345098, 0.345098, 0.345098, 1)
 bbcode_enabled = true
 text = "[center][i]code"
 
 [node name="roles3" type="RichTextLabel" parent="."]
-offset_left = 639.0
-offset_top = 275.0
-offset_right = 781.0
-offset_bottom = 315.0
-rotation = -0.303942
+offset_left = 646.0
+offset_top = 267.0
+offset_right = 788.0
+offset_bottom = 307.0
+rotation = -0.155334
+theme_override_colors/default_color = Color(0.345098, 0.345098, 0.345098, 1)
 bbcode_enabled = true
 text = "[center][i]code / art / audio"
 
