@@ -45,7 +45,7 @@ _data = {
 &"jellyfish_tiny_move": SubResource("Animation_j1qev")
 }
 
-[node name="JellyfishSmall" type="RigidBody2D" node_paths=PackedStringArray("animation_player") groups=["Obstacle"]]
+[node name="JellyfishSmall" type="RigidBody2D" node_paths=PackedStringArray("animation_player")]
 freeze = true
 custom_integrator = true
 continuous_cd = 1

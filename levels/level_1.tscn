@@ -1111,6 +1111,7 @@ position = Vector2(2450, 296)
 
 [node name="JellyRigidbody2D" parent="EnemiesNode2D" instance=ExtResource("25_ntdhj")]
 position = Vector2(1593, 152)
+damage = 25
 
 [node name="JellyfishTiny2" parent="EnemiesNode2D" instance=ExtResource("8_4knja")]
 position = Vector2(1989, 359)

@@ -41,7 +41,7 @@ func _on_breath_timer_timeout() -> void:
 			oxygenChanged.emit(currentOxygen)
 		else:
 			print("Drowning...")
-			health._take_damage(DROWN_RATE)
+			health._take_damage(DROWN_RATE, "drowning")
 
 func _collect_oxygen(source: OxygenSource) -> void:
 	_consume_oxygen(source.oxygen)

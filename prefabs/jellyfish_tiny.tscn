@@ -45,7 +45,7 @@ _data = {
 &"jellyfish_tiny_move": SubResource("Animation_j1qev")
 }
 
-[node name="JellyfishTiny" type="RigidBody2D" node_paths=PackedStringArray("animation_player") groups=["Obstacle"]]
+[node name="JellyfishTiny" type="RigidBody2D" node_paths=PackedStringArray("animation_player")]
 continuous_cd = 1
 contact_monitor = true
 max_contacts_reported = 3

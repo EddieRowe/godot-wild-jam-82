@@ -45,7 +45,7 @@ _data = {
 &"jellyfish_tiny2_move": SubResource("Animation_8r6fa")
 }
 
-[node name="JellyfishPink" type="RigidBody2D" node_paths=PackedStringArray("animation_player") groups=["Obstacle"]]
+[node name="JellyfishPink" type="RigidBody2D" node_paths=PackedStringArray("animation_player")]
 freeze = true
 continuous_cd = 1
 contact_monitor = true
