@@ -36,7 +36,7 @@ func _physics_process(delta: float) -> void:
 	var movement = Vector2(horizontal_movement, vertical_movement)
 	
 	apply_central_force(movement * move_speed)
-	apply_torque((0 - rotation) * 10000)
+	apply_torque((0 - rotation) * 5000)
 	
 	_handle_rotate_sprite(delta)
 	_handle_flip_sprite(movement)
@@ -55,9 +55,13 @@ func _physics_process(delta: float) -> void:
 
 func _handle_flip_sprite(movement : Vector2):
 	# Flip sprite based on rotation
-	#var clamped_rotation = sprite.rotation % (2*PI)
 	
-	if sprite.rotation > PI/2 or sprite.rotation < -PI/2:
+	#Clamped to +2PI as rotation can be infinite
+	var rotation_clamped = fmod(sprite.rotation, 2*PI)
+	if (rotation_clamped < 0):
+		rotation_clamped = -rotation_clamped
+	
+	if  rotation_clamped > PI/2 and rotation_clamped < 3*PI/2:
 		sprite.flip_v = true
 		propellor.get_parent().position.y = -7
 	else:
@@ -67,25 +71,17 @@ func _handle_flip_sprite(movement : Vector2):
 func _handle_rotate_sprite(delta : float):
 	var target_angle = linear_velocity.angle()
 	var current_angle = sprite.rotation	
-	var angle_diff = target_angle - current_angle
 	
-	if angle_diff > PI:
-		angle_diff -= 2 * PI
-	elif angle_diff < -PI:
-		angle_diff += 2 * PI
-	
-	#sprite.rotation = lerp_angle(current_angle, target_angle, rotation_speed * delta)
+	sprite.rotation = lerp_angle(current_angle, target_angle, rotation_speed * delta)
 	
 func _on_body_entered(body: Node) -> void:
 	if body.is_in_group("Obstacle"):
 		health._take_damage(body.damage)
 	if body is OxygenSource:
 		oxygen._collect_oxygen(body)
-	#if body.is_in_group("LevelComplete"):
-		#print("Player is at finish line")
-		#if health.current_health < 100:
-			#health.current_health += 100	
-				
+
+	if body is EnergySource:
+		energy.collect_energy(body)
 
 
 func _on_restart_level_timer_timeout() -> void:

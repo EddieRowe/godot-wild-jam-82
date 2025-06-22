@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://bitecn2k7flpt"]
+
+[ext_resource type="Script" uid="uid://cdnejrbkn8ice" path="res://scripts/energy_source.gd" id="1_fwa86"]
+[ext_resource type="Texture2D" uid="uid://crvi183aoem3t" path="res://art/shitty eel.png" id="2_8wta1"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k56g6"]
+radius = 13.9994
+height = 130.002
+
+[node name="ElectricEel" type="RigidBody2D"]
+freeze = true
+script = ExtResource("1_fwa86")
+energy_charge = 300
+consume_count = 3
+metadata/_custom_type_script = "uid://cdnejrbkn8ice"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-9, 17)
+scale = Vector2(0.155864, 0.155864)
+texture = ExtResource("2_8wta1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 7)
+rotation = 1.57139
+scale = Vector2(1.003, 0.999978)
+shape = SubResource("CapsuleShape2D_k56g6")

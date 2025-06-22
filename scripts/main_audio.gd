@@ -10,5 +10,5 @@ func _ready() -> void:
 func _player_health_update(newHealth : int) -> void:
 	if newHealth <= 0 and music_audio_stream_player.playing:
 		var tween = get_tree().create_tween()
-		tween.tween_property(music_audio_stream_player, "pitch_scale", 0, 3)
+		tween.tween_property(music_audio_stream_player, "pitch_scale", 0.01, 3)
 		tween.tween_callback(music_audio_stream_player.stop)
