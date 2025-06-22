@@ -1,6 +1,4 @@
-
-[gd_scene load_steps=35 format=3 uid="uid://cnep5qop4e823"]
-
+[gd_scene load_steps=36 format=3 uid="uid://cnep5qop4e823"]
 
 [ext_resource type="PackedScene" uid="uid://crghl5mtabw4e" path="res://prefabs/main_audio.tscn" id="1_l53as"]
 [ext_resource type="PackedScene" uid="uid://boaipqmv57708" path="res://prefabs/in_game_timer_canvas_layer.tscn" id="1_pnpm1"]

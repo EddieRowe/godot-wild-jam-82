@@ -105,16 +105,15 @@ func _on_body_entered(body: Node) -> void:
 		free_floating = true
 		if linear_velocity.length() > MIN_IMPACT_SPEED:
 			health._take_damage(body.damage, "collision")
+	
 	if body is OxygenSource:
 		oxygen._collect_oxygen(body)
-
+	
 	if body is EnergySource:
 		energy.collect_energy(body)
-
+	
 	if body is Jellyfish:
 		health._take_damage(body.damage, "jellyfish")
-
-				
 	
 	#if body.is_in_group("LevelComplete"):
 		#print("Player is at finish line")
