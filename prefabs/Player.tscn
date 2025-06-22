@@ -53,10 +53,10 @@ _data = {
 &"propellor_anim": SubResource("Animation_rwuho")
 }
 
-[node name="Player" type="Node2D"]
+[node name="Player" type="Node2D" groups=["Player"]]
 position = Vector2(-25, -15)
 
-[node name="RigidBody2D" type="RigidBody2D" parent="." node_paths=PackedStringArray("health", "oxygen", "energy", "sprite", "audio", "propellor", "restart_timer")]
+[node name="RigidBody2D" type="RigidBody2D" parent="." node_paths=PackedStringArray("health", "oxygen", "energy", "sprite", "audio", "propellor", "restart_timer") groups=["Player"]]
 continuous_cd = 1
 contact_monitor = true
 max_contacts_reported = 3

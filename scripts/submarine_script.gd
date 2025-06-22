@@ -12,10 +12,11 @@ var move_speed = 300
 @export var rotation_speed = 15
 
 var can_move : bool = true
+var level : int 
 
 func _ready() -> void:
 	gravity_scale = 0.1
-
+	
 func _physics_process(delta: float) -> void:
 	if !can_move:
 		audio._stop_sub_prop_audio() # bad
@@ -36,7 +37,7 @@ func _physics_process(delta: float) -> void:
 	var movement = Vector2(horizontal_movement, vertical_movement)
 	
 	apply_central_force(movement * move_speed)
-	apply_torque((0 - rotation) * 10000)
+	apply_torque((0 - rotation) * 5000)
 	
 	_handle_rotate_sprite(delta)
 	_handle_flip_sprite(movement)
@@ -55,9 +56,13 @@ func _physics_process(delta: float) -> void:
 
 func _handle_flip_sprite(movement : Vector2):
 	# Flip sprite based on rotation
-	#var clamped_rotation = sprite.rotation % (2*PI)
 	
-	if sprite.rotation > PI/2 or sprite.rotation < -PI/2:
+	#Clamped to +2PI as rotation can be infinite
+	var rotation_clamped = fmod(sprite.rotation, 2*PI)
+	if (rotation_clamped < 0):
+		rotation_clamped = -rotation_clamped
+	
+	if  rotation_clamped > PI/2 and rotation_clamped < 3*PI/2:
 		sprite.flip_v = true
 		propellor.get_parent().position.y = -7
 	else:
@@ -67,14 +72,8 @@ func _handle_flip_sprite(movement : Vector2):
 func _handle_rotate_sprite(delta : float):
 	var target_angle = linear_velocity.angle()
 	var current_angle = sprite.rotation	
-	var angle_diff = target_angle - current_angle
 	
-	if angle_diff > PI:
-		angle_diff -= 2 * PI
-	elif angle_diff < -PI:
-		angle_diff += 2 * PI
-	
-	#sprite.rotation = lerp_angle(current_angle, target_angle, rotation_speed * delta)
+	sprite.rotation = lerp_angle(current_angle, target_angle, rotation_speed * delta)
 	
 func _on_body_entered(body: Node) -> void:
 	if body.is_in_group("Obstacle"):
@@ -83,10 +82,6 @@ func _on_body_entered(body: Node) -> void:
 		oxygen._collect_oxygen(body)
 	if body is EnergySource:
 		energy.collect_energy(body)
-	if body.is_in_group("LevelComplete"):
-		get_tree().reload_current_scene()
-		
-
 
 func _on_restart_level_timer_timeout() -> void:
 	get_tree().reload_current_scene()

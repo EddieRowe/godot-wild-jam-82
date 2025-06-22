@@ -3,7 +3,7 @@ extends Node2D
 
 const LIMIT_MAX : int = 100
 const LIMIT_MIN : int = 0
-const CONSUMPTION_RATE : int = 1
+const CONSUMPTION_RATE : int = 3
 const DROWN_RATE : int = 5
 
 @export var health : Health
