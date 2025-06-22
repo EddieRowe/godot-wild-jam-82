@@ -64,11 +64,9 @@ func _physics_process(delta: float) -> void:
 func _handle_flip_sprite(movement : Vector2):
 	# Flip sprite based on rotation
 	#Clamped to +2PI as rotation can be infinite
-	var rotation_clamped = fmod(rotation, 2*PI)
-	if (rotation_clamped < 0):
-		rotation_clamped = -rotation_clamped
+	var rotation_clamped = abs(fmod(rotation, 2*PI))
 	
-	if  rotation_clamped > PI/2 and rotation_clamped < 3*PI/2:
+	if rotation_clamped > PI/2 and rotation_clamped < 3*PI/2:
 		sprite.flip_v = true
 		propellor.get_parent().position.y = -7
 	else:
