@@ -905,7 +905,7 @@ position = Vector2(20098, -199)
 freeze = true
 
 [node name="FinishLine" parent="." instance=ExtResource("27_8nkwk")]
-position = Vector2(25046, -1204)
+position = Vector2(25056, -843)
 level_to_load = "res://levels/splash.tscn"
 
 [node name="SideWall2" parent="." instance=ExtResource("27_e28pm")]
