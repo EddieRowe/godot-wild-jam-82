@@ -15,7 +15,7 @@ var repair_health : int = 1
 var running = false
 
 func _ready() -> void:
-	print("health initialised")
+	print("Health initialised")
 	get_parent().get_node("RigidBody2D").game_started_signal.connect(_game_started)
 	
 func _game_started():
@@ -30,7 +30,7 @@ func _take_damage(amount: int, source: String) -> void:
 		else:
 			amount = amount * player_movement.linear_velocity.length()/90
 	
-	print("took damage" + str(amount))
+	print("Took damage: " + str(amount))
 	current_health -= amount
 	if current_health <= 0:
 		current_health = 0
@@ -45,7 +45,7 @@ func _on_repair_timer_timeout() -> void:
 	if !running: return
 	if current_health < max_health and player_movement.can_move:
 		current_health += 1
-		print("repairing")
+		print("Repairing...")
 		healthChanged.emit(current_health)
 
 func is_alive() -> bool:

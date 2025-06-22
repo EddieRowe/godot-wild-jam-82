@@ -20,7 +20,7 @@ func _ready() -> void:
 	get_parent().get_node("RigidBody2D").game_started_signal.connect(_game_started)
 
 func _consume_oxygen(amount: int) -> void:
-	print("Consume "+str(amount))
+	print("Inhale: "+str(amount))
 	currentOxygen += amount
 	if currentOxygen >= LIMIT_MAX:
 		currentOxygen = LIMIT_MAX
@@ -36,7 +36,7 @@ func _on_breath_timer_timeout() -> void:
 		return
 	if health.is_alive():
 		if currentOxygen > LIMIT_MIN:
-			print("Breathing...")
+			#print("Breathing...")
 			currentOxygen -= CONSUMPTION_RATE
 			oxygenChanged.emit(currentOxygen)
 		else:
