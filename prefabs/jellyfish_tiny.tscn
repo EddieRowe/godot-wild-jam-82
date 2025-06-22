@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bva7uggeq5tcl"]
+[gd_scene load_steps=9 format=3 uid="uid://bva7uggeq5tcl"]
 
 [ext_resource type="Script" uid="uid://cpty8c7tvj4qf" path="res://scripts/jellyfish.gd" id="1_s0ecr"]
 [ext_resource type="Texture2D" uid="uid://jkbquxepl510" path="res://art/JellyfishPink2.png" id="2_s0ecr"]
@@ -45,7 +45,12 @@ _data = {
 &"jellyfish_tiny_move": SubResource("Animation_j1qev")
 }
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s0ecr"]
+radius = 26.0
+height = 90.0
+
 [node name="JellyfishTiny" type="RigidBody2D" node_paths=PackedStringArray("animation_player")]
+gravity_scale = 0.0
 continuous_cd = 1
 contact_monitor = true
 max_contacts_reported = 3
@@ -67,3 +72,11 @@ texture = ExtResource("2_s0ecr")
 libraries = {
 &"": SubResource("AnimationLibrary_1m0tg")
 }
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -1)
+shape = SubResource("CapsuleShape2D_s0ecr")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
