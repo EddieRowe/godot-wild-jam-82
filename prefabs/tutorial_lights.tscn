@@ -13,6 +13,7 @@ text = "Hold for lights!
 "
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="SpacebarTextureRect" type="TextureRect" parent="."]
 offset_left = 18.0
