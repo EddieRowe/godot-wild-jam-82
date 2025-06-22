@@ -11,6 +11,7 @@ func _ready() -> void:
 	get_node("CollisionShape2D").apply_scale(Vector2i(bubbleSize, bubbleSize))
 	get_node("Sprite2D").apply_scale(Vector2i(bubbleSize, bubbleSize))
 	freeze = isStatic
+	get_node("Sprite2D/AnimationPlayer").play("bubble_animation")
 
 func pop() -> void:
 	print("Pop!")
