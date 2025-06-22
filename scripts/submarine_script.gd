@@ -100,7 +100,7 @@ func _on_body_entered(body: Node) -> void:
 	if body.is_in_group("Obstacle") and body is not Jellyfish:
 		free_floating = true
 		if linear_velocity.length() > MIN_COLLISION_SPEED:
-			health._take_damage(body.damage)
+			health._take_damage(body.damage, "collision")
 	if body is OxygenSource:
 		oxygen._collect_oxygen(body)
 
